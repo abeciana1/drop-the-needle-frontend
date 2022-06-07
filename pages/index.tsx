@@ -4,12 +4,16 @@
 
 import CustomHead from '../components/core/CustomHead'
 
+import Logo from '../public/Logo'
+
 const Home = () => {
   return (
-    <CustomHead
-      title="Drop the Needle"
-      description="Homepage"
-    />
+    <>
+      <CustomHead
+        title="Drop The Needle"
+        description="Homepage"
+      />
+    </>
   )
 }
 
