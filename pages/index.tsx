@@ -4,8 +4,6 @@
 
 import CustomHead from '../components/core/CustomHead'
 
-import Logo from '../public/Logo'
-
 const Home = () => {
   return (
     <>
