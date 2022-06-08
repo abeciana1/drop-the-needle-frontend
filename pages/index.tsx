@@ -9,6 +9,16 @@ const Home = () => {
         title="Drop The Needle"
         description="Homepage"
       />
+      <div
+        className="w-10/12 mx-auto"
+      >
+        <Image
+          src="/Scripps.jpg"
+          layout="responsive"
+          width={500}
+          height={281}
+        />
+      </div>
     </>
   )
 }
