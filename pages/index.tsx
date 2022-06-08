@@ -10,7 +10,7 @@ const Home = () => {
         description="Homepage"
       />
       <div
-        className="w-10/12 mx-auto"
+        className="w-10/12 mx-auto py-10"
       >
         <Image
           src="/Scripps.jpg"
