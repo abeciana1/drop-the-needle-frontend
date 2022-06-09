@@ -11,14 +11,16 @@ const NavItem = ({
 }: INavItem) => {
     return (
         <div
-            className=""
+            className="flex"
         >
             <div
-                className=""
+                className="w-5"
             >
                 <Needle/>
             </div>
-            <span>
+            <span
+                className="ml-3"
+            >
                 { text }
             </span>
         </div>

@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import NavBar from '../components/core/_nav/NavBar'
 
 const Document = () => {
     return (
@@ -8,6 +9,7 @@ const Document = () => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <body className="mx-5 md:mx-10">
+            <NavBar/>
             <Main />
             <NextScript />
         </body>
