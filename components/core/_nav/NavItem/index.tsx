@@ -1,3 +1,4 @@
+import cx from 'classnames'
 import Needle from '../../../../public/Needle'
 
 interface INavItem {
@@ -14,17 +15,23 @@ const NavItem = ({
     return (
         <a
             href={href}
-            className="flex items-center"
+            className="flex items-start"
         >
             <div
-                className="w-5"
+                className="w-7"
             >
                 <Needle
                     fillColor={color}
                 />
             </div>
             <span
-                className="ml-3 text-lg font-medium"
+                className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] ml-3 text-lg font-medium text-coolGray", {
+                    ['hover:text-royalBlue']: color === 'royalBlue',
+                    ['hover:text-altGreen']: color === 'altGreen',
+                    ['hover:text-scarlet']: color === 'scarlet',
+                    ['hover:text-ceruBlue']: color === 'ceruBlue',
+                    ['hover:text-altOrange']: color === 'altOrange'
+                })}
             >
                 { text }
             </span>

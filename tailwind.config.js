@@ -6,25 +6,25 @@ module.exports = {
   theme: {
     colors: {
       "altWhite": {
-        default: "#f8f8e9"
+        DEFAULT: "#f8f8e9"
       },
       "coolGray": {
-        default: "#080807"
+        DEFAULT: "#080807"
       },
       "royalBlue": {
-        default: "#335ade"
+        DEFAULT: "#335ade"
       },
       "altGreen": {
-        default: "#558564"
+        DEFAULT: "#558564"
       },
       "scarlet": {
-        default: "#ff2e00"
+        DEFAULT: "#ff2e00"
       },
       "ceruBlue": {
-        default: "#00a8e8"
+        DEFAULT: "#00a8e8"
       },
       "altOrange": {
-        default: "#f0a202"
+        DEFAULT: "#f0a202"
       }
     },
     extend: {},
