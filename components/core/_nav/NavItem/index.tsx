@@ -32,7 +32,7 @@ const NavItem = ({
             >
                 {active && (
                     <div
-                        className="w-7 absolute left-0"
+                        className="w-7 absolute -ml-9"
                     >
                         <Needle
                             fillColor={color}
@@ -40,7 +40,6 @@ const NavItem = ({
                     </div>)
                 }
                 <span
-                    onClick={() => console.log('span')}
                     className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] text-lg font-medium text-coolGray", {
                         ['hover:text-royalBlue']: color === 'royalBlue',
                         ['hover:text-altGreen']: color === 'altGreen',
