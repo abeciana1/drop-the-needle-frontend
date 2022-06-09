@@ -14,10 +14,8 @@ const NavItem = ({
     href
 }: INavItem) => {
     const [active, setActive] = useState(false)
-    // console.log(active)
 
     const toggleActive = () => {
-        console.log(active)
         setActive(!active)
     }
 

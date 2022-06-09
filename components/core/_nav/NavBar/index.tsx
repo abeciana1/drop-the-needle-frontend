@@ -4,7 +4,6 @@ import Logo from '../../../../public/Logo'
 const NavBar = () => {
     return (
         <nav
-            // className="flex items-center justify-items-stretch"
             className="flex justify-around pt-10"
         >
             <div
