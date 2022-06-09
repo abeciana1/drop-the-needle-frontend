@@ -5,6 +5,8 @@ const NavBar = () => {
         <nav>
             <NavItem
                 text="Participate"
+                color="scarlet"
+                href="/"
             />
         </nav>
     )

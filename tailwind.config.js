@@ -12,7 +12,7 @@ module.exports = {
         default: "#080807"
       },
       "royalBlue": {
-        default: "#335ade",
+        default: "#335ade"
       },
       "altGreen": {
         default: "#558564"

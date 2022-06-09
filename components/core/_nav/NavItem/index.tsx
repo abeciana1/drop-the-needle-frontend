@@ -2,28 +2,33 @@ import Needle from '../../../../public/Needle'
 
 interface INavItem {
     text: string;
-    // color: string;
+    color: string;
+    href: string;
 }
 
 const NavItem = ({
     text,
-    // color
+    color,
+    href
 }: INavItem) => {
     return (
-        <div
+        <a
+            href={href}
             className="flex"
         >
             <div
                 className="w-5"
             >
-                <Needle/>
+                <Needle
+                    fillColor={color}
+                />
             </div>
             <span
                 className="ml-3"
             >
                 { text }
             </span>
-        </div>
+        </a>
     )
 }
 
