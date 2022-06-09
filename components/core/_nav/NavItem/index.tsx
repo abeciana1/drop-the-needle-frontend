@@ -14,7 +14,7 @@ const NavItem = ({
     return (
         <a
             href={href}
-            className="flex"
+            className="flex items-center"
         >
             <div
                 className="w-5"
@@ -24,7 +24,7 @@ const NavItem = ({
                 />
             </div>
             <span
-                className="ml-3"
+                className="ml-3 text-lg font-medium"
             >
                 { text }
             </span>
