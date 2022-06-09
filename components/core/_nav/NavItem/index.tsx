@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import cx from 'classnames'
 import Needle from '../../../../public/Needle'
 
@@ -12,30 +13,46 @@ const NavItem = ({
     color,
     href
 }: INavItem) => {
+    const [active, setActive] = useState(false)
+    // console.log(active)
+
+    const toggleActive = () => {
+        console.log(active)
+        setActive(!active)
+    }
+
     return (
-        <a
-            href={href}
-            className="flex items-start"
-        >
-            <div
-                className="w-7"
+        <li>
+
+            <a
+                href={href}
+                onMouseEnter={toggleActive}
+                onMouseLeave={toggleActive}
+                className="flex items-start"
             >
-                <Needle
-                    fillColor={color}
-                />
-            </div>
-            <span
-                className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] ml-3 text-lg font-medium text-coolGray", {
-                    ['hover:text-royalBlue']: color === 'royalBlue',
-                    ['hover:text-altGreen']: color === 'altGreen',
-                    ['hover:text-scarlet']: color === 'scarlet',
-                    ['hover:text-ceruBlue']: color === 'ceruBlue',
-                    ['hover:text-altOrange']: color === 'altOrange'
-                })}
-            >
-                { text }
-            </span>
-        </a>
+                {active && (
+                    <div
+                        className="w-7 absolute left-0"
+                    >
+                        <Needle
+                            fillColor={color}
+                        />
+                    </div>)
+                }
+                <span
+                    onClick={() => console.log('span')}
+                    className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] text-lg font-medium text-coolGray", {
+                        ['hover:text-royalBlue']: color === 'royalBlue',
+                        ['hover:text-altGreen']: color === 'altGreen',
+                        ['hover:text-scarlet']: color === 'scarlet',
+                        ['hover:text-ceruBlue']: color === 'ceruBlue',
+                        ['hover:text-altOrange']: color === 'altOrange'
+                    })}
+                >
+                    { text }
+                </span>
+            </a>
+        </li>
     )
 }
 

@@ -11,6 +11,7 @@ const Home = () => {
       />
       <div
         className="w-10/12 mx-auto py-10"
+        onClick={() => console.log('hi')}
       >
         <Image
           src="/Scripps.jpg"
