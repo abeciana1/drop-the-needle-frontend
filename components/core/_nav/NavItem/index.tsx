@@ -38,7 +38,7 @@ const NavItem = ({
                     </div>)
                 }
                 <span
-                    className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] text-lg font-medium text-coolGray", {
+                    className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] text-xl font-medium text-coolGray", {
                         ['hover:text-royalBlue']: color === 'royalBlue',
                         ['hover:text-altGreen']: color === 'altGreen',
                         ['hover:text-scarlet']: color === 'scarlet',
