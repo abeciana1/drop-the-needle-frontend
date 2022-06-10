@@ -1,10 +1,21 @@
 import { TwoColumnGrid } from '../components/core/_layouts'
 import Image from 'next/image'
 import { Form } from '../components/_containers'
+import CustomHead from '../components/core/CustomHead'
 
 const Signup = () => {
 
+    const signupSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log("submit")
+    }
+
     return (
+        <>
+        <CustomHead
+            title="Signup"
+            description="Create an account"
+        />
         <TwoColumnGrid>
             <div>
                 <Image
@@ -15,12 +26,13 @@ const Signup = () => {
                 />
             </div>
             <Form
-                // onSubmit={}
+                onSubmit={signupSubmitHandler}
                 addClass=""
             >
 
             </Form>
-        </TwoColumnGrid>
+            </TwoColumnGrid>
+        </>
     )
 }
 
