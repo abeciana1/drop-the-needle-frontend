@@ -1,9 +1,11 @@
+import { TwoColumnGrid } from '../components/core/_layouts'
+
 const Signup = () => {
 
     return (
-        <div>
+        <TwoColumnGrid>
 
-        </div>
+        </TwoColumnGrid>
     )
 }
 
