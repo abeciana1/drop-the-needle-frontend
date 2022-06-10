@@ -12,16 +12,18 @@ const NavDropdown = ({
     href }: NavDropdownI) => {
 
     return (
-        <Link
-            href={href}
-        >
-            <div>
-                {title}
-                <span>
-                    { description }
-                </span>
-            </div>
-        </Link>
+        <div>
+            <Link
+                href={href}
+            >
+                <div>
+                    {title}
+                    <span>
+                        { description }
+                    </span>
+                </div>
+            </Link>
+        </div>
     )
 }
 
