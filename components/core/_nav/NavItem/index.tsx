@@ -21,7 +21,6 @@ const NavItem = ({
 
     return (
         <li>
-
             <a
                 href={href}
                 onMouseEnter={toggleActive}
