@@ -6,12 +6,14 @@ interface INavItem {
     text: string;
     color: string;
     href: string;
+    hasDropDown: boolean;
 }
 
 const NavItem = ({
     text,
     color,
-    href
+    href,
+    hasDropDown
 }: INavItem) => {
     const [active, setActive] = useState(false)
 
@@ -48,6 +50,7 @@ const NavItem = ({
                     { text }
                 </span>
             </a>
+            {hasDropDown}
         </li>
     )
 }

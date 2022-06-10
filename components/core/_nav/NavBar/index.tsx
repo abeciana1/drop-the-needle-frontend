@@ -19,16 +19,19 @@ const NavBar = () => {
                     text="Participate"
                     color="scarlet"
                     href="/participate"
+                    hasDropDown={true}
                 />
                 <NavItem
                     text="Listen"
                     color="royalBlue"
                     href="/listen"
+                    hasDropDown={true}
                 />
                 <NavItem
                     text="Signup"
                     color="altGreen"
                     href="/signup"
+                    hasDropDown={false}
                 />
             </ul>
         </nav>
