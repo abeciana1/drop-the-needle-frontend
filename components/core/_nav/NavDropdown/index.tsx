@@ -1,29 +1,38 @@
 import Link from 'next/link'
 
 interface NavDropdownI {
-    title: string;
-    description: string;
-    href: string;
+    data?: any;
 }
 
 const NavDropdown = ({
-    title,
-    description,
-    href
-}: NavDropdownI) => {
+    data
+    }: NavDropdownI) => {
 
     return (
-        <div>
-            <Link
-                href={href}
-            >
-                <div>
-                    {title}
-                    <span>
-                        { description }
-                    </span>
-                </div>
-            </Link>
+        <div
+            className=""
+        >
+            {data.map(({
+                title,
+                description,
+                href
+            }: {
+                title: string,
+                description: string,
+                href: string
+            }) => (
+                
+                <Link
+                    href={href}
+                >
+                    <div>
+                        {title}
+                        <span>
+                            { description }
+                        </span>
+                    </div>
+                </Link>
+            ))}
         </div>
     )
 }

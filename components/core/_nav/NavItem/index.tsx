@@ -1,19 +1,22 @@
 import { useState } from 'react'
 import cx from 'classnames'
 import Needle from '../../../../public/Needle'
+import NavDropdown from '../NavDropdown'
 
 interface INavItem {
     text: string;
     color: string;
     href: string;
     hasDropDown: boolean;
+    subSectionData?: any;
 }
 
 const NavItem = ({
     text,
     color,
     href,
-    hasDropDown
+    hasDropDown,
+    subSectionData
 }: INavItem) => {
     const [active, setActive] = useState(false)
 
@@ -50,7 +53,11 @@ const NavItem = ({
                     { text }
                 </span>
             </a>
-            {hasDropDown}
+            {hasDropDown &&
+                <NavDropdown
+                    data={subSectionData}
+                />
+            }
         </li>
     )
 }
