@@ -10,7 +10,7 @@ const NavDropdown = ({
 
     return (
         <div
-            className=""
+            className="z-50 absolute bg-slate-500"
         >
             {data.map(({
                 title,
@@ -21,11 +21,12 @@ const NavDropdown = ({
                 description: string,
                 href: string
             }) => (
-                
                 <Link
                     href={href}
                 >
-                    <div>
+                    <div
+                        className="cursor-pointer"
+                    >
                         {title}
                         <span>
                             { description }
