@@ -9,7 +9,8 @@ interface NavDropdownI {
 const NavDropdown = ({
     title,
     description,
-    href }: NavDropdownI) => {
+    href
+}: NavDropdownI) => {
 
     return (
         <div>

@@ -1,0 +1,14 @@
+{
+    "participate": [
+        {
+            "title": "Create",
+            "description": "Create a Power Hour!",
+            "href": "/dashboard"
+        },
+        {
+            "title": "Add picks",
+            "description": "Add picks to an upcoming Power Hour!",
+            "href": "/participate"
+        }
+    ]
+}
