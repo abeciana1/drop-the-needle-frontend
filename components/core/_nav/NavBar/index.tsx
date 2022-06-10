@@ -17,17 +17,17 @@ const NavBar = () => {
                 <NavItem
                     text="Participate"
                     color="scarlet"
-                    href="/"
+                    href="/participate"
                 />
                 <NavItem
                     text="Listen"
                     color="royalBlue"
-                    href="/"
+                    href="/listen"
                 />
                 <NavItem
                     text="Signup"
                     color="altGreen"
-                    href="/"
+                    href="/signup"
                 />
             </ul>
         </nav>
