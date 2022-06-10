@@ -4,13 +4,14 @@ import Logo from '../../../../public/Logo'
 const NavBar = () => {
     return (
         <nav
-            className="flex justify-around pt-10"
+            className="flex justify-around py-10"
         >
-            <div
+            <a
+                href="/"
                 className="w-32 md:w-24 mx-auto md:mx-0"
             >
                 <Logo/>
-            </div>
+            </a>
             <ul
                 className="hidden md:flex items-center space-x-32"
             >
