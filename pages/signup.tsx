@@ -5,8 +5,8 @@ import CustomHead from '../components/core/CustomHead'
 
 const Signup = () => {
 
-    const signupSubmitHandler = (e) => {
-        e.preventDefault();
+    const signupSubmitHandler = () => {
+        // e.preventDefault();
         console.log("submit")
     }
 
