@@ -1,5 +1,6 @@
 import { TwoColumnGrid } from '../components/core/_layouts'
 import Image from 'next/image'
+import { Form } from '../components/_containers'
 
 const Signup = () => {
 
@@ -13,6 +14,11 @@ const Signup = () => {
                     height={973}
                 />
             </div>
+            <Form
+                addClass=""
+            >
+
+            </Form>
         </TwoColumnGrid>
     )
 }
