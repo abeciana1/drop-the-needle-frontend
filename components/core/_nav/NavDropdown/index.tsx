@@ -1,16 +1,22 @@
+import cx from 'classnames'
 import Link from 'next/link'
 
 interface NavDropdownI {
+    show: boolean;
     data?: any;
 }
 
 const NavDropdown = ({
+    show,
     data
     }: NavDropdownI) => {
 
     return (
-        <div
-            className="z-50 absolute bg-slate-500"
+        <ul
+            className={cx("z-50 absolute bg-white px-5 py-2 top-28", {
+                ['block']: show,
+                ['hidden']: show === false
+            })}
         >
             {data.map(({
                 title,
@@ -25,16 +31,18 @@ const NavDropdown = ({
                     href={href}
                 >
                     <div
-                        className="cursor-pointer"
+                        className="cursor-pointer font-medium text-xl divide-y-4 divide-slate-300"
                     >
                         {title}
-                        <span>
+                        <div
+                            className="font-normal text-lg"
+                        >
                             { description }
-                        </span>
+                        </div>
                     </div>
                 </Link>
             ))}
-        </div>
+        </ul>
     )
 }
 

@@ -25,40 +25,44 @@ const NavItem = ({
     }
 
     return (
-        <li>
-            <a
-                href={href}
-                onMouseEnter={toggleActive}
-                onMouseLeave={toggleActive}
-                className="flex items-start"
-            >
-                {active && (
-                    <div
-                        className="w-7 absolute -ml-9"
-                    >
-                        <Needle
-                            fillColor={color}
-                        />
-                    </div>)
-                }
-                <span
-                    className={cx("mt-0.5 hover:underline decoration-[3px] underline-offset-[6px] text-xl font-medium text-coolGray", {
-                        ['hover:text-royalBlue']: color === 'royalBlue',
-                        ['hover:text-altGreen']: color === 'altGreen',
-                        ['hover:text-scarlet']: color === 'scarlet',
-                        ['hover:text-ceruBlue']: color === 'ceruBlue',
-                        ['hover:text-altOrange']: color === 'altOrange'
-                    })}
+        <>
+            <li>
+                <a
+                    href={href}
+                    onMouseEnter={toggleActive}
+                    onMouseLeave={toggleActive}
+                    // onMouseOver={toggleActive}
+                    className="flex items-start"
                 >
-                    { text }
-                </span>
-            </a>
-            {hasDropDown &&
-                <NavDropdown
-                    data={subSectionData}
-                />
-            }
-        </li>
+                    {active && (
+                        <div
+                            className="w-7 absolute -ml-9"
+                        >
+                            <Needle
+                                fillColor={color}
+                            />
+                        </div>)
+                    }
+                    <span
+                        className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-xl font-medium text-coolGray", {
+                            ['underline text-royalBlue']: color === 'royalBlue' && active,
+                            ['underline text-altGreen']: color === 'altGreen' && active,
+                            ['text-scarlet underline']: color === 'scarlet' && active,
+                            ['underline text-ceruBlue']: color === 'ceruBlue' && active,
+                            ['underline text-altOrange']: color === 'altOrange' && active
+                        })}
+                    >
+                        { text }
+                    </span>
+                </a>
+                {hasDropDown &&
+                    <NavDropdown
+                        show={active}
+                        data={subSectionData}
+                    />
+                }
+            </li>
+        </>
     )
 }
 
