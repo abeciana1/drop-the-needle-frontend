@@ -2,24 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  padding: 0;
-  width: auto;
-  margin: 0;
-  font-family: Barlow, sans-serif;
-  background-color: #f8f8e9;
-}
-
-a {
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* .dropdown {
+.dropdown {
   @apply relative;
   @apply inline-block;
 }
@@ -32,6 +15,25 @@ a {
   @apply z-50;
   @apply opacity-0;
 }
+/* 
+.dropdown-end .dropdown-content {
+  @apply right-0;
+}
+.dropdown-left .dropdown-content {
+  @apply top-0 right-full bottom-auto;
+}
+.dropdown-right .dropdown-content {
+  @apply left-full top-0 bottom-auto;
+}
+.dropdown-top .dropdown-content {
+  @apply bottom-full top-auto;
+}
+.dropdown-end.dropdown-right .dropdown-content {
+  @apply bottom-0 top-auto;
+}
+.dropdown-end.dropdown-left .dropdown-content {
+  @apply bottom-0 top-auto;
+} */
 
 .dropdown.dropdown-open .dropdown-content,
 .dropdown.dropdown-hover:hover .dropdown-content,
@@ -40,16 +42,3 @@ a {
   @apply visible;
   @apply opacity-100;
 }
-
-.menu {
-  @apply flex; 
-  @apply flex-col;
-  
-  /* &.horizontal {
-    @apply inline-flex;
-    @apply flex-row;
-    :where(li) {
-      @apply flex-row;
-    }
-  } */
-/* } */

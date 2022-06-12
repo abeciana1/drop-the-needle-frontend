@@ -4,18 +4,19 @@ import Link from 'next/link'
 interface NavDropdownI {
     show: boolean;
     data?: any;
+    setActive(show: boolean): any;
 }
 
 const NavDropdown = ({
     show,
-    data
+    data,
+    setActive
     }: NavDropdownI) => {
 
     return (
         <ul
-            className={cx("z-50 absolute bg-white px-5 py-2 top-28", {
-                ['block']: show,
-                ['hidden']: show === false
+            className={cx("z-50 w-96 absolute bg-white px-5 py-2 top-10", {
+                ['opacity-0']: show === false,
             })}
         >
             {data.map(({
@@ -27,20 +28,24 @@ const NavDropdown = ({
                 description: string,
                 href: string
             }) => (
-                <Link
-                    href={href}
+                <li
+                    className="block"
                 >
-                    <div
-                        className="cursor-pointer font-medium text-xl divide-y-4 divide-slate-300"
+                    <Link
+                        href={href}
                     >
-                        {title}
                         <div
-                            className="font-normal text-lg"
+                            className="cursor-pointer font-medium text-xl divide-y-4 divide-slate-300"
                         >
-                            { description }
+                            {title}
+                            <div
+                                className="font-normal text-lg"
+                            >
+                                { description }
+                            </div>
                         </div>
-                    </div>
-                </Link>
+                    </Link>
+                </li>
             ))}
         </ul>
     )
