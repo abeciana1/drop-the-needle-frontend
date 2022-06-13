@@ -2,21 +2,24 @@ import cx from 'classnames'
 import Link from 'next/link'
 
 interface NavDropdownI {
-    show: boolean;
+    showIdx: number;
     data?: any;
-    setActive(show: boolean): any;
+    currentIdx: number;
+    setActiveIdx(): any;
 }
 
 const NavDropdown = ({
-    show,
+    showIdx,
     data,
-    setActive
+    currentIdx,
+    setActiveIdx
     }: NavDropdownI) => {
-
     return (
         <ul
+            onMouseLeave={setActiveIdx}
             className={cx("z-50 w-96 absolute bg-white px-5 py-2 top-10", {
-                ['opacity-0']: show === false,
+                ['opacity-0 invisible']: showIdx !== currentIdx,
+                ['visible opacity-100']: showIdx === currentIdx
             })}
         >
             {data.map(({

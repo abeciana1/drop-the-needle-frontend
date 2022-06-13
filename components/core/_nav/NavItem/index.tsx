@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import cx from 'classnames'
 import Needle from '../../../../public/Needle'
 import NavDropdown from '../NavDropdown'
-// import './index.css'
 
 interface INavItem {
     text: string;
@@ -10,6 +8,9 @@ interface INavItem {
     href: string;
     hasDropDown: boolean;
     subSectionData?: any;
+    idx: number;
+    activeIdx: number;
+    setActiveIdx(idx: number): any;
 }
 
 const NavItem = ({
@@ -17,22 +18,27 @@ const NavItem = ({
     color,
     href,
     hasDropDown,
-    subSectionData
+    subSectionData,
+    idx,
+    activeIdx,
+    setActiveIdx
 }: INavItem) => {
-    const [active, setActive] = useState(false)
 
     const toggleActive = () => {
-        setActive(!active)
+        setActiveIdx(idx)
+    }
+
+    const handleDropDownClose = () => {
+        setActiveIdx(0)
     }
 
     return (
         <>
             <li
-                className="flex items-start relative"
+                className="flex items-start relative inline-block"
                 onMouseEnter={toggleActive}
-                onMouseLeave={toggleActive}
             >
-                {active && (
+                {activeIdx === idx && (
                     <div
                         className="w-7 absolute -ml-9"
                     >
@@ -43,23 +49,24 @@ const NavItem = ({
                 }
                 <a
                     href={href}
-                    className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-xl font-medium text-coolGray", {
-                        ['underline text-royalBlue']: color === 'royalBlue' && active,
-                        ['underline text-altGreen']: color === 'altGreen' && active,
-                        ['underline text-scarlet']: color === 'scarlet' && active,
-                        ['underline text-ceruBlue']: color === 'ceruBlue' && active,
-                        ['underline text-altOrange']: color === 'altOrange && active'
+                    className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-xl font-medium text-coolGray dropdown dropdown-hover", {
+                        ['underline text-royalBlue']: color === 'royalBlue' && activeIdx === idx,
+                        ['underline text-altGreen']: color === 'altGreen' && activeIdx === idx,
+                        ['underline text-scarlet']: color === 'scarlet' && activeIdx === idx,
+                        ['underline text-ceruBlue']: color === 'ceruBlue' && activeIdx === idx,
+                        ['underline text-altOrange']: color === 'altOrange' && activeIdx === idx
                     })}
                 >
                     { text }
                 </a>
-                    {hasDropDown &&
-                        <NavDropdown
-                            setActive={setActive}
-                            show={active}
-                            data={subSectionData}
-                        />
-                    }
+                {hasDropDown && activeIdx === idx &&
+                    <NavDropdown
+                        currentIdx={idx}
+                        setActiveIdx={handleDropDownClose}
+                        showIdx={activeIdx}
+                        data={subSectionData}
+                    />
+                }
             </li>
         </>
     )
