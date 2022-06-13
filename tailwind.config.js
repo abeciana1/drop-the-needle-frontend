@@ -11,11 +11,11 @@ module.exports = {
       "altWhite": {
         DEFAULT: "#f8f8e9"
       },
-      "coolGray": {
-        DEFAULT: "#080807"
-      },
       "royalBlue": {
         DEFAULT: "#335ade"
+      },
+      "coolGray": {
+        DEFAULT: "#080807"
       },
       "altGreen": {
         DEFAULT: "#558564"

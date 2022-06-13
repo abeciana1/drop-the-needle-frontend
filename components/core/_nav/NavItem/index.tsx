@@ -35,7 +35,7 @@ const NavItem = ({
     return (
         <>
             <li
-                className="flex items-start relative inline-block"
+                className="flex items-start relative"
                 onMouseEnter={toggleActive}
             >
                 {activeIdx === idx && (
@@ -60,12 +60,12 @@ const NavItem = ({
                     { text }
                 </a>
                 {hasDropDown && activeIdx === idx &&
-                    <NavDropdown
-                        currentIdx={idx}
-                        setActiveIdx={handleDropDownClose}
-                        showIdx={activeIdx}
-                        data={subSectionData}
-                    />
+                        <NavDropdown
+                            currentIdx={idx}
+                            setActiveIdx={handleDropDownClose}
+                            showIdx={activeIdx}
+                            data={subSectionData}
+                        />
                 }
             </li>
         </>
