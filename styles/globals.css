@@ -18,38 +18,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-/* .dropdown {
-  @apply relative;
-  @apply inline-block;
-}
-.dropdown > *:focus {
-  @apply outline-none;
-}
-.dropdown .dropdown-content {
-  @apply invisible;
-  @apply absolute;
-  @apply z-50;
-  @apply opacity-0;
-}
-
-.dropdown.dropdown-open .dropdown-content,
-.dropdown.dropdown-hover:hover .dropdown-content,
-.dropdown:not(.dropdown-hover):focus .dropdown-content,
-.dropdown:not(.dropdown-hover):focus-within .dropdown-content {
-  @apply visible;
-  @apply opacity-100;
-}
-
-.menu {
-  @apply flex; 
-  @apply flex-col;
-  
-  /* &.horizontal {
-    @apply inline-flex;
-    @apply flex-row;
-    :where(li) {
-      @apply flex-row;
-    }
-  } */
-/* } */
