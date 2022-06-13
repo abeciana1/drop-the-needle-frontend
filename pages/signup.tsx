@@ -18,9 +18,9 @@ const Signup = () => {
         console.log("submit")
     }
     
-    const userSignupOnChangeHandle = (e: React.FormEvent<HTMLFormElement>) => {
+    const userSignupOnChangeHandle = (event: React.FormEvent<HTMLFormElement>) => {
 
-        const { name, value } = e.target as HTMLInputElement
+        const { name, value } = event.target as HTMLInputElement
         setUserSignup({
             ...userSignup,
             [name]: value
@@ -48,12 +48,23 @@ const Signup = () => {
             >
                 <TextInput
                     name="firstName"
+                    placeholder="First Name"
                     labelText="First name"
                     type="text"
                     value={userSignup.firstName}
                     fieldRequired={true}
                     onChange={userSignupOnChangeHandle}
                 />
+                
+                {/* <TextInput
+                    name="email"
+                    placeholder="Email Address"
+                    labelText="Email Address"
+                    type="text"
+                    value={userSignup.email}
+                    fieldRequired={true}
+                    onChange={userSignupOnChangeHandle}
+                /> */}
             </Form>
             </TwoColumnGrid>
         </>

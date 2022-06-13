@@ -5,7 +5,8 @@ interface TextInputI {
     type: string;
     value: string;
     fieldRequired?: boolean;
-    onChange: (e: React.FormEvent<HTMLFormElement>) => any;
+    placeholder: string;
+    onChange: (event: React.FormEvent<HTMLFormElement>) => any;
 }
 
 export const TextInput = ({
@@ -14,12 +15,15 @@ export const TextInput = ({
     type,
     value,
     fieldRequired,
+    // placeholder,
     onChange
 }: TextInputI) => {
     return (
         <>
-            <label>{ labelText }</label>
+            <label className="sr-only">{ labelText }</label>
             <input
+                className="py-1 pl-4 ring-2 ring-slate-200 rounded-2xl focus:ring-royalBlue text-xl"
+                placeholder={placeholder}
                 name={name}
                 type={type}
                 value={value}
