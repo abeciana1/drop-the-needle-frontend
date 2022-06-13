@@ -1,13 +1,30 @@
+import { useState } from 'react'
 import { TwoColumnGrid } from '../components/core/_layouts'
 import Image from 'next/image'
 import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
+import { TextInput } from '../components/_forms/inputs'
 
 const Signup = () => {
 
+    const [userSignup, setUserSignup] = useState({
+        firstName: '',
+        email: '',
+        password: ''
+    })
+    
     const signupSubmitHandler = () => {
         // e.preventDefault();
         console.log("submit")
+    }
+    
+    const userSignupOnChangeHandle = (e: React.FormEvent<HTMLFormElement>) => {
+
+        const { name, value } = e.target as HTMLInputElement
+        setUserSignup({
+            ...userSignup,
+            [name]: value
+        })
     }
 
     return (
@@ -29,7 +46,14 @@ const Signup = () => {
                 onSubmit={signupSubmitHandler}
                 addClass=""
             >
-
+                <TextInput
+                    name="firstName"
+                    labelText="First name"
+                    type="text"
+                    value={userSignup.firstName}
+                    fieldRequired={true}
+                    onChange={userSignupOnChangeHandle}
+                />
             </Form>
             </TwoColumnGrid>
         </>
