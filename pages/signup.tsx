@@ -15,7 +15,7 @@ const Signup = () => {
         password: ''
     })
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [passwordMatch, setPasswordMatch] = useState(false)
+    const passwordMatch = userSignup.password === confirmPassword && userSignup.password.length > 0 && confirmPassword.length > 0
     
     const signupSubmitHandler = () => {
         // e.preventDefault();
@@ -34,9 +34,7 @@ const Signup = () => {
         const { value } = event.target as HTMLInputElement
         setConfirmPassword(value)
     }
-
-
-
+    
     return (
         <>
         <CustomHead
@@ -84,7 +82,7 @@ const Signup = () => {
                     onChange={userSignupOnChangeHandle}
                 />
                 <TextInput
-                    name="password"
+                    name="confirmPassword"
                     placeholder="Confirm Password"
                     labelText="Confirm Password"
                     type="password"
