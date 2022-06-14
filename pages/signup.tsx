@@ -5,6 +5,7 @@ import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
 import { TextInput } from '../components/_forms/inputs'
 import Spinner from '../components/core/Spinner'
+import { LockClosedIcon } from '@heroicons/react/outline'
 
 const Signup = () => {
 
@@ -22,7 +23,6 @@ const Signup = () => {
     }
     
     const userSignupOnChangeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
-
         const { name, value } = event.target as HTMLInputElement
         setUserSignup({
             ...userSignup,
@@ -97,6 +97,12 @@ const Signup = () => {
                 >
                     {passwordMatch ?
                     <>
+                        <LockClosedIcon
+                            className="h-8 w-8 text-green-400"
+                        />
+                        <span className="ml-5 text-lg font-medium">
+                            Passwords match
+                        </span>
                     </>
                     :
                         <>
