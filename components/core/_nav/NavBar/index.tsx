@@ -9,6 +9,7 @@ const NavBar = () => {
     return (
         <nav
             className="flex justify-around py-10"
+            onMouseLeave={() => setActiveIdx(0)}
         >
             <a
                 href="/"
