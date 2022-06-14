@@ -12,6 +12,8 @@ const Signup = () => {
         email: '',
         password: ''
     })
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [passwordMatch, setPasswordMatch] = useState(false)
     
     const signupSubmitHandler = () => {
         // e.preventDefault();
@@ -26,6 +28,13 @@ const Signup = () => {
             [name]: value
         })
     }
+
+    const confirmPasswordHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target as HTMLInputElement
+        setConfirmPassword(value)
+    }
+
+
 
     return (
         <>
@@ -72,6 +81,15 @@ const Signup = () => {
                     value={userSignup.password}
                     fieldRequired={true}
                     onChange={userSignupOnChangeHandle}
+                />
+                <TextInput
+                    name="password"
+                    placeholder="Confirm Password"
+                    labelText="Confirm Password"
+                    type="password"
+                    value={confirmPassword}
+                    fieldRequired={true}
+                    onChange={confirmPasswordHandler}
                 />
             </Form>
             </TwoColumnGrid>
