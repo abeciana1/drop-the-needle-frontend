@@ -55,8 +55,7 @@ const Signup = () => {
                     fieldRequired={true}
                     onChange={userSignupOnChangeHandle}
                 />
-                
-                {/* <TextInput
+                <TextInput
                     name="email"
                     placeholder="Email Address"
                     labelText="Email Address"
@@ -64,7 +63,7 @@ const Signup = () => {
                     value={userSignup.email}
                     fieldRequired={true}
                     onChange={userSignupOnChangeHandle}
-                /> */}
+                />
             </Form>
             </TwoColumnGrid>
         </>

@@ -15,7 +15,7 @@ export const TextInput = ({
     type,
     value,
     fieldRequired,
-    // placeholder,
+    placeholder,
     onChange
 }: TextInputI) => {
     return (
@@ -28,8 +28,8 @@ export const TextInput = ({
                 type={type}
                 value={value}
                 required={fieldRequired}
-                // onChange={(e) => onChange(e)}
-                onChange={onChange}
+                onChange={(e) => onChange(e)}
+                // onChange={onChange}
             />
         </>
     )
