@@ -47,7 +47,7 @@ const Signup = () => {
                 addClass=""
             >
                 <TextInput
-                    name="Name"
+                    name="name"
                     placeholder="Name (First and Last)"
                     labelText="Name"
                     type="text"
@@ -61,6 +61,15 @@ const Signup = () => {
                     labelText="Email Address"
                     type="text"
                     value={userSignup.email}
+                    fieldRequired={true}
+                    onChange={userSignupOnChangeHandle}
+                />
+                <TextInput
+                    name="password"
+                    placeholder="Password"
+                    labelText="Password"
+                    type="password"
+                    value={userSignup.password}
                     fieldRequired={true}
                     onChange={userSignupOnChangeHandle}
                 />
