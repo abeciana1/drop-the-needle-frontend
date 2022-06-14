@@ -8,7 +8,7 @@ import { TextInput } from '../components/_forms/inputs'
 const Signup = () => {
 
     const [userSignup, setUserSignup] = useState({
-        firstName: '',
+        name: '',
         email: '',
         password: ''
     })
@@ -18,7 +18,7 @@ const Signup = () => {
         console.log("submit")
     }
     
-    const userSignupOnChangeHandle = (event: React.FormEvent<HTMLFormElement>) => {
+    const userSignupOnChangeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
 
         const { name, value } = event.target as HTMLInputElement
         setUserSignup({
@@ -47,11 +47,11 @@ const Signup = () => {
                 addClass=""
             >
                 <TextInput
-                    name="firstName"
-                    placeholder="First Name"
-                    labelText="First name"
+                    name="Name"
+                    placeholder="Name (First and Last)"
+                    labelText="Name"
                     type="text"
-                    value={userSignup.firstName}
+                    value={userSignup.name}
                     fieldRequired={true}
                     onChange={userSignupOnChangeHandle}
                 />

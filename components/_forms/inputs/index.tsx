@@ -6,7 +6,7 @@ interface TextInputI {
     value: string;
     fieldRequired?: boolean;
     placeholder: string;
-    onChange: (event: React.FormEvent<HTMLFormElement>) => any;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void|undefined;
 }
 
 export const TextInput = ({
@@ -19,18 +19,20 @@ export const TextInput = ({
     onChange
 }: TextInputI) => {
     return (
-        <>
+        <div
+            className="py-3"
+        >
             <label className="sr-only">{ labelText }</label>
             <input
-                className="py-1 pl-4 ring-2 ring-slate-200 rounded-2xl focus:ring-royalBlue text-xl"
+                className="py-1 pl-4 ring-2 ring-slate-200 rounded-lg focus:ring-royalBlue text-xl w-full"
                 placeholder={placeholder}
                 name={name}
                 type={type}
                 value={value}
                 required={fieldRequired}
-                onChange={(e) => onChange(e)}
-                // onChange={onChange}
+                // onChange={(e) => onChange(e)}
+                onChange={onChange}
             />
-        </>
+        </div>
     )
 }
