@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
 import { TextInput } from '../components/_forms/inputs'
+import Spinner from '../components/core/Spinner'
 
 const Signup = () => {
 
@@ -91,6 +92,25 @@ const Signup = () => {
                     fieldRequired={true}
                     onChange={confirmPasswordHandler}
                 />
+                <div
+                    className="py-3 flex items-center"
+                >
+                    {passwordMatch ?
+                    <>
+                    </>
+                    :
+                        <>
+                        <Spinner
+                            addClass="text-slate-300 h-8 w-8"
+                        />
+                        <span
+                            className="ml-5 text-lg font-medium"
+                        >
+                            Processing...
+                        </span>
+                        </>
+                    }
+                </div>
             </Form>
             </TwoColumnGrid>
         </>
