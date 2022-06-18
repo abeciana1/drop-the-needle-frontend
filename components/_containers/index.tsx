@@ -13,7 +13,7 @@ export const Form = ({
     return (
         <form
             onSubmit={onSubmit}
-            className={cx("", {
+            className={cx("my-auto", {
                 [addClass]: addClass
             })}
         >

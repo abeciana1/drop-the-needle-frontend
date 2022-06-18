@@ -41,7 +41,7 @@ const Signup = () => {
             title="Signup"
             description="Create an account"
         />
-        <TwoColumnGrid>
+        <TwoColumnGrid addClass="gap-32">
             <div>
                 <Image
                     src="/Sweet Static - April 2020.jpg"
@@ -50,72 +50,72 @@ const Signup = () => {
                     height={973}
                 />
             </div>
-            <Form
-                onSubmit={signupSubmitHandler}
-                addClass=""
-            >
-                <TextInput
-                    name="name"
-                    placeholder="Name (First and Last)"
-                    labelText="Name"
-                    type="text"
-                    value={userSignup.name}
-                    fieldRequired={true}
-                    onChange={userSignupOnChangeHandle}
-                />
-                <TextInput
-                    name="email"
-                    placeholder="Email Address"
-                    labelText="Email Address"
-                    type="text"
-                    value={userSignup.email}
-                    fieldRequired={true}
-                    onChange={userSignupOnChangeHandle}
-                />
-                <TextInput
-                    name="password"
-                    placeholder="Password"
-                    labelText="Password"
-                    type="password"
-                    value={userSignup.password}
-                    fieldRequired={true}
-                    onChange={userSignupOnChangeHandle}
-                />
-                <TextInput
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    labelText="Confirm Password"
-                    type="password"
-                    value={confirmPassword}
-                    fieldRequired={true}
-                    onChange={confirmPasswordHandler}
-                />
-                <div
-                    className="py-3 flex items-center"
+                <Form
+                    onSubmit={signupSubmitHandler}
+                    addClass="bg-zinc-300 px-10 py-10 rounded-xl lg:aspect-square my-auto max-w-[500px] max-h-[500px] h-auto grid grid-cols-1 content-center"
                 >
-                    {passwordMatch ?
-                    <>
-                        <LockClosedIcon
-                            className="h-8 w-8 text-green-400"
+                        <TextInput
+                            name="name"
+                            placeholder="Name (First and Last)"
+                            labelText="Name"
+                            type="text"
+                            value={userSignup.name}
+                            fieldRequired={true}
+                            onChange={userSignupOnChangeHandle}
                         />
-                        <span className="ml-5 text-lg font-medium">
-                            Passwords match
-                        </span>
-                    </>
-                    :
-                        <>
-                        <Spinner
-                            addClass="text-slate-300 h-8 w-8"
+                        <TextInput
+                            name="email"
+                            placeholder="Email Address"
+                            labelText="Email Address"
+                            type="text"
+                            value={userSignup.email}
+                            fieldRequired={true}
+                            onChange={userSignupOnChangeHandle}
                         />
-                        <span
-                            className="ml-5 text-lg font-medium"
+                        <TextInput
+                            name="password"
+                            placeholder="Password"
+                            labelText="Password"
+                            type="password"
+                            value={userSignup.password}
+                            fieldRequired={true}
+                            onChange={userSignupOnChangeHandle}
+                        />
+                        <TextInput
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                            labelText="Confirm Password"
+                            type="password"
+                            value={confirmPassword}
+                            fieldRequired={true}
+                            onChange={confirmPasswordHandler}
+                        />
+                        <div
+                            className="py-3 flex items-center"
                         >
-                            Processing...
-                        </span>
-                        </>
-                    }
-                </div>
-            </Form>
+                            {passwordMatch ?
+                            <>
+                                <LockClosedIcon
+                                    className="h-8 w-8 text-green-400"
+                                />
+                                <span className="ml-5 text-lg font-medium">
+                                    Passwords match
+                                </span>
+                            </>
+                            :
+                                <>
+                                <Spinner
+                                    addClass="text-slate-500 h-8 w-8"
+                                />
+                                <span
+                                    className="ml-5 text-lg font-medium"
+                                >
+                                    Processing...
+                                </span>
+                                </>
+                            }
+                        </div>
+                </Form>
             </TwoColumnGrid>
         </>
     )
