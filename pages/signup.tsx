@@ -41,7 +41,7 @@ const Signup = () => {
             title="Signup"
             description="Create an account"
         />
-        <TwoColumnGrid addClass="gap-32">
+        <TwoColumnGrid addClass="">
             <div className="w-9/12 mx-auto">
                 <Image
                     src="/Sweet Static - April 2020.jpg"
