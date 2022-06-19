@@ -41,9 +41,9 @@ const NavBar = () => {
                     setActiveIdx={setActiveIdx}
                 />
                 <NavItem
-                    text="Signup"
+                    text="Login/Signup"
                     color="altGreen"
-                    href="/signup"
+                    href="/login"
                     hasDropDown={false}
                     subSectionData={Subsection["Subsection"]["Signup"]}
                     idx={3}
