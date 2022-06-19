@@ -19,7 +19,7 @@ const Signup = () => {
     
     const signupSubmitHandler = () => {
         // e.preventDefault();
-        console.log("submit")
+        console.log("signup")
     }
     
     const userSignupOnChangeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +41,7 @@ const Signup = () => {
             title="Signup"
             description="Create an account"
         />
-        <TwoColumnGrid addClass="">
+        <TwoColumnGrid>
             <div className="w-9/12 mx-auto">
                 <Image
                     src="/Sweet Static - April 2020.jpg"
@@ -52,7 +52,7 @@ const Signup = () => {
             </div>
                 <Form
                     onSubmit={signupSubmitHandler}
-                    addClass="bg-zinc-300 px-10 py-10 rounded-xl lg:aspect-square my-auto max-w-[500px] max-h-[500px] h-auto grid grid-cols-1 content-center"
+                    addClass="bg-zinc-300 px-10 py-10 rounded-xl  my-auto h-auto grid grid-cols-1 content-center"
                 >
                         <TextInput
                             name="name"
