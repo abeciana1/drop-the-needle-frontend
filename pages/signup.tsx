@@ -42,6 +42,9 @@ const Signup = () => {
             title="Signup"
             description="Create an account"
         />
+        <div className="text-center pb-20 font-medium">
+            <h2>Signup</h2>
+        </div>
         <TwoColumnGrid>
             <div className="w-9/12 mx-auto">
                 <Image

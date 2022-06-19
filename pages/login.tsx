@@ -32,6 +32,9 @@ const Login = () => {
                 title="Login"
                 description="Log into your account"
             />
+            <div className="text-center pb-20 font-medium">
+                <h1>Login</h1>
+            </div>
             <TwoColumnGrid>
                 <div className="w-9/12 mx-auto">
                     <Image
