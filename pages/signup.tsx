@@ -18,8 +18,8 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const passwordMatch = userSignup.password === confirmPassword && userSignup.password.length > 0 && confirmPassword.length > 0
     
-    const signupSubmitHandler = () => {
-        // e.preventDefault();
+    const signupSubmitHandler = (e: any) => {
+        e.preventDefault();
         console.log("signup")
     }
     

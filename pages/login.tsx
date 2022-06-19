@@ -13,7 +13,8 @@ const Login = () => {
         password: ''
     })
 
-    const loginSubmitHandler = () => {
+    const loginSubmitHandler = (e: any) => {
+        e.preventDefault();
         console.log("login")
     }
 
