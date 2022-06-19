@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
 import { TextInput } from '../components/_forms/inputs'
+import { SolidClickButton } from '../components/core/_buttons/index'
 
 const Login = () => {
 
@@ -61,6 +62,12 @@ const Login = () => {
                             fieldRequired={true}
                             onChange={userLoginOnChangeHandler}
                         />
+                        <div className="py-3">
+                            <SolidClickButton
+                                text="Login"
+                                color="scarlet"
+                            />
+                        </div>
                 </Form>
             </TwoColumnGrid>
         </>
