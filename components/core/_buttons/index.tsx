@@ -5,6 +5,7 @@ interface IButtonProps {
     text: string;
     href?: string; //* leave optional for none anchor buttons
     color: string;
+    disabled?: boolean;
     onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
@@ -13,18 +14,21 @@ interface IButtonProps {
 export const SolidClickButton = ({
     text,
     color,
-    onClick
+    onClick,
+    disabled
 }: IButtonProps) => {
     return (
         <button
+            disabled={disabled}
             onClick={onClick}
-            className={cx("px-3 py-1 rounded-md text-3xl", {
+            className={cx("px-3 py-1 rounded-md text-2xl", {
                 ["bg-altOrange text-coolGray"]: color === "altOrange",
                 ["bg-altGreen text-altWhite"]: color === "altGreen",
                 ["bg-royalBlue text-altWhite"]: color === "royalBlue",
                 ["bg-ceruBlue text-altWhite"]: color === "ceruBlue",
                 ["bg-scarlet text-altWhite"]: color === "scarlet",
                 ["bg-coolGray text-altWhite"]: color === "coolGray",
+                ['cursor-not-allowed']: disabled
             })}
         >
             { text }
@@ -35,7 +39,8 @@ export const SolidClickButton = ({
 export const SolidHrefButton = ({
     text,
     color,
-    href
+    href,
+    disabled
 }: IButtonProps) => {
     return (
         <a
@@ -44,13 +49,15 @@ export const SolidHrefButton = ({
             rel="noopener"
         >
             <button
-                className={cx("px-3 py-2 rounded-md text-3xl", {
+                disabled={disabled}
+                className={cx("px-3 py-2 rounded-md text-2xl", {
                     ["bg-altOrange text-coolGray"]: color === "altOrange",
                     ["bg-altGreen text-altWhite"]: color === "altGreen",
                     ["bg-royalBlue text-altWhite"]: color === "royalBlue",
                     ["bg-ceruBlue text-altWhite"]: color === "ceruBlue",
                     ["bg-scarlet text-altWhite"]: color === "scarlet",
                     ["bg-coolGray text-altWhite"]: color === "coolGray",
+                    ['cursor-not-allowed']: disabled
                 })}
             >
                 { text }
@@ -62,18 +69,21 @@ export const SolidHrefButton = ({
 export const OutlineClickButton = ({
     text,
     color,
-    onClick
+    onClick,
+    disabled
 }: IButtonProps) => {
     return (
         <button
+            disabled={disabled}
             onClick={onClick}
-                className={cx("bg-altWhite px-3 py-1 rounded-md text-3xl", {
+                className={cx("bg-altWhite px-3 py-1 rounded-md text-2xl", {
                     ["border-4 border-altOrange text-altOrange"]: color === "altOrange",
                     ["border-4 border-altGreen text-altGreen"]: color === "altGreen",
                     ["border-4 border-royalBlue text-royalBlue"]: color === "royalBlue",
                     ["border-4 border-ceruBlue text-ceruBlue"]: color === "ceruBlue",
                     ["border-4 border-scarlet text-scarlet"]: color === "scarlet",
                     ["border-4 border-coolGray text-coolGray"]: color === "coolGray",
+                    ['cursor-not-allowed']: disabled
                 })}
         >
             { text }
@@ -84,7 +94,8 @@ export const OutlineClickButton = ({
 export const OutlineHrefButton = ({
     text,
     color,
-    href
+    href,
+    disabled
 }: IButtonProps) => {
     return (
         <a
@@ -93,13 +104,15 @@ export const OutlineHrefButton = ({
             rel="noopener"
         >
             <button
-                className={cx("bg-altWhite px-3 py-1 rounded-md text-3xl", {
+                disabled={disabled}
+                className={cx("bg-altWhite px-3 py-1 rounded-md text-2xl", {
                     ["border-4 border-altOrange text-altOrange"]: color === "altOrange",
                     ["border-4 border-altGreen text-altGreen"]: color === "altGreen",
                     ["border-4 border-royalBlue text-royalBlue"]: color === "royalBlue",
                     ["border-4 border-ceruBlue text-ceruBlue"]: color === "ceruBlue",
                     ["border-4 border-scarlet text-scarlet"]: color === "scarlet",
                     ["border-4 border-coolGray text-coolGray"]: color === "coolGray",
+                    ['cursor-not-allowed']: disabled
                 })}
             >
                 { text }

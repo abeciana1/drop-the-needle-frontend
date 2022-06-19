@@ -6,6 +6,7 @@ import CustomHead from '../components/core/CustomHead'
 import { TextInput } from '../components/_forms/inputs'
 import Spinner from '../components/core/Spinner'
 import { LockClosedIcon } from '@heroicons/react/outline'
+import { SolidClickButton } from '../components/core/_buttons/index'
 
 const Signup = () => {
 
@@ -114,6 +115,12 @@ const Signup = () => {
                                 </span>
                                 </>
                             }
+                        </div>
+                        <div className="py-3">
+                            <SolidClickButton
+                                text="Signup"
+                                color="scarlet"
+                            />
                         </div>
                 </Form>
             </TwoColumnGrid>
