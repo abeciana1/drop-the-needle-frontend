@@ -7,6 +7,7 @@ import { TextInput } from '../components/_forms/inputs'
 import Spinner from '../components/core/Spinner'
 import { LockClosedIcon } from '@heroicons/react/outline'
 import { SolidClickButton } from '../components/core/_buttons/index'
+import Link from 'next/link'
 
 const Signup = () => {
 
@@ -124,6 +125,11 @@ const Signup = () => {
                                 text="Signup"
                                 color="scarlet"
                             />
+                        </div>
+                        <div className="text-right">
+                            <Link href="/login">
+                                Already have an account? Log in here.
+                            </Link>
                         </div>
                 </Form>
             </TwoColumnGrid>
