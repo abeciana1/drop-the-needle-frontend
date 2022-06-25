@@ -16,3 +16,28 @@ model User {
   email String @unique
   password String
 }
+
+model Host {
+  id  Int @id @default(autoincrement())
+  user_id Int
+  power_hour_id Int
+  power_hours PowerHour[]
+}
+
+model Participant {
+  id Int @id @default(autoincrement())
+  user_id Int
+  power_hour_id Int
+  power_hours PowerHour[]
+}
+
+model PowerHour {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  cover_image String
+  date_time DateTime
+  created_at DateTime
+  hosts Host[]
+  participants Participant[]
+}
