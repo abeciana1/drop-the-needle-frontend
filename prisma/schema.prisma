@@ -45,6 +45,7 @@ model PowerHour {
   hosts Host[]
   participants Participant[]
   songs PowerHourSongs[]
+  meeting_link String
   @@map("power_hours")
 }
 
