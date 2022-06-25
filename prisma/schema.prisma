@@ -15,20 +15,24 @@ model User {
   name String
   email String @unique
   password String
+  hosted Host[]
+  participants Participant[]
 }
 
 model Host {
   id  Int @id @default(autoincrement())
   user_id Int
+  user User @relation(fields: [user_id], references: [id])
   power_hour_id Int
-  power_hours PowerHour[]
+  power_hour PowerHour @relation(fields: [power_hour_id], references: [id])
 }
 
 model Participant {
   id Int @id @default(autoincrement())
-  user_id Int
+  user_id Int @map("host_id")
+  user User @relation(fields: [user_id], references: [id])
   power_hour_id Int
-  power_hours PowerHour[]
+  power_hour PowerHour @relation(fields: [power_hour_id], references: [id])
 }
 
 model PowerHour {
@@ -40,4 +44,19 @@ model PowerHour {
   created_at DateTime
   hosts Host[]
   participants Participant[]
+  songs PowerHourSongs[]
+  @@map("power_hours")
+}
+
+model PowerHourSongs {
+  id  Int @id @default(autoincrement())
+  song_title String
+  song_artist String
+  youtube_link String
+  start_time String
+  end_time String
+  power_hour_id Int
+  power_hour PowerHour @relation(fields: [power_hour_id], references: [id])
+  order_number Int
+  created_at DateTime
 }
