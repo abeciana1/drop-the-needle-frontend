@@ -1,1 +1,0 @@
-const AUTHORIZATION = `Bearer ${process.env.AUTH_TOKEN}`
