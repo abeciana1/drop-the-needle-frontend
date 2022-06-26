@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { createWrapper } from 'next-redux-wrapper'
 import thunk from 'redux-thunk'
 
-const composeEnhancer = compose(
+const composeEnhancer = compose<any>(
     composeWithDevTools(applyMiddleware(thunk))
 )
 
