@@ -6,7 +6,22 @@ import {
     USER_CHECK_LOG_TOKEN
 } from '../actions/user-actions'
 
-const initialState = {
+import { PayloadAction } from '@reduxjs/toolkit'
+
+interface UserInterface {
+    [key: string]: any
+}
+
+const initialState: UserInterface = {
     currentUser: null
 }
 
+const userReducer = (
+    state = initialState,
+    action: PayloadAction<any>
+) => {
+    console.log('state', state)
+    console.log('action', action)
+}
+
+export default userReducer
