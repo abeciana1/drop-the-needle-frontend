@@ -10,11 +10,11 @@ const {
 
 const AUTHORIZATION = `Bearer ${process.env.AUTH_TOKEN}`
 
-const handler = async (
-    req: NextApiRequest,
-    res: NextApiResponse
-) => {
+// const handler = async (
+//     req: NextApiRequest,
+//     res: NextApiResponse
+// ) => {
     
-}
+// }
 
-export default handler
+// export default handler

@@ -22,6 +22,11 @@ const userReducer = (
 ) => {
     console.log('state', state)
     console.log('action', action)
+    switch (action.type) {
+        default:
+            return state
+            break;
+    }
 }
 
 export default userReducer
