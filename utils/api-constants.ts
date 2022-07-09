@@ -1,4 +1,4 @@
-export const AUTHORIZATION = `Bearer ${process.env.AUTH_TOKEN}`
+// export const AUTHORIZATION = `Bearer ${process.env.AUTH_TOKEN}`
 
 export const API_URL = "/api/"
 
