@@ -8,7 +8,6 @@ export const USER_CHECK_LOG_TOKEN = "USER_CHECK_LOG_TOKEN"
 import { API_URL } from '../../utils/api-constants'
 
 export const userSignup = (userData: any) => {
-    console.log('user data', userData)
     const options = {
         method: 'POST',
         headers: {
@@ -21,10 +20,11 @@ export const userSignup = (userData: any) => {
         fetch(API_URL + "signup", options)
         .then(res => res.json())
         .then(data => {
+            console.log('data', data);
             localStorage.setItem("dtnLogged", "true")
             dispatch({
                 type: USER_SIGNUP,
-                payload: data
+                payload: data.user
             })
         })
         .catch((err) => {

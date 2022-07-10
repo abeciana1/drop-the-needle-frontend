@@ -13,8 +13,6 @@ import { userSignup } from '../redux/actions/user-actions'
 
 const Signup = (props: any) => {
 
-    // console.log(props)
-
     const [userSignup, setUserSignup] = useState({
         name: '',
         email: '',
@@ -25,8 +23,9 @@ const Signup = (props: any) => {
     
     const signupSubmitHandler = (e: any) => {
         e.preventDefault();
+        let startDate = new Date
+        console.log('start req', startDate);
         props.userSignup(userSignup)
-        // props.userSignup()
     }
     
     const userSignupOnChangeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {

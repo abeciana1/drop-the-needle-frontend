@@ -32,6 +32,7 @@ const NavDropdown = ({
                 href: string
             }) => (
                 <li
+                    key={data.title}
                     className="first:rounded-t-xl last:rounded-b-xl block px-5 py-2 text-coolGray bg-white hover:text-altWhite hover:bg-slate-500"
                 >
                     <Link
