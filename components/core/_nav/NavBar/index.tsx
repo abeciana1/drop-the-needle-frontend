@@ -13,6 +13,8 @@ const NavBar = () => {
         >
             <a
                 href="/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-32 md:w-24 mx-auto md:mx-0"
             >
                 <Logo/>

@@ -46,7 +46,7 @@ export const SolidHrefButton = ({
         <a
             href={href}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             <button
                 disabled={disabled}
@@ -101,7 +101,7 @@ export const OutlineHrefButton = ({
         <a
             href={href}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
         >
             <button
                 disabled={disabled}
