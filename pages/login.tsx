@@ -3,7 +3,7 @@ import { TwoColumnGrid } from '../components/core/_layouts'
 import Image from 'next/image'
 import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
-import { TextInput } from '../components/_forms/inputs'
+// import { TextInput } from '../components/_forms/inputs'
 import { SolidClickButton } from '../components/core/_buttons/index'
 
 const Login = () => {
@@ -48,22 +48,24 @@ const Login = () => {
                     onSubmit={loginSubmitHandler}
                     addClass="bg-zinc-300 px-10 py-10 rounded-xl my-auto h-auto grid grid-cols-1 content-center"
                 >
-                        <TextInput
+                        <input
                             name="email"
                             placeholder="Email Address"
-                            labelText="Email Address"
+                            // labelText="Email Address"
                             type="text"
                             value={userLogin.email}
-                            fieldRequired={true}
+                            // fieldRequired={true}
+                            required={true}
                             onChange={userLoginOnChangeHandler}
                         />
-                        <TextInput
+                        <input
                             name="password"
                             placeholder="Password"
-                            labelText="Password"
+                            // labelText="Password"
                             type="password"
                             value={userLogin.password}
-                            fieldRequired={true}
+                            // fieldRequired={true}
+                            required={true}
                             onChange={userLoginOnChangeHandler}
                         />
                         <div className="py-3">
