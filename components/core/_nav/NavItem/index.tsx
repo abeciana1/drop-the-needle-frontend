@@ -40,7 +40,7 @@ const NavItem = ({
             >
                 {activeIdx === idx && (
                     <div
-                        className="w-7 absolute -ml-9"
+                        className="w-7 absolute -ml-9 lg:block"
                     >
                         <Needle
                             fillColor={color}

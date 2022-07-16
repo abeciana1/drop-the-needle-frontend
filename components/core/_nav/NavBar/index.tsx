@@ -2,15 +2,30 @@ import { useState } from 'react'
 import NavItem from '../NavItem'
 import Logo from '../../../../public/Logo'
 import Subsection from '../../../../utils/subsection.json'
+import { Squash as Hamburger } from 'hamburger-react'
 
 const NavBar = () => {
     const [activeIdx, setActiveIdx] = useState(0)
+    const [isOpen, setOpen] = useState(false);
     
     return (
         <nav
             className="flex justify-around py-10"
             onMouseLeave={() => setActiveIdx(0)}
         >
+            <div
+                className="block lg:hidden absolute right-10 md:right-20"
+            >
+                <button>
+                    <Hamburger
+                        toggled={isOpen}
+                        toggle={setOpen}
+                        rounded
+                        color="#292F36"
+                        easing="ease-in"
+                    />
+                </button>
+            </div>
             <a
                 href="/"
                 target="_blank"
@@ -20,7 +35,7 @@ const NavBar = () => {
                 <Logo/>
             </a>
             <ul
-                className="hidden md:flex items-center space-x-32"
+                className="hidden lg:flex items-center space-x-32"
             >
                 <NavItem
                     text="Participate"
