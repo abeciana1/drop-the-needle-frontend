@@ -3,6 +3,7 @@ import NavItem from '../NavItem'
 import Logo from '../../../../public/Logo'
 import Subsection from '../../../../utils/subsection.json'
 import { Squash as Hamburger } from 'hamburger-react'
+import Link from 'next/link'
 
 const NavBar = () => {
     const [activeIdx, setActiveIdx] = useState(0)
@@ -83,6 +84,36 @@ const NavBar = () => {
                             activeIdx={activeIdx}
                             setActiveIdx={setActiveIdx}
                         />
+                        <ul className="space-y-2.5">
+                            {Subsection["Subsection"]["Participate"].map(({
+                                title,
+                                description,
+                                href
+                            }) => {
+                                return (
+                                    <li key={title}>
+                                        <Link
+                                            href={href}
+                                        >
+                                            <div
+                                                className="cursor-pointer"
+                                            >
+                                                <div
+                                                    className="font-medium text-xl underline underline-offset-2"
+                                                >
+                                                    {title}
+                                                </div>
+                                                <span
+                                                    className="font-normal text-lg"
+                                                >
+                                                    { description }
+                                                </span>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                    )
+                                })}
+                        </ul>
                         <NavItem
                             text="Listen"
                             color="royalBlue"
