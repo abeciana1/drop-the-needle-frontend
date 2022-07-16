@@ -14,7 +14,7 @@ const NavBar = () => {
             onMouseLeave={() => setActiveIdx(0)}
         >
             <div
-                className="block lg:hidden absolute right-10 md:right-20"
+                className="block md:hidden absolute z-50 right-10 md:right-20"
             >
                 <Hamburger
                     toggled={isOpen}
@@ -32,7 +32,7 @@ const NavBar = () => {
                 <Logo/>
             </a>
             <ul
-                className="hidden lg:flex items-center space-x-32"
+                className="hidden md:flex items-center space-x-32"
             >
                 <NavItem
                     text="Participate"
@@ -68,21 +68,10 @@ const NavBar = () => {
             {isOpen && (
                 <>
                 <div
-                    className="block lg:hidden absolute z-50 right-10"
-                >
-                    <Hamburger
-                        toggled={isOpen}
-                        toggle={setOpen}
-                        rounded
-                        color="#080807"
-                        easing="ease-in"
-                    />
-                </div>
-                <div
-                    className="block lg:hidden bg-altWhite absolute z-40 w-full h-screen"
+                    className="block md:hidden bg-altWhite absolute z-40 w-full h-screen"
                 >
                     <ul
-                        className="mt-20"
+                        className="mt-20 mx-10 space-y-5"
                     >
                         <NavItem
                             text="Participate"
