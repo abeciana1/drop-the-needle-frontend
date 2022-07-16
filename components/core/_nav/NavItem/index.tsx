@@ -49,9 +49,9 @@ const NavItem = ({
                 }
                 <a
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-xl font-medium text-coolGray dropdown dropdown-hover", {
+                    // target="_blank"
+                    rel="noreferrer"
+                    className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-xl xl:text-3xl font-medium text-coolGray dropdown dropdown-hover", {
                         ['underline text-royalBlue']: color === 'royalBlue' && activeIdx === idx,
                         ['underline text-altGreen']: color === 'altGreen' && activeIdx === idx,
                         ['underline text-scarlet']: color === 'scarlet' && activeIdx === idx,
