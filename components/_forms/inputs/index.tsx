@@ -31,7 +31,6 @@ export const TextInput = ({
                 value={value}
                 required={fieldRequired}
                 onChange={(e) => onChange(e)}
-                // onChange={onChange}
             />
         </div>
     )

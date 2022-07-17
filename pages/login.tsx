@@ -3,8 +3,9 @@ import { TwoColumnGrid } from '../components/core/_layouts'
 import Image from 'next/image'
 import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
-// import { TextInput } from '../components/_forms/inputs'
+import { TextInput } from '../components/_forms/inputs'
 import { SolidClickButton } from '../components/core/_buttons/index'
+import Link from 'next/link'
 
 const Login = () => {
 
@@ -48,24 +49,22 @@ const Login = () => {
                     onSubmit={loginSubmitHandler}
                     addClass="bg-zinc-300 px-10 py-10 rounded-xl my-auto h-auto grid grid-cols-1 content-center"
                 >
-                        <input
+                        <TextInput
                             name="email"
                             placeholder="Email Address"
-                            // labelText="Email Address"
+                            labelText="Email Address"
                             type="text"
                             value={userLogin.email}
-                            // fieldRequired={true}
-                            required={true}
+                            fieldRequired={true}
                             onChange={userLoginOnChangeHandler}
                         />
-                        <input
+                        <TextInput
                             name="password"
                             placeholder="Password"
-                            // labelText="Password"
+                            labelText="Password"
                             type="password"
                             value={userLogin.password}
-                            // fieldRequired={true}
-                            required={true}
+                            fieldRequired={true}
                             onChange={userLoginOnChangeHandler}
                         />
                         <div className="py-3">
@@ -73,6 +72,11 @@ const Login = () => {
                                 text="Login"
                                 color="scarlet"
                             />
+                        </div>
+                        <div className="text-right">
+                            <Link href="/signup">
+                                Don't have an account? Sign up here.
+                            </Link>
                         </div>
                 </Form>
             </TwoColumnGrid>
