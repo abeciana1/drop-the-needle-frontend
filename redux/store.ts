@@ -1,6 +1,5 @@
 import rootReducer from '../redux/reducers'
 import thunk from 'redux-thunk'
-import { applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit'
 
 
