@@ -17,7 +17,7 @@ const NavDropdown = ({
     return (
         <ul
             onMouseLeave={setActiveIdx}
-            className={cx("z-50 w-96 absolute top-12 divide-y-2 divide-slate-200", {
+            className={cx("z-50 w-96 absolute top-12 divide-y-2 divide-slate-200 space-y-2", {
                 ['hidden']: showIdx !== currentIdx,
                 ['block']: showIdx === currentIdx
             })}
@@ -32,7 +32,7 @@ const NavDropdown = ({
                 href: string
             }) => (
                 <li
-                    key={data.title}
+                    key={title}
                     className="first:rounded-t-xl last:rounded-b-xl block px-5 py-2 text-coolGray bg-white hover:text-altWhite hover:bg-slate-500"
                 >
                     <Link

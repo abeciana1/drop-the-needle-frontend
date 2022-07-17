@@ -3,6 +3,7 @@ export const USER_SIGNUP = "USER_SIGNUP"
 export const USER_LOGIN = "USER_LOGIN"
 export const USER_LOGOUT = "USER_LOGOUT"
 export const USER_UPDATE = "USER_UPDATE"
+<<<<<<< HEAD
 export const USER_CHECK_LOG_TOKEN = "USER_CHECK_LOG_TOKEN"
 
 import { API_URL } from '../../utils/api-constants'
@@ -32,3 +33,6 @@ export const userSignup = (userData: any) => {
         })
     }
 }
+=======
+export const USER_CHECK_LOG_TOKEN = "USER_CHECK_LOG_TOKEN"
+>>>>>>> develop

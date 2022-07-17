@@ -22,14 +22,14 @@ const Home = () => {
           />
         </div>
       </section>
-      <section
+      {/* <section
         className="mx-20 text-6xl font-medium py-2"
       >
         <h2>Upcoming...</h2>
         <ul
           className="py-5"
         ></ul>
-      </section>
+      </section> */}
     </>
   )
 }
