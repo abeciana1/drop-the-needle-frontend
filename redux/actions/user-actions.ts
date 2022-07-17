@@ -20,7 +20,6 @@ export const userSignup = (userData: any) => {
     })
         .then(res => res.json())
         .then(data => {
-            console.log('data', data);
             localStorage.setItem("dtnLogged", "true")
             dispatch({
                 type: USER_SIGNUP,
