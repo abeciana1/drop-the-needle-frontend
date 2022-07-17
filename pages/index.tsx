@@ -12,7 +12,7 @@ const Home = () => {
       <section>
         <h1 className="sr-only">Drop The Needle</h1>
         <div
-          className="w-10/12 mx-auto py-10"
+          className="md:w-10/12 mx-auto md:py-10"
         >
           <Image
             src="/Scripps.jpg"
