@@ -5,19 +5,19 @@ export const USER_LOGOUT = "USER_LOGOUT"
 export const USER_UPDATE = "USER_UPDATE"
 export const USER_CHECK_LOG_TOKEN = "USER_CHECK_LOG_TOKEN"
 
-const API_URL = ''
+const API_URL = 'http://localhost:3001/api/v1'
 
 export const userSignup = (userData: any) => {
-    const options = {
+    return (dispatch: any) => {
+        fetch(API_URL + "signup", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(userData)
-    }
-    return (dispatch: any) => {
-        fetch(API_URL + "signup", options)
+    })
         .then(res => res.json())
         .then(data => {
             console.log('data', data);
