@@ -22,8 +22,6 @@ const userReducer = (
 ) => {
     console.log('state', state)
     console.log('action', action)
-    let endDate = new Date
-    console.log('end res', endDate)
     switch (action.type) {
         case USER_SIGNUP:
             return {

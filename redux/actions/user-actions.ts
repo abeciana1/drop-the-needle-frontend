@@ -5,21 +5,22 @@ export const USER_LOGOUT = "USER_LOGOUT"
 export const USER_UPDATE = "USER_UPDATE"
 export const USER_CHECK_LOG_TOKEN = "USER_CHECK_LOG_TOKEN"
 
-const API_URL = 'http://localhost:3001/api/v1'
+const API_URL = 'http://localhost:3001/api/v1/'
 
 export const userSignup = (userData: any) => {
     return (dispatch: any) => {
-        fetch(API_URL + "signup", {
+        fetch(API_URL + "users", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(userData)
+        body: JSON.stringify({userData})
     })
         .then(res => res.json())
-        .then(data => {
+            .then(data => {
+            console.log(data)
             localStorage.setItem("dtnLogged", "true")
             dispatch({
                 type: USER_SIGNUP,
@@ -30,4 +31,8 @@ export const userSignup = (userData: any) => {
             console.log("err", err)
         })
     }
+}
+
+export const checkUserLogged = () => {
+    console.log("checking user token")
 }
