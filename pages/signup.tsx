@@ -23,8 +23,6 @@ const Signup = (props: any) => {
     
     const signupSubmitHandler = (e: any) => {
         e.preventDefault();
-        let startDate = new Date
-        console.log('start req', startDate);
         props.userSignup(userSignup)
     }
     
