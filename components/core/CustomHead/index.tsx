@@ -1,14 +1,18 @@
 import Head from 'next/head'
+import { connect } from 'react-redux'
+import { checkUserLogged } from '../../../redux/actions/user-actions'
 
-interface ICustomHead {
-    title: string;
-    description: string;
-}
+const CustomHead = (props: any) => {
 
-const CustomHead = ({
-    title,
-    description
-}: ICustomHead) => {
+    const { title, description, user, checkUserLogged } = props
+    
+    if (typeof window !== 'undefined') {
+        if (localStorage['dtnLogged'] === 'true' && user.currentUser === null) {
+            checkUserLogged()
+        } else {
+            null
+        }
+    }
 
     return (
         <Head>
@@ -18,4 +22,12 @@ const CustomHead = ({
     )
 }
 
-export default CustomHead
+const mapStateToProps = (state: object) => {
+    return state
+}
+
+const mapDispatchToProps = {
+    checkUserLogged
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomHead)

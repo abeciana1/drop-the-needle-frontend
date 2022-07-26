@@ -35,4 +35,28 @@ export const userSignup = (userData: any) => {
 
 export const checkUserLogged = () => {
     console.log("checking user token")
+    return (dispatch: any) => {
+        fetch(API_URL + 'session-renew', {
+            method: 'GET',
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            dispatch({
+                type: USER_CHECK_LOG_TOKEN,
+                payload: data.user
+            })
+        })
+    }
+}
+
+export const logoutUser = () => {
+    localStorage.clear()
+    return (dispatch: any) => {
+        dispatch({
+            type: USER_LOGOUT,
+            payload: null
+        })
+    }
 }

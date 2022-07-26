@@ -20,10 +20,20 @@ const userReducer = (
     state = initialState,
     action: PayloadAction<any>
 ) => {
-    console.log('state', state)
-    console.log('action', action)
+    // console.log('state', state)
+    // console.log('action', action)
     switch (action.type) {
         case USER_SIGNUP:
+            return {
+                ...state,
+                currentUser: action.payload
+            }
+        case USER_CHECK_LOG_TOKEN:
+            return {
+                ...state,
+                currentUser: action.payload
+            }
+        case USER_LOGOUT:
             return {
                 ...state,
                 currentUser: action.payload
