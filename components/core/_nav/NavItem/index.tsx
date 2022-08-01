@@ -40,7 +40,7 @@ const NavItem = ({
             >
                 {activeIdx === idx && (
                     <div
-                        className="w-7 absolute -ml-9 hidden lg:block"
+                        className="w-7 absolute -ml-9 hidden md:block"
                     >
                         <Needle
                             fillColor={color}
@@ -51,11 +51,11 @@ const NavItem = ({
                     href={href}
                     rel="noreferrer"
                     className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-2xl md:text-xl xl:text-2xl font-medium text-coolGray dropdown dropdown-hover", {
-                        ['underline text-royalBlue']: color === 'royalBlue' && activeIdx === idx,
-                        ['underline text-altGreen']: color === 'altGreen' && activeIdx === idx,
-                        ['underline text-scarlet']: color === 'scarlet' && activeIdx === idx,
-                        ['underline text-ceruBlue']: color === 'ceruBlue' && activeIdx === idx,
-                        ['underline text-altOrange']: color === 'altOrange' && activeIdx === idx
+                        ['md:underline md:text-royalBlue']: color === 'royalBlue' && activeIdx === idx,
+                        ['md:underline md:text-altGreen']: color === 'altGreen' && activeIdx === idx,
+                        ['md:underline md:text-scarlet']: color === 'scarlet' && activeIdx === idx,
+                        ['md:underline md:text-ceruBlue']: color === 'ceruBlue' && activeIdx === idx,
+                        ['md:underline md:text-altOrange']: color === 'altOrange' && activeIdx === idx
                     })}
                 >
                     { text }

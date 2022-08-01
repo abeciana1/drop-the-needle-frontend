@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
 import { connect } from 'react-redux'
 import { checkUserLogged } from '../../../redux/actions/user-actions'
@@ -6,13 +7,15 @@ const CustomHead = (props: any) => {
 
     const { title, description, user, checkUserLogged } = props
     
-    if (typeof window !== 'undefined') {
-        if (localStorage['dtnLogged'] === 'true' && user.currentUser === null) {
-            checkUserLogged()
-        } else {
-            null
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            if (localStorage['dtnLogged'] === 'true' && user === null) {
+                checkUserLogged()
+            } else {
+                null
+            }
         }
-    }
+    }, [])
 
     return (
         <Head>
@@ -22,8 +25,10 @@ const CustomHead = (props: any) => {
     )
 }
 
-const mapStateToProps = (state: object) => {
-    return state
+const mapStateToProps = (state: any) => {
+    return {
+        user: state.user.currentUser
+    }
 }
 
 const mapDispatchToProps = {

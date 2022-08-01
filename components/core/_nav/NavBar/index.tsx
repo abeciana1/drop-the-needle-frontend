@@ -7,12 +7,21 @@ import Link from 'next/link'
 import { connect } from 'react-redux'
 import Needle from '../../../../public/Needle'
 import cx from 'classnames'
+import { logoutUser } from '../../../../redux/actions/user-actions'
+import { useRouter } from 'next/router'
 
 const NavBar = (props: any) => {
     const [activeIdx, setActiveIdx] = useState(0)
     const [isOpen, setOpen] = useState(false);
-    console.log(activeIdx);
-    const { user } = props
+    const { user, logoutUser } = props
+    const router = useRouter()
+
+    console.log(router);
+
+    const logoutHandler = () => {
+        logoutUser()
+        router.push("/")
+    }
 
     return (
         <nav
@@ -76,6 +85,7 @@ const NavBar = (props: any) => {
                         </div>
                     )}
                     <button
+                        onClick={() => logoutHandler()}
                         className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-2xl md:text-xl xl:text-2xl font-medium text-coolGray", {
                             ['underline text-altGreen']: activeIdx === 3
                         })}
@@ -108,7 +118,7 @@ const NavBar = (props: any) => {
                             text="Participate"
                             color="scarlet"
                             href="/participate"
-                            hasDropDown={true}
+                            hasDropDown={false}
                             subSectionData={Subsection["Subsection"]["Participate"]}
                             idx={1}
                             activeIdx={activeIdx}
@@ -154,6 +164,27 @@ const NavBar = (props: any) => {
                             activeIdx={activeIdx}
                             setActiveIdx={setActiveIdx}
                         />
+                        {user ?
+                        <div
+                            className="flex items-start relative"
+                        >
+                            <div
+                                className="w-7 absolute -ml-9 hidden lg:block"
+                            >
+                                <Needle
+                                    fillColor="altGreen"
+                                />
+                            </div>
+                            <button
+                                onClick={() => logoutHandler()}
+                                className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-2xl md:text-xl xl:text-2xl font-medium text-coolGray", {
+                                    ['underline text-altGreen']: activeIdx === 3
+                                })}
+                            >
+                                Logout
+                            </button>
+                        </div>
+                        :
                         <NavItem
                             text="Login/Signup"
                             color="altGreen"
@@ -163,7 +194,8 @@ const NavBar = (props: any) => {
                             idx={3}
                             activeIdx={activeIdx}
                             setActiveIdx={setActiveIdx}
-                        />
+                            />
+                        }
                     </ul>
                 </div>
                 </>
@@ -180,4 +212,8 @@ const mapStateToProps = (state: any) => {
     )
 }
 
-export default connect(mapStateToProps, null)(NavBar)
+const mapDispatchToProps = {
+    logoutUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
