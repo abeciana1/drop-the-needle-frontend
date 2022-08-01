@@ -16,8 +16,6 @@ const NavBar = (props: any) => {
     const [isOpen, setOpen] = useState(false);
     const { user, logoutUser, router } = props
 
-    console.log(router);
-
     const logoutHandler = () => {
         logoutUser()
         router.push("/")
