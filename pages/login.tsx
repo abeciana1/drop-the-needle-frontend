@@ -7,6 +7,8 @@ import { TextInput } from '../components/_forms/inputs'
 import { SolidClickButton } from '../components/core/_buttons/index'
 import Link from 'next/link'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { withRouter } from 'next/router'
 import { userLogin } from '../redux/actions/user-actions'
 
 const Login = (props: any) => {
@@ -19,6 +21,7 @@ const Login = (props: any) => {
     const loginSubmitHandler = (e: any) => {
         e.preventDefault();
         props.userLogin(userLogin)
+        props.router.push('/dashboard')
     }
 
     const userLoginOnChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,4 +93,4 @@ const mapDispatchToProps = {
     userLogin
 }
 
-export default  connect(null, mapDispatchToProps)(Login)
+export default  compose(withRouter, connect(null, mapDispatchToProps))(Login)

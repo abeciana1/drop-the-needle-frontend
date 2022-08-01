@@ -8,13 +8,13 @@ import { connect } from 'react-redux'
 import Needle from '../../../../public/Needle'
 import cx from 'classnames'
 import { logoutUser } from '../../../../redux/actions/user-actions'
-import { useRouter } from 'next/router'
+import { compose } from 'redux'
+import { withRouter } from 'next/router'
 
 const NavBar = (props: any) => {
     const [activeIdx, setActiveIdx] = useState(0)
     const [isOpen, setOpen] = useState(false);
-    const { user, logoutUser } = props
-    const router = useRouter()
+    const { user, logoutUser, router } = props
 
     console.log(router);
 
@@ -216,4 +216,4 @@ const mapDispatchToProps = {
     logoutUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(NavBar)
