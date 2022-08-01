@@ -4,11 +4,16 @@ import Logo from '../../../../public/Logo'
 import Subsection from '../../../../utils/subsection.json'
 import { Squash as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
+import { connect } from 'react-redux'
+import Needle from '../../../../public/Needle'
+import cx from 'classnames'
 
-const NavBar = () => {
+const NavBar = (props: any) => {
     const [activeIdx, setActiveIdx] = useState(0)
     const [isOpen, setOpen] = useState(false);
-    
+    console.log(activeIdx);
+    const { user } = props
+
     return (
         <nav
             className="flex justify-around py-10"
@@ -55,6 +60,30 @@ const NavBar = () => {
                     activeIdx={activeIdx}
                     setActiveIdx={setActiveIdx}
                 />
+                {user ?
+                <div
+                    className="flex items-start relative"
+                    onMouseEnter={() => setActiveIdx(3)}
+                    onMouseLeave={() => setActiveIdx(0)}
+                >
+                    {activeIdx === 3 && (    
+                        <div
+                            className="w-7 absolute -ml-9 hidden lg:block"
+                        >
+                            <Needle
+                                fillColor="altGreen"
+                            />
+                        </div>
+                    )}
+                    <button
+                        className={cx("mt-0.5 decoration-[3px] underline-offset-[6px] text-2xl md:text-xl xl:text-2xl font-medium text-coolGray", {
+                            ['underline text-altGreen']: activeIdx === 3
+                        })}
+                    >
+                        Logout
+                    </button>
+                </div>
+                :
                 <NavItem
                     text="Login/Signup"
                     color="altGreen"
@@ -64,7 +93,8 @@ const NavBar = () => {
                     idx={3}
                     activeIdx={activeIdx}
                     setActiveIdx={setActiveIdx}
-                />
+                    />
+                }
             </ul>
             {isOpen && (
                 <>
@@ -142,4 +172,12 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+const mapStateToProps = (state: any) => {
+    return (
+        {
+            user: state.user.currentUser
+        }
+    )
+}
+
+export default connect(mapStateToProps, null)(NavBar)
