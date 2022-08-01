@@ -60,3 +60,25 @@ export const logoutUser = () => {
         })
     }
 }
+
+export const userLogin = (userData: object) => {
+    return (dispatch: any) => {
+        fetch(API_URL + 'login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify({userData})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            dispatch({
+                type: USER_LOGIN,
+                payload: data.user
+            })
+        })
+    }
+}

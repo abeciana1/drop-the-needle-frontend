@@ -140,7 +140,7 @@ const Signup = (props: any) => {
 }
 
 const mapDispatchToProps = {
-    userSignup: userSignup
+    userSignup
 }
 
 export default connect(null, mapDispatchToProps)(Signup)

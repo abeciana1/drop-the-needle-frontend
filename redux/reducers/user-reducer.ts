@@ -38,6 +38,11 @@ const userReducer = (
                 ...state,
                 currentUser: action.payload
             }
+        case USER_LOGIN:
+            return {
+                ...state,
+                currentUser: action.payload
+            }
         default:
             return state
             break;

@@ -6,8 +6,10 @@ import CustomHead from '../components/core/CustomHead'
 import { TextInput } from '../components/_forms/inputs'
 import { SolidClickButton } from '../components/core/_buttons/index'
 import Link from 'next/link'
+import { connect } from 'react-redux'
+import { userLogin } from '../redux/actions/user-actions'
 
-const Login = () => {
+const Login = (props: any) => {
 
     const [userLogin, setUserLogin] = useState({
         email: '',
@@ -16,7 +18,7 @@ const Login = () => {
 
     const loginSubmitHandler = (e: any) => {
         e.preventDefault();
-        console.log("login")
+        props.userLogin(userLogin)
     }
 
     const userLoginOnChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,4 +86,8 @@ const Login = () => {
     )
 }
 
-export default  Login
+const mapDispatchToProps = {
+    userLogin
+}
+
+export default  connect(null, mapDispatchToProps)(Login)
