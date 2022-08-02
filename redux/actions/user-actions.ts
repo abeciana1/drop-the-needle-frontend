@@ -74,6 +74,7 @@ export const userLogin = (userData: object) => {
         })
         .then(res => res.json())
         .then(data => {
+            localStorage.setItem("dtnLogged", "true")
             console.log(data)
             dispatch({
                 type: USER_LOGIN,

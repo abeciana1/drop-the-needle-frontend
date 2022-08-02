@@ -5,11 +5,11 @@ import { checkUserLogged } from '../../../redux/actions/user-actions'
 
 const CustomHead = (props: any) => {
 
-    const { title, description, user, checkUserLogged } = props
+    const { title, description, checkUserLogged } = props
     
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            if (localStorage['dtnLogged'] === 'true' && user === null) {
+            if (localStorage['dtnLogged'] === 'true') {
                 checkUserLogged()
             } else {
                 null
