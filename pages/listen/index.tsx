@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import CustomHead from '../../components/core/CustomHead'
 import { TwoColumnGrid } from '../../components/core/_layouts'
 import PlaylistCard from '../../components/_containers/PlaylistCard'
@@ -9,7 +8,6 @@ import PlaylistCard from '../../components/_containers/PlaylistCard'
 // todo - add animation to power hours based on mouse enter/leave with vinyl record
 
 const ListenIndex = (props: any) => {
-    const [ active, setActive ] = useState(false)
     const { powerHours } = props
     return (
         <>
