@@ -41,7 +41,9 @@ const Login = (props: any) => {
             <div className="text-center pb-20 font-medium">
                 <h1>Login</h1>
             </div>
-            <TwoColumnGrid>
+            <TwoColumnGrid
+                addClass="gap-20"
+            >
                 <div className="w-9/12 mx-auto">
                     <Image
                         src="/Sweet Static - April 2020.jpg"

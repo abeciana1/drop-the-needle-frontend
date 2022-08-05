@@ -8,7 +8,7 @@ interface LayoutI {
 export const TwoColumnGrid = ({ children, addClass="" }: LayoutI) => {
     return (
         <section
-            className={cx("grid grid-cols-1 md:grid-cols-2 gap-20", {
+            className={cx("grid grid-cols-1 md:grid-cols-2", {
                 [addClass]: addClass
             })}
         >

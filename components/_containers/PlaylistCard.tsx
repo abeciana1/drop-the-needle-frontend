@@ -1,6 +1,11 @@
-import Image from 'next/image'
+import classNames from 'classnames';
+import Link from 'next/link'
+import { useState } from 'react'
+// import cx from 'classnames'
+
 
 interface PlaylistCardI {
+    id: number;
     title: string;
     description: string;
     timestamp: string;
@@ -8,18 +13,42 @@ interface PlaylistCardI {
 }
 
 const PlaylistCard = ({
+    id,
     title,
     description,
     timestamp,
-    coverImage
+    coverImage,
 }: PlaylistCardI) => {
-
+    const [active, setActive] = useState(false)
     return (
-        <div>
-            <img
-                src={coverImage}
-                className="w-72 h-72 mx-auto"
-            />
+        <div
+            className="cursor-pointer"
+            onMouseEnter={() => setActive(true)}
+            onMouseLeave={() => setActive(false)}
+        >
+            <div className="relative z-50">
+                <Link
+                    href={'/listen/' + id}
+                >
+                    <img
+                        src={coverImage}
+                        className="w-72 h-72 mx-auto"
+                    />
+                </Link>
+            </div>
+            {active && <img
+                src="./vinyl-record.png"
+                className="hidden md:block absolute w-72 h-72 -ml-16 -mt-72 animate-spin-slow"
+            />}
+            {active &&
+                <>
+                    <div
+                        className="py-4 text-center"
+                    >
+                        {title}
+                    </div>
+                </>
+            }
         </div>
     )
 }
