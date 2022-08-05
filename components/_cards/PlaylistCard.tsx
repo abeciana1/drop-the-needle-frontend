@@ -36,7 +36,7 @@ const PlaylistCard = ({
             </div>
             {active && <img
                 src="./vinyl-record.png"
-                className="hidden md:block absolute w-72 h-72 -ml-16 -mt-72 animate-spin-slow"
+                className="hidden lg:block absolute w-72 h-72 -ml-16 -mt-72 animate-spin-slow"
             />}
             {active &&
                 <>

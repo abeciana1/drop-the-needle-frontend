@@ -31,7 +31,7 @@ const ListenIndex = (props: any) => {
                 <h2 className="py-4">Listen to past Power Hours</h2>
             </div>
             <div
-                className="w-1/2 mx-auto py-10"
+                className="w-3/4 md:w-1/2 mx-auto py-10"
             >
                 <TextInput
                     name="searchText"
@@ -42,7 +42,7 @@ const ListenIndex = (props: any) => {
                     onChange={searchChangeHandler}
                 />
             </div>
-            <TwoColumnGrid addClass="md:mx-20 gap-20 justify-between">
+            <TwoColumnGrid addClass="lg:mx-20 gap-20 justify-between">
                 {mapSearchToPlaylists.map((playlist: any) => {
                     return (
                     <PlaylistCard
