@@ -1,6 +1,6 @@
 import CustomHead from '../../components/core/CustomHead'
 import { TwoColumnGrid } from '../../components/core/_layouts'
-import PlaylistCard from '../../components/_containers/PlaylistCard'
+import PlaylistCard from '../../components/_cards/PlaylistCard'
 
 //* tasks
 // todo - add heading
