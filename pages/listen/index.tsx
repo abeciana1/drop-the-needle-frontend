@@ -1,26 +1,49 @@
+import { useState } from 'react'
 import CustomHead from '../../components/core/CustomHead'
 import { TwoColumnGrid } from '../../components/core/_layouts'
 import PlaylistCard from '../../components/_cards/PlaylistCard'
-
-//* tasks
-// todo - add heading
-// todo - map content to layout
-// todo - add animation to power hours based on mouse enter/leave with vinyl record
+import { TextInput } from '../../components/_forms/inputs'
 
 const ListenIndex = (props: any) => {
     const { powerHours } = props
+    const [search, setSearch] = useState({ searchText: "" })
+    
+    const searchChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target as HTMLInputElement
+        setSearch({
+            ...search,
+            [name]: value
+        })
+    }
+
+    const mapSearchToPlaylists = powerHours.filter((playlist: any) => {
+        return playlist.title.toLowerCase().includes(search.searchText)
+    })
+
     return (
         <>
             <CustomHead
                 title="Drop The Needle | Archives"
                 description="Listen to past Power Hours"
             />
-            <div className="text-center pb-20 font-medium">
+            <div className="text-center font-medium">
                 <h1>Archives</h1>
                 <h2 className="py-4">Listen to past Power Hours</h2>
             </div>
+            <div
+                className="w-1/2 mx-auto py-10"
+            >
+                <TextInput
+                    name="searchText"
+                    placeholder="Search"
+                    type="text"
+                    labelText="Search"
+                    value={search.searchText}
+                    onChange={searchChangeHandler}
+                />
+            </div>
             <TwoColumnGrid addClass="md:mx-20 gap-20 justify-between">
-                {powerHours.map((playlist: any) => {
+                {mapSearchToPlaylists.map((playlist: any) => {
                     return (
                     <PlaylistCard
                         key={playlist['id']}
