@@ -30,23 +30,19 @@ const PlaylistCard = ({
                 >
                     <img
                         src={coverImage}
-                        className="w-72 h-72 mx-auto"
+                        className="w-72 h-72 mx-auto aspect-square"
                     />
                 </Link>
             </div>
             {active && <img
                 src="./vinyl-record.png"
-                className="hidden lg:block absolute w-72 h-72 -ml-16 -mt-72 animate-spin-slow"
+                className="hidden lg:block w-72 h-72 lg:-ml-3 -mt-72 animate-spin-slow"
             />}
-            {active &&
-                <>
-                    <div
-                        className="py-4 text-center"
-                    >
-                        {title}
-                    </div>
-                </>
-            }
+            <div
+                className="py-4 text-center"
+            >
+                {title}
+            </div>
         </div>
     )
 }

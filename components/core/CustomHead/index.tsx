@@ -8,12 +8,12 @@ const CustomHead = (props?: any) => {
 
     const { title, description, checkUserLogged, user } = props
     const router = useRouter()
-    
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (localStorage['dtnLogged'] === 'true') {
                 checkUserLogged()
-                if (user === null) {
+                if (router.pathname.split('/')[1] === 'dashboard' && user === null) {
                     router.push('/login')
                 } else if ((router.pathname === '/login' || router.pathname === '/signup') && user) {
                     console.log('hello')
