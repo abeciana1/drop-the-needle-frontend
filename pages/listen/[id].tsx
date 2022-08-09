@@ -1,6 +1,6 @@
 
 const PlaylistPresent = (props: any) => {
-    console.log(props);
+    
     return (
         <>
         </>
