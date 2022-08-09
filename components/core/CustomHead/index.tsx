@@ -8,8 +8,6 @@ const CustomHead = (props?: any) => {
 
     const { title, description, checkUserLogged, user } = props
     const router = useRouter()
-
-    console.log(props)
     
     useEffect(() => {
         if (typeof window !== 'undefined') {

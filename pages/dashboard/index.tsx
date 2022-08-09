@@ -211,15 +211,9 @@ import { withRouter } from 'next/router'
 // }
 
 const Dashboard = (props: any) => {
-    const { user, router } = props
+    const { user } = props
 
-    console.log(props);
-
-    // useEffect(() => {
-    //     if (localStorage['dtnLogged'] === undefined) {
-    //         router.push('/login')
-    //     }
-    // }, [])
+    console.log(user);
 
     return (
         <>
