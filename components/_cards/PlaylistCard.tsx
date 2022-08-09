@@ -8,6 +8,7 @@ interface PlaylistCardI {
     description: string;
     timestamp: string;
     coverImage: string;
+    path: string;
 }
 
 const PlaylistCard = ({
@@ -16,6 +17,7 @@ const PlaylistCard = ({
     description,
     timestamp,
     coverImage,
+    path
 }: PlaylistCardI) => {
     const [active, setActive] = useState(false)
     return (
@@ -26,7 +28,7 @@ const PlaylistCard = ({
         >
             <div className="relative z-50">
                 <Link
-                    href={'/listen/' + id}
+                    href={path + id}
                 >
                     <img
                         src={coverImage}
