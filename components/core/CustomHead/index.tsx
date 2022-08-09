@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { connect } from 'react-redux'
 import { checkUserLogged } from '../../../redux/actions/user-actions'
-import { compose } from 'redux'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 const CustomHead = (props?: any) => {
 
-    const { title, description, checkUserLogged, user, router } = props
+    const { title, description, checkUserLogged, user } = props
+    const router = useRouter()
     
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -40,4 +40,4 @@ const mapDispatchToProps = {
     checkUserLogged
 }
 
-export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(CustomHead)
+export default connect(mapStateToProps, mapDispatchToProps)(CustomHead)

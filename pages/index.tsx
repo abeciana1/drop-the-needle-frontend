@@ -1,5 +1,4 @@
 import Image from 'next/image'
-
 import CustomHead from '../components/core/CustomHead'
 
 const Home = () => {

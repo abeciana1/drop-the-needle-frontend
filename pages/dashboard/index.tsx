@@ -225,6 +225,7 @@ const Dashboard = (props: any) => {
         <>
             <CustomHead
                 title="Dashboard | Drop The Needle"
+                description=""
             />
             <div className="text-left font-medium">
                 <h2>Hi { user?.name }</h2>
