@@ -20,7 +20,6 @@ export const userSignup = (userData: any) => {
     })
         .then(res => res.json())
             .then(data => {
-            console.log(data)
             localStorage.setItem("dtnLogged", "true")
             dispatch({
                 type: USER_SIGNUP,
@@ -34,7 +33,6 @@ export const userSignup = (userData: any) => {
 }
 
 export const checkUserLogged = () => {
-    console.log("checking user token")
     return (dispatch: any) => {
         fetch(API_URL + 'session-renew', {
             method: 'GET',
@@ -42,7 +40,6 @@ export const checkUserLogged = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             dispatch({
                 type: USER_CHECK_LOG_TOKEN,
                 payload: data.user
@@ -75,7 +72,6 @@ export const userLogin = (userData: object) => {
         .then(res => res.json())
         .then(data => {
             localStorage.setItem("dtnLogged", "true")
-            console.log(data)
             dispatch({
                 type: USER_LOGIN,
                 payload: data.user
