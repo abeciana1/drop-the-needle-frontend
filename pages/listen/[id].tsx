@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 import moment from 'moment'
+// import SongPresent from '../../components/_cards/SongPresent'
+import dynamic from 'next/dynamic'
 
+const SongPresent = dynamic(() => import('../../components/_cards/SongPresent'), {
+    ssr: false
+})
 
 const PlaylistPresent = ({ renderedPlaylist }: any) => {
 
@@ -16,8 +21,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
         songs
     } = renderedPlaylist
 
-    const [ currentSong, setCurrentSong ] = useState(0)
-
+    const [ currentSongIdx, setCurrentSongIdx ] = useState(0)
+    
     return (
         <>
             <section
@@ -26,8 +31,16 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h1 className="leading-relaxed text-5xl">{ title } | { moment(date_time).format("MMM Do YYYY") }</h1>
                 <h2 className="leading-relaxed text-4xl">{ description }</h2>
             </section>
-            <section>
-
+            <section className="mx-auto">
+                <SongPresent
+                    title={songs[currentSongIdx]?.title}
+                    artist={songs[currentSongIdx]?.artist}
+                    album={songs[currentSongIdx]?.album}
+                    link={songs[currentSongIdx]?.youtube_link}
+                    start_time={songs[currentSongIdx]?.start_time}
+                    end_time={songs[currentSongIdx]?.end_time}
+                    user={songs[currentSongIdx]?.user}
+                />
             </section>
         </>
     )

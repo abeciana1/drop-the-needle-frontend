@@ -1,5 +1,6 @@
 import ReactPlayer from 'react-player/lazy'
 
+
 interface SongPresentI {
     title: string;
     artist: string;
@@ -21,7 +22,13 @@ const SongPresent = ({
 }: SongPresentI) => {
 
     return (
-        <div></div>
+        <>
+            <ReactPlayer
+                url={link}
+                width="100%"
+                controls={true}
+            />
+        </>
     )
 }
 
