@@ -22,13 +22,17 @@ const SongPresent = ({
 }: SongPresentI) => {
 
     return (
-        <>
+        <section>
             <ReactPlayer
                 url={link}
                 width="100%"
                 controls={true}
             />
-        </>
+            <section className="text-center py-5">
+                <h5 className="leading-relaxed">{title} - {artist} — {album}</h5>
+                <h6 className="leading-relaxed">Provided by { user }</h6>
+            </section>
+        </section>
     )
 }
 
