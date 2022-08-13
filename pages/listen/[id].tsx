@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react'
+import ReactPlayer from 'react-player/lazy'
+import moment from 'moment'
+
 
 const PlaylistPresent = ({ renderedPlaylist }: any) => {
-
-    console.log(renderedPlaylist);
 
     const {
         title,
@@ -18,7 +20,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
             <section
                 className="text-center"
             >
-                <h1 className="leading-relaxed text-5xl">{title}</h1>
+                <h1 className="leading-relaxed text-5xl">{ title } | { moment(date_time).format("MMM Do YYYY") }</h1>
                 <h2 className="leading-relaxed text-4xl">{ description }</h2>
             </section>
         </>
