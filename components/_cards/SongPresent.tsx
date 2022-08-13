@@ -34,7 +34,7 @@ const SongPresent = ({
     let convertedEnd = timeToSecondConverter(end_time)
 
     return (
-        <section>
+        <>
             <ReactPlayer
                 url={link + `?start=${convertedStart}&end=${convertedEnd}`}
                 width="100%"
@@ -44,7 +44,7 @@ const SongPresent = ({
                 <h5 className="leading-relaxed">{title} - {artist} — {album}</h5>
                 <h6 className="leading-relaxed">Provided by { user }</h6>
             </section>
-        </section>
+        </>
     )
 }
 
