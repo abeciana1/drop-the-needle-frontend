@@ -35,11 +35,14 @@ const SongPresent = ({
 
     return (
         <>
-            <ReactPlayer
-                url={link + `?start=${convertedStart}&end=${convertedEnd}`}
-                width="100%"
-                controls={true}
-            />
+            <div className="h-56 md:h-72 lg:h-[32rem]">
+                <ReactPlayer
+                    url={link + `?start=${convertedStart}&end=${convertedEnd}`}
+                    controls={true}
+                    width="100%"
+                    height="100%"
+                />
+            </div>
             <section className="text-center py-5">
                 <h5 className="leading-relaxed">{title} - {artist} — {album}</h5>
                 <h6 className="leading-relaxed">Provided by { user }</h6>

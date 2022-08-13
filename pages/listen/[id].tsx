@@ -43,7 +43,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h3 className="leading-relaxed text-3xl">Songs provided by</h3>
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
-            <section data-pos="prev"></section>
+            <section data-pos="prev lg:block"></section>
             <section data-pos="current">
                 <SongPresent
                     title={songs[currentSongIdx]?.title}
@@ -55,7 +55,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                     user={songs[currentSongIdx]?.user}
                 />
             </section>
-            <section data-pos="next"></section>
+            <section data-pos="next lg:block"></section>
         </>
     )
 }
