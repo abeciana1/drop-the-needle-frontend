@@ -1,5 +1,5 @@
 
-const PlaylistPresent = (renderedPlaylist: any) => {
+const PlaylistPresent = ({ renderedPlaylist }: any) => {
 
     console.log(renderedPlaylist);
 
@@ -15,16 +15,17 @@ const PlaylistPresent = (renderedPlaylist: any) => {
 
     return (
         <>
-            <section>
-                <img
-                    src={cover_image}
-                    alt={title}
-                    className="w-screen max-h-72 filter blur-3xl"
-                />
+            <section
+                className="text-center"
+            >
+                <h1 className="leading-relaxed text-5xl">{title}</h1>
+                <h2 className="leading-relaxed text-4xl">{ description }</h2>
             </section>
         </>
     )
 }
+
+export default PlaylistPresent
 
 export const getStaticPaths = async() => {
     let paths: any[] = []
@@ -56,5 +57,3 @@ export const getStaticProps = async (context: any) => {
         }
     }
 }
-
-export default PlaylistPresent
