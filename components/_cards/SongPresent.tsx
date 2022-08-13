@@ -10,7 +10,15 @@ interface SongPresentI {
     user: string;
 }
 
-const SongPresent = () => {
+const SongPresent = ({
+    title,
+    artist,
+    album,
+    link,
+    start_time,
+    end_time,
+    user
+}: SongPresentI) => {
 
     return (
         <div></div>
