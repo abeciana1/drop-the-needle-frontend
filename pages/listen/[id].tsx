@@ -1,10 +1,27 @@
 
-const PlaylistPresent = (props: any) => {
+const PlaylistPresent = (renderedPlaylist: any) => {
 
-    console.log(props)
+    console.log(renderedPlaylist);
+
+    const {
+        title,
+        description,
+        cover_image,
+        date_time,
+        hosts,
+        participants,
+        songs
+    } = renderedPlaylist
 
     return (
         <>
+            <section>
+                <img
+                    src={cover_image}
+                    alt={title}
+                    className="w-screen max-h-72 filter blur-3xl"
+                />
+            </section>
         </>
     )
 }
