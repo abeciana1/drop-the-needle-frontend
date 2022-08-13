@@ -49,7 +49,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                     title={songs[currentSongIdx]?.title}
                     artist={songs[currentSongIdx]?.artist}
                     album={songs[currentSongIdx]?.album}
-                    link={songs[currentSongIdx]?.youtube_link}
+                    link={songs[currentSongIdx]?.embed_link}
                     start_time={songs[currentSongIdx]?.start_time}
                     end_time={songs[currentSongIdx]?.end_time}
                     user={songs[currentSongIdx]?.user}
@@ -69,7 +69,7 @@ export const getStaticPaths = async() => {
 
     const data = await res.json()
 
-    data.map((playlist: any) => {
+    data?.map((playlist: any) => {
         paths.push({
             params: {
                 id: playlist.id.toString()
