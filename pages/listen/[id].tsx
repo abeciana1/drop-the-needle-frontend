@@ -7,6 +7,15 @@ const SongPresent = dynamic(() => import('../../components/_cards/SongPresent'),
     ssr: false
 })
 
+const participantOxfordComma = (participants: any) => {
+    if (participants.length === 2) {
+        return participants.join(' and ')
+    } else if (participants.length > 2) {
+        let lastEl = participants.pop()
+        return participants.join(', ') + ' and ' + lastEl
+    }
+}
+
 const PlaylistPresent = ({ renderedPlaylist }: any) => {
 
     console.log(renderedPlaylist);
@@ -21,15 +30,19 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
         songs
     } = renderedPlaylist
 
-    const [ currentSongIdx, setCurrentSongIdx ] = useState(0)
-    
+    const [currentSongIdx, setCurrentSongIdx] = useState(0)
+    const participantNames = participants.map((user: any) => user.name)
+    const participantList = participantOxfordComma(participantNames)
+    // console.log(participantList);
     return (
         <>
             <section
                 className="text-center"
             >
                 <h1 className="leading-relaxed text-5xl">{ title } | { moment(date_time).format("MMM Do YYYY") }</h1>
-                <h2 className="leading-relaxed text-4xl">{ description }</h2>
+                <h2 className="leading-relaxed text-4xl">{description}</h2>
+                <h3 className="leading-relaxed text-3xl">Songs provided by</h3>
+                <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
             <section className="mx-auto">
                 <SongPresent
