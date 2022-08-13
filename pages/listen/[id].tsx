@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import ReactPlayer from 'react-player/lazy'
 import moment from 'moment'
 
 
@@ -26,7 +25,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h2 className="leading-relaxed text-4xl">{ description }</h2>
             </section>
             <section>
-                
+
             </section>
         </>
     )
