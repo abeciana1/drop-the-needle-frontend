@@ -4,6 +4,8 @@ import moment from 'moment'
 
 const PlaylistPresent = ({ renderedPlaylist }: any) => {
 
+    console.log(renderedPlaylist);
+
     const {
         title,
         description,
