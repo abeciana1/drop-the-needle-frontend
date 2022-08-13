@@ -12,7 +12,7 @@ const participantOxfordComma = (participants: any) => {
         return participants.join(' and ')
     } else if (participants.length > 2) {
         let lastEl = participants.pop()
-        return participants.join(', ') + ' and ' + lastEl
+        return participants.join(', ') + ', and ' + lastEl
     }
 }
 
@@ -31,9 +31,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     } = renderedPlaylist
 
     const [currentSongIdx, setCurrentSongIdx] = useState(0)
-    const participantNames = participants.map((user: any) => user.name)
+    const participantNames = songs.map((song: any) => song.user)
     const participantList = participantOxfordComma(participantNames)
-    // console.log(participantList);
     return (
         <>
             <section
