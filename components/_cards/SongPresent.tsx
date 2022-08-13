@@ -11,6 +11,15 @@ interface SongPresentI {
     user: string;
 }
 
+const timeToSecondConverter = (time: string) => {
+    let splitTime = time.split(':')
+    if (splitTime.length === 3) {
+        (+splitTime[0]) * 60 * 60 + (+splitTime[1]) * 60 + (+splitTime[2])
+    } else {
+        (+splitTime[0]) * 60 + (+splitTime[1])
+    }
+}
+
 const SongPresent = ({
     title,
     artist,
@@ -21,10 +30,13 @@ const SongPresent = ({
     user
 }: SongPresentI) => {
 
+    let convertedStart = timeToSecondConverter(start_time)
+    let convertedEnd = timeToSecondConverter(end_time)
+
     return (
         <section>
             <ReactPlayer
-                url={link}
+                url={link + `?start=${convertedStart}&end=${convertedEnd}`}
                 width="100%"
                 controls={true}
             />
