@@ -15,6 +15,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
         songs
     } = renderedPlaylist
 
+    const [ currentSong, setCurrentSong ] = useState(0)
+
     return (
         <>
             <section
@@ -22,6 +24,9 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
             >
                 <h1 className="leading-relaxed text-5xl">{ title } | { moment(date_time).format("MMM Do YYYY") }</h1>
                 <h2 className="leading-relaxed text-4xl">{ description }</h2>
+            </section>
+            <section>
+                
             </section>
         </>
     )
