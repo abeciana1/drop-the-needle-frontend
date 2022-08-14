@@ -10,12 +10,14 @@ const SongPresent = dynamic(() => import('../../components/_cards/SongPresent'),
     ssr: false
 })
 
-const participantOxfordComma = (participants: any) => {
-    if (participants.length === 2) {
-        return participants.join(' and ')
-    } else if (participants.length > 2) {
-        let lastEl = participants.pop()
-        return participants.join(', ') + ', and ' + lastEl
+const peopleOxfordComma = (people: any) => {
+    if (people.length === 2) {
+        return people.join(' and ')
+    } else if (people.length > 2) {
+        let lastEl = people.pop()
+        return people.join(', ') + ', and ' + lastEl
+    } else {
+        return people[0]
     }
 }
 
@@ -33,13 +35,15 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
 
     const [currentSongIdx, setCurrentSongIdx] = useState(0)
     const participantNames = songs.map((song: any) => song.user)
-    const participantList = participantOxfordComma(participantNames)
+    const hostNames = hosts.map((user: any) => user.name)
+    const participantList = peopleOxfordComma(participantNames)
+    const hostList = peopleOxfordComma(hostNames)
     return (
         <>
             <section
                 className="text-center"
             >
-                <h1 className="leading-relaxed text-5xl">{ title } | { moment(date_time).format("MMM Do YYYY") }</h1>
+                <h1 className="leading-relaxed text-5xl">{ hostList } presents: { title }</h1>
                 <h2 className="leading-relaxed text-4xl">{description}</h2>
                 <h3 className="leading-relaxed text-3xl">Songs provided by</h3>
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
