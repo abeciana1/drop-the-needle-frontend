@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
+import { SongSelectField } from '../../components/_forms/inputs'
 
 // todo create select comp for skipping ahead
 
@@ -57,6 +58,11 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                     setCurrentSongIdx={setCurrentSongIdx}
                 />
             </section>
+            <SongSelectField
+                labelText="Select a song"
+                dataSource={songs}
+                property="title"
+            />
         </>
     )
 }
