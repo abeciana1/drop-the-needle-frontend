@@ -26,10 +26,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     const {
         title,
         description,
-        cover_image,
-        date_time,
         hosts,
-        participants,
         songs
     } = renderedPlaylist
 
