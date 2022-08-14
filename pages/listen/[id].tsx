@@ -21,8 +21,6 @@ const participantOxfordComma = (participants: any) => {
 
 const PlaylistPresent = ({ renderedPlaylist }: any) => {
 
-    console.log(renderedPlaylist);
-
     const {
         title,
         description,
