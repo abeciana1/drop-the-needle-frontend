@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import moment from 'moment'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 
 // todo create select comp for skipping ahead
@@ -35,6 +34,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     const hostNames = hosts.map((user: any) => user.name)
     const participantList = peopleOxfordComma(participantNames)
     const hostList = peopleOxfordComma(hostNames)
+
+
     return (
         <>
             <section
@@ -54,6 +55,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                     start_time={songs[currentSongIdx]?.start_time}
                     end_time={songs[currentSongIdx]?.end_time}
                     user={songs[currentSongIdx]?.user}
+                    order_number={songs[currentSongIdx]?.order_number}
+                    setCurrentSongIdx={setCurrentSongIdx}
                 />
             </section>
         </>

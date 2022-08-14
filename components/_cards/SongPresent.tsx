@@ -9,6 +9,8 @@ interface SongPresentI {
     start_time: string;
     end_time: string;
     user: string;
+    order_number: number;
+    setCurrentSongIdx: (value: number) => void;
 }
 
 const SongPresent = ({
@@ -16,7 +18,9 @@ const SongPresent = ({
     artist,
     album,
     link,
-    user
+    user,
+    order_number,
+    setCurrentSongIdx
 }: SongPresentI) => {
 
     return (
@@ -30,7 +34,7 @@ const SongPresent = ({
                 />
             </div>
             <section className="text-center py-5">
-                <h5 className="leading-relaxed">{title} - {artist} — {album}</h5>
+                <h5 className="leading-relaxed">#{ order_number }. {title} - {artist} — {album}</h5>
                 <h6 className="leading-relaxed">Provided by { user }</h6>
             </section>
         </>
