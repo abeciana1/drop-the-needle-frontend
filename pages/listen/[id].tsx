@@ -33,7 +33,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     const hostNames = hosts.map((user: any) => user.name)
     const participantList = peopleOxfordComma(participantNames)
     const hostList = peopleOxfordComma(hostNames)
-
+    const [selectedSong, setSelectedSong] = useState(songs[currentSongIdx])
 
     return (
         <>
@@ -62,6 +62,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 labelText="Select a song"
                 dataSource={songs}
                 property="title"
+                selectedValue={selectedSong}
+                setSelectedValue={setSelectedSong}
             />
         </>
     )
