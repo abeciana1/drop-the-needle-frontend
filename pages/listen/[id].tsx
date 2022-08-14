@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 import moment from 'moment'
-// import SongPresent from '../../components/_cards/SongPresent'
 import dynamic from 'next/dynamic'
+
+// todo create select comp for skipping ahead
+// todo render order number at top to show which song is being presented
+// todo render hosts 
 
 const SongPresent = dynamic(() => import('../../components/_cards/SongPresent'), {
     ssr: false
