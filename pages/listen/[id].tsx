@@ -55,6 +55,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                     end_time={songs[currentSongIdx]?.end_time}
                     user={songs[currentSongIdx]?.user}
                     order_number={songs[currentSongIdx]?.order_number}
+                    currentSongIdx={currentSongIdx}
                     setCurrentSongIdx={setCurrentSongIdx}
                 />
             </section>

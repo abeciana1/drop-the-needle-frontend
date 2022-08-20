@@ -10,6 +10,7 @@ interface SongPresentI {
     end_time: string;
     user: string;
     order_number: number;
+    currentSongIdx: number;
     setCurrentSongIdx: (value: number) => void;
 }
 
@@ -20,6 +21,7 @@ const SongPresent = ({
     link,
     user,
     order_number,
+    currentSongIdx,
     setCurrentSongIdx
 }: SongPresentI) => {
 
