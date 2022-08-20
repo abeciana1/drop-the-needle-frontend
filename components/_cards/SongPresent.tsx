@@ -25,6 +25,10 @@ const SongPresent = ({
     setCurrentSongIdx
 }: SongPresentI) => {
 
+    const handleEnding = () => {
+        setCurrentSongIdx(currentSongIdx + 1)
+    }
+
     return (
         <>
             <div className="h-56 md:h-72 lg:h-[32rem]">
@@ -33,6 +37,7 @@ const SongPresent = ({
                     controls={true}
                     width="100%"
                     height="100%"
+                    onEnded={handleEnding}
                 />
             </div>
             <section className="text-center py-5">
