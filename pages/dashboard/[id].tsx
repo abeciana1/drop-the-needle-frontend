@@ -1,4 +1,5 @@
 import moment from 'moment'
+import CustomHead from '../../components/core/CustomHead'
 
 const DashboardEditPage = ({ renderedPlaylist }: any) => {
 
@@ -15,6 +16,10 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
 
     return (
         <>
+            <CustomHead
+                title={`Dashboard | ${title}`}
+                description={description}
+            />
             <section
                 className="flex"
             >
