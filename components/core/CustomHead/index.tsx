@@ -19,9 +19,10 @@ const CustomHead = (props?: any) => {
                     console.log('hello')
                     router.push('/dashboard')
                 }
-            } else if (localStorage['dtnLogged'] === undefined) {
-                router.push('/login')
             }
+            // else if (localStorage['dtnLogged'] === undefined) {
+            //     router.push('/login')
+            // }
         } 
     }, [])
 

@@ -33,7 +33,13 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     const hostNames = hosts.map((user: any) => user.name)
     const participantList = peopleOxfordComma(participantNames)
     const hostList = peopleOxfordComma(hostNames)
-    const [selectedSong, setSelectedSong] = useState(songs[currentSongIdx])
+    const [selectSong, setSelectSong] = useState(songs[currentSongIdx])
+
+    console.log(currentSongIdx);
+
+    const handleEnding = () => {
+        setCurrentSongIdx((currentSongIdx + 1))
+    }
 
     return (
         <>
@@ -46,25 +52,43 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
             <section data-pos="current">
-                <SongPresent
+                {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
+                    return (<SongPresent
+                        title={selectedSong?.title}
+                        artist={selectedSong?.artist}
+                        album={selectedSong?.album}
+                        link={selectedSong?.embed_link}
+                        // link={fakeSongs[currentSongIdx]}
+                        start_time={selectedSong?.start_time}
+                        end_time={selectedSong?.end_time}
+                        user={selectedSong?.user}
+                        order_number={selectedSong?.order_number}
+                        currentSongIdx={currentSongIdx}
+                        setCurrentSongIdx={setCurrentSongIdx}
+                        handleEnding={handleEnding}
+                    />)
+                })}
+                {/* <SongPresent
                     title={songs[currentSongIdx]?.title}
                     artist={songs[currentSongIdx]?.artist}
                     album={songs[currentSongIdx]?.album}
-                    link={songs[currentSongIdx]?.embed_link}
+                    // link={songs[currentSongIdx]?.embed_link}
+                    link={fakeSongs[currentSongIdx]}
                     start_time={songs[currentSongIdx]?.start_time}
                     end_time={songs[currentSongIdx]?.end_time}
                     user={songs[currentSongIdx]?.user}
                     order_number={songs[currentSongIdx]?.order_number}
                     currentSongIdx={currentSongIdx}
                     setCurrentSongIdx={setCurrentSongIdx}
-                />
+                    handleEnding={handleEnding}
+                /> */}
             </section>
             <SongSelectField
                 labelText="Select a song"
                 dataSource={songs}
                 property="title"
-                selectedValue={selectedSong}
-                setSelectedValue={setSelectedSong}
+                selectedValue={selectSong}
+                setSelectedValue={setSelectSong}
             />
         </>
     )

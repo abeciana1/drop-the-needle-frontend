@@ -1,5 +1,6 @@
+// import { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player/lazy'
-
+const debounce = require('lodash.debounce')
 
 interface SongPresentI {
     title: string;
@@ -12,6 +13,7 @@ interface SongPresentI {
     order_number: number;
     currentSongIdx: number;
     setCurrentSongIdx: (value: number) => void;
+    handleEnding: () => void;
 }
 
 const SongPresent = ({
@@ -22,22 +24,24 @@ const SongPresent = ({
     user,
     order_number,
     currentSongIdx,
-    setCurrentSongIdx
+    setCurrentSongIdx,
+    handleEnding
 }: SongPresentI) => {
 
-    const handleEnding = () => {
-        setCurrentSongIdx(currentSongIdx + 1)
-    }
+{/* <iframe width="560" height="315" src="https://www.youtube.com/embed/fvXPmtkojnw?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
     return (
         <>
             <div className="h-56 md:h-72 lg:h-[32rem]">
                 <ReactPlayer
+                    muted={false}
                     url={link}
+                    loop={false}
                     controls={true}
                     width="100%"
                     height="100%"
-                    onEnded={handleEnding}
+                    onEnded={debounce(handleEnding, 2000)}
+                    playing={currentSongIdx >= 1}
                 />
             </div>
             <section className="text-center py-5">
