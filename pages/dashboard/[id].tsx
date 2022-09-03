@@ -21,13 +21,13 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 description={description}
             />
             <section
-                className="flex"
+                className="flex items-center"
             >
                 <div>
                     <img
                         src={cover_image}
                         alt={title}
-                        className="w-1/2"
+                        className="w-3/4"
                     />
                 </div>
                 <section>
@@ -70,6 +70,7 @@ export const getStaticProps = async (context: any) => {
     return {
         props: {
             renderedPlaylist
-        }
+        },
+        revalidate: 10
     }
 }
