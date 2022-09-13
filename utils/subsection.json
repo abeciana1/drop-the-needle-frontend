@@ -13,6 +13,13 @@
             }
         ],
         "Listen": [],
-        "Signup": []
+        "Signup": [],
+        "Dashboard": [
+            {
+                "title": "Logout",
+                "description": "Log out of your account",
+                "href": "/logout"
+            }
+        ]
     }
 }

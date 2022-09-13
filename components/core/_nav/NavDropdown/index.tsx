@@ -17,9 +17,9 @@ const NavDropdown = ({
     return (
         <ul
             onMouseLeave={setActiveIdx}
-            className={cx("z-50 w-96 absolute top-12 divide-y-2 divide-slate-200", {
+            className={cx("z-50 w-96 -left-20 absolute top-12 divide-y-2 divide-slate-200", {
                 ['hidden']: showIdx !== currentIdx,
-                ['block']: showIdx === currentIdx
+                ['md:block']: showIdx === currentIdx
             })}
         >
             {data.map(({

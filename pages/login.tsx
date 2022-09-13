@@ -3,10 +3,15 @@ import { TwoColumnGrid } from '../components/core/_layouts'
 import Image from 'next/image'
 import { Form } from '../components/_containers'
 import CustomHead from '../components/core/CustomHead'
-// import { TextInput } from '../components/_forms/inputs'
+import { TextInput } from '../components/_forms/inputs'
 import { SolidClickButton } from '../components/core/_buttons/index'
+import Link from 'next/link'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { withRouter } from 'next/router'
+import { userLogin } from '../redux/actions/user-actions'
 
-const Login = () => {
+const Login = (props: any) => {
 
     const [userLogin, setUserLogin] = useState({
         email: '',
@@ -15,7 +20,8 @@ const Login = () => {
 
     const loginSubmitHandler = (e: any) => {
         e.preventDefault();
-        console.log("login")
+        props.userLogin(userLogin)
+        props.router.push('/dashboard')
     }
 
     const userLoginOnChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +41,9 @@ const Login = () => {
             <div className="text-center pb-20 font-medium">
                 <h1>Login</h1>
             </div>
-            <TwoColumnGrid>
+            <TwoColumnGrid
+                addClass="gap-20"
+            >
                 <div className="w-9/12 mx-auto">
                     <Image
                         src="/Sweet Static - April 2020.jpg"
@@ -48,24 +56,22 @@ const Login = () => {
                     onSubmit={loginSubmitHandler}
                     addClass="bg-zinc-300 px-10 py-10 rounded-xl my-auto h-auto grid grid-cols-1 content-center"
                 >
-                        <input
+                        <TextInput
                             name="email"
                             placeholder="Email Address"
-                            // labelText="Email Address"
+                            labelText="Email Address"
                             type="text"
                             value={userLogin.email}
-                            // fieldRequired={true}
-                            required={true}
+                            fieldRequired={true}
                             onChange={userLoginOnChangeHandler}
                         />
-                        <input
+                        <TextInput
                             name="password"
                             placeholder="Password"
-                            // labelText="Password"
+                            labelText="Password"
                             type="password"
                             value={userLogin.password}
-                            // fieldRequired={true}
-                            required={true}
+                            fieldRequired={true}
                             onChange={userLoginOnChangeHandler}
                         />
                         <div className="py-3">
@@ -74,10 +80,19 @@ const Login = () => {
                                 color="scarlet"
                             />
                         </div>
+                        <div className="text-right">
+                            <Link href="/signup">
+                                Don't have an account? Sign up here.
+                            </Link>
+                        </div>
                 </Form>
             </TwoColumnGrid>
         </>
     )
 }
 
-export default  Login
+const mapDispatchToProps = {
+    userLogin
+}
+
+export default  compose(withRouter, connect(null, mapDispatchToProps))(Login)

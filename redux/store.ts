@@ -5,7 +5,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: [thunk],
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
     devTools: process.env.NODE_ENV !== 'production',
     enhancers: (defaultEnhancers) => [...defaultEnhancers] 
 })

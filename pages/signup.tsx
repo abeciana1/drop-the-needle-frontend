@@ -8,8 +8,10 @@ import Spinner from '../components/core/Spinner'
 import { LockClosedIcon } from '@heroicons/react/outline'
 import { SolidClickButton } from '../components/core/_buttons/index'
 import Link from 'next/link'
+import { connect } from 'react-redux'
+import { userSignup } from '../redux/actions/user-actions'
 
-const Signup = () => {
+const Signup = (props: any) => {
 
     const [userSignup, setUserSignup] = useState({
         name: '',
@@ -21,7 +23,7 @@ const Signup = () => {
     
     const signupSubmitHandler = (e: any) => {
         e.preventDefault();
-        console.log("signup")
+        props.userSignup(userSignup)
     }
     
     const userSignupOnChangeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +48,9 @@ const Signup = () => {
         <div className="text-center pb-20 font-medium">
             <h2>Signup</h2>
         </div>
-        <TwoColumnGrid>
+        <TwoColumnGrid
+            addClass="gap-20"
+        >
             <div className="w-9/12 mx-auto">
                 <Image
                     src="/Sweet Static - April 2020.jpg"
@@ -137,4 +141,8 @@ const Signup = () => {
     )
 }
 
-export default Signup
+const mapDispatchToProps = {
+    userSignup
+}
+
+export default connect(null, mapDispatchToProps)(Signup)
