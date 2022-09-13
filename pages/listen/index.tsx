@@ -53,7 +53,8 @@ const ListenIndex = (props: any) => {
                         timestamp={playlist['date_time']}
                         coverImage={playlist['cover_image']}
                         path="/listen/"
-                    />)
+                    />
+                    )
                 })}
             </TwoColumnGrid>
         </>
