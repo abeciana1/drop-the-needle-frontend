@@ -54,6 +54,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
             <section data-pos="current">
                 {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
                     return (<SongPresent
+                        key={selectSong?.id}
                         title={selectedSong?.title}
                         artist={selectedSong?.artist}
                         album={selectedSong?.album}
