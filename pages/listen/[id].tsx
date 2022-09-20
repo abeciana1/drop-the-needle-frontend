@@ -66,7 +66,6 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                         user={selectedSong?.user}
                         order_number={selectedSong?.order_number}
                         currentSongIdx={currentSongIdx}
-                        // setCurrentSongIdx={setCurrentSongIdx}
                         handleEnding={handleEnding}
                     />)
                 })}
