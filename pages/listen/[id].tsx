@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { SongSelectField } from '../../components/_forms/inputs'
-import { constants } from 'zlib'
 
 // todo create select comp for skipping ahead
 
@@ -30,19 +29,14 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     } = renderedPlaylist
 
     const [currentSongIdx, setCurrentSongIdx] = useState(0)
-    // let [currentSongIdx, setCurrentSongIdx] = useState(0)
-    // let currentSongIdx = 0
-
     const participantNames = songs.map((song: any) => song.user)
     const hostNames = hosts.map((user: any) => user.name)
     const participantList = peopleOxfordComma(participantNames)
     const hostList = peopleOxfordComma(hostNames)
     const [selectSong, setSelectSong] = useState(songs[currentSongIdx])
     
-    // console.log(currentSongIdx);
 
     const handleEnding = () => {
-        // currentSongIdx += 1
         setCurrentSongIdx(currentSongIdx + 1)
     }
 
@@ -57,7 +51,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
             <section data-pos="current">
-                {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any, index: number) => {
+                {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
                     return (<SongPresent
                         key={selectSong?.id}
                         title={selectedSong?.title}
@@ -74,20 +68,6 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                         handleEnding={handleEnding}
                     />)
                 })}
-                {/* <SongPresent
-                    title={songs[currentSongIdx]?.title}
-                    artist={songs[currentSongIdx]?.artist}
-                    album={songs[currentSongIdx]?.album}
-                    // link={songs[currentSongIdx]?.embed_link}
-                    link={fakeSongs[currentSongIdx]}
-                    start_time={songs[currentSongIdx]?.start_time}
-                    end_time={songs[currentSongIdx]?.end_time}
-                    user={songs[currentSongIdx]?.user}
-                    order_number={songs[currentSongIdx]?.order_number}
-                    currentSongIdx={currentSongIdx}
-                    setCurrentSongIdx={setCurrentSongIdx}
-                    handleEnding={handleEnding}
-                /> */}
             </section>
             <SongSelectField
                 labelText="Select a song"
