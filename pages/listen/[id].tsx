@@ -50,6 +50,8 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h3 className="leading-relaxed text-3xl">Songs provided by</h3>
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
+            {songs && (currentSongIdx + 1) === songs?.legnth ?
+            <>
             <section data-pos="current">
                 {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
                     return (<SongPresent
@@ -69,6 +71,10 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                     />)
                 })}
             </section>
+            </>
+                :
+                <h1>The End</h1>
+            }
             <SongSelectField
                 labelText="Select a song"
                 dataSource={songs}
