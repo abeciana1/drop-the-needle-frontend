@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react'
-// import ReactPlayer from 'react-player/lazy'
-import YouTube from 'react-youtube';
-// const debounce = require('lodash.debounce')
+import ReactPlayer from 'react-player/lazy'
 
 interface SongPresentI {
     title: string;
@@ -13,7 +10,6 @@ interface SongPresentI {
     user: string;
     order_number: number;
     currentSongIdx: number;
-    setCurrentSongIdx: (value: number) => void;
     handleEnding: () => void;
 }
 
@@ -27,48 +23,38 @@ const SongPresent = ({
     start_time,
     end_time,
     currentSongIdx,
-    setCurrentSongIdx,
     handleEnding
 }: SongPresentI) => {
-
-    // const [ start, setStart ] = useState(false)
-    // const [end, setEnd] = useState(false)
-
-    // useEffect(() => {
-        
-    // }, [])
-
-    const readyPlayherHandler = (e: any) => {
-        console.log({e});
+    const timeToIntConvert = (time: string) => {
+        let splitTime = time.split(":")
+        let convertedTime = (parseInt(splitTime[0]) * 60) + parseInt(splitTime[1])
+        return convertedTime
     }
 
-    const options = {
-        start: start_time,
-        end: end_time,
-        playerVars: {
-            autoplay: currentSongIdx > 0 ? 1 : 0
-        }
+    const convertedStartTime = timeToIntConvert(start_time)
+    const convertedEndTime = timeToIntConvert(end_time)
+
+    const stateMonitor = () => {
+        let duration = convertedEndTime - convertedStartTime
+        videoTimerSwitcher(duration)
     }
-    
+
+    const videoTimerSwitcher = (duration: number) => {
+        let timeLength = duration * 1000
+        console.log({ duration });
+        setTimeout(() => {
+            handleEnding()
+        }, timeLength)
+    }
+
     return (
         <>
-                <YouTube
-                    videoId={link}
-                    onEnd={handleEnding}
-                    opts={options}
-                    onReady={readyPlayherHandler}
-                />
-                {/* <div>
-                <iframe
-                    width="560"
-                    height="315"
-                    src={link + "?&origin=http%3A%2F%2Flocalhost%3A3000" + `&autoplay=${currentSongIdx < 1 ? 1 : 0}`}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write"
-                    allowFullScreen
-                ></iframe>
-                </div> */}
+            <ReactPlayer
+                url={link}
+                playing={currentSongIdx > 0}
+                onPlay={stateMonitor}
+                controls={true}
+            />
             <section className="text-center py-5">
                 <h5 className="leading-relaxed">#{ order_number }. {title} - {artist} — {album}</h5>
                 <h6 className="leading-relaxed">Provided by { user }</h6>

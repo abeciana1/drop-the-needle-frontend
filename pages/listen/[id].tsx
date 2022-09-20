@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { SongSelectField } from '../../components/_forms/inputs'
+import { constants } from 'zlib'
 
 // todo create select comp for skipping ahead
 
@@ -29,16 +30,20 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
     } = renderedPlaylist
 
     const [currentSongIdx, setCurrentSongIdx] = useState(0)
+    // let [currentSongIdx, setCurrentSongIdx] = useState(0)
+    // let currentSongIdx = 0
+
     const participantNames = songs.map((song: any) => song.user)
     const hostNames = hosts.map((user: any) => user.name)
     const participantList = peopleOxfordComma(participantNames)
     const hostList = peopleOxfordComma(hostNames)
     const [selectSong, setSelectSong] = useState(songs[currentSongIdx])
-
-    console.log(currentSongIdx);
+    
+    // console.log(currentSongIdx);
 
     const handleEnding = () => {
-        setCurrentSongIdx((currentSongIdx + 1))
+        // currentSongIdx += 1
+        setCurrentSongIdx(currentSongIdx + 1)
     }
 
     return (
@@ -52,7 +57,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
             <section data-pos="current">
-                {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
+                {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any, index: number) => {
                     return (<SongPresent
                         key={selectSong?.id}
                         title={selectedSong?.title}
@@ -65,7 +70,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                         user={selectedSong?.user}
                         order_number={selectedSong?.order_number}
                         currentSongIdx={currentSongIdx}
-                        setCurrentSongIdx={setCurrentSongIdx}
+                        // setCurrentSongIdx={setCurrentSongIdx}
                         handleEnding={handleEnding}
                     />)
                 })}
