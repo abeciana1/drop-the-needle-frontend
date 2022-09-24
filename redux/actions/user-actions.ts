@@ -44,7 +44,7 @@ export const checkUserLogged = () => {
                 type: USER_CHECK_LOG_TOKEN,
                 payload: data.user
             })
-        })
+        }).catch(() => console.log('Navigate to Login page /login'))
     }
 }
 
@@ -76,6 +76,6 @@ export const userLogin = (userData: object) => {
                 type: USER_LOGIN,
                 payload: data.user
             })
-        })
+        }).catch(() => console.log(''))
     }
 }

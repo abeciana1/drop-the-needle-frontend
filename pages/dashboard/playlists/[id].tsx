@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import moment from 'moment'
-import CustomHead from '../../components/core/CustomHead'
+import CustomHead from '../../../components/core/CustomHead'
+
+
 
 const DashboardEditPage = ({ renderedPlaylist }: any) => {
 
@@ -14,6 +17,8 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
         hosts
     } = renderedPlaylist
 
+    // const [ selectedPubStatus, setSelectedPubStatus ] = useState()
+
     return (
         <>
             <CustomHead
@@ -23,13 +28,20 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
             <section
                 className="flex items-center"
             >
-                <div>
-                    <img
-                        src={cover_image}
-                        alt={title}
-                        className="w-3/4"
+                <section>
+                    <div>
+                        <img
+                            src={cover_image}
+                            alt={title}
+                            className="w-3/4"
+                        />
+                    </div>
+                    <SingleSelectField
+                        labelText="Power hour publish status"
+                        dataSource={[]}
+                        property="status"
                     />
-                </div>
+                </section>
                 <section>
                     <h1 className="leading-relaxed text-5xl">{title}</h1>
                     <h2 className="leading-relaxed text-4xl">{description}</h2>
