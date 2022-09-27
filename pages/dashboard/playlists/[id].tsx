@@ -79,7 +79,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     icon={UserCircleIcon}
                     heading="test"
                     bodyText="Test body text"
-                    size="sm"
+                    size="md"
                 />
             </section>
         </>
