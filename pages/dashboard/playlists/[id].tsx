@@ -21,7 +21,7 @@ const powerHourPublishStatuses = [
 
 const DashboardEditPage = ({ renderedPlaylist }: any) => {
 
-    console.log(renderedPlaylist)
+    // console.log(renderedPlaylist)
     const {
         cover_image,
         date_time,
@@ -81,9 +81,10 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 />
                 <AccordionDataList
                     icon={UserCircleIcon}
-                    heading="test"
+                    heading="Participants"
                     dataSource={participants}
                     size="md"
+                    property="name"
                 />
             </section>
         </>

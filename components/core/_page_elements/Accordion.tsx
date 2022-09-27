@@ -58,16 +58,19 @@ interface AccordionDataI {
     heading: string;
     dataSource: any;
     size: string;
+    property: string;
 }
 
 export const AccordionDataList = ({
     icon,
     heading,
     dataSource,
-    size
+    size,
+    property
 }: AccordionDataI) => {
 
     const Icon = icon as React.ElementType
+    console.log('data', dataSource);
 
     return (
         <div className="flex w-96 flex-col space-y-2">
@@ -90,9 +93,13 @@ export const AccordionDataList = ({
                 } h-5 w-5 text-coolGray`}
             />
             </Disclosure.Button>
-            <Disclosure.Panel className="px-4 py-2">
-                <ul>
-                    {/* { dataSource.map() } */}
+            <Disclosure.Panel className="relative">
+                <ul
+                    className="px-2 py-2 h-28 overscroll-auto overflow-auto z-50 absolute rounded-md bg-white w-full"
+                >
+                    { dataSource.map((dataEntity: any) => {
+                        return <li className="text-lg">{ dataEntity[property] }</li>
+                    })}
                 </ul>
             </Disclosure.Panel>
         </>
