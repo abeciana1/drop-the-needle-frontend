@@ -5,15 +5,19 @@ import {
   ReceiptRefundIcon,
 } from "@heroicons/react/outline";
 
-// icon
-// heading
-// body
-// size 
-    // sm - text-sm
-    // md - text-base
-    // lg - text-lg
+interface AccordionI {
+    icon: string;
+    heading: string;
+    bodyText: string;
+    size: string;
+}
 
-const Accordion = () => {
+const Accordion = ({
+    icon,
+    heading,
+    bodyText,
+    size
+}: AccordionI) => {
     return (
         <div className="flex w-96 flex-col space-y-2">
     <Disclosure>
