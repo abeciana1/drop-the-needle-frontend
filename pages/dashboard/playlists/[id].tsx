@@ -1,8 +1,18 @@
 import { useState } from 'react'
 import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
+import { SingleSelectField } from '../../../components/_forms/inputs'
 
-
+const powerHourPublishStatuses = [
+    {
+        status: 'Published',
+        bool: true
+    },
+    {
+        status: 'Not Published',
+        bool: false
+    }
+]
 
 const DashboardEditPage = ({ renderedPlaylist }: any) => {
 
@@ -17,7 +27,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
         hosts
     } = renderedPlaylist
 
-    // const [ selectedPubStatus, setSelectedPubStatus ] = useState()
+    const [ selectedPubStatus, setSelectedPubStatus ] = useState(powerHourPublishStatuses[0])
 
     return (
         <>
@@ -38,8 +48,10 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     </div>
                     <SingleSelectField
                         labelText="Power hour publish status"
-                        dataSource={[]}
+                        dataSource={powerHourPublishStatuses}
                         property="status"
+                        selectedValue={selectedPubStatus}
+                        setSelectedValue={setSelectedPubStatus}
                     />
                 </section>
                 <section>
