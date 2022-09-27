@@ -56,8 +56,6 @@ export const SingleSelectField = ({
     setSelectedValue
 }: SingleSelectFieldI) => {
 
-    console.log(selectedValue);
-
     return (
         <div className="w-72">
         <label className="sr-only">{ labelText }</label>
