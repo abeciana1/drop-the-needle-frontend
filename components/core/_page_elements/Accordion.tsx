@@ -13,7 +13,7 @@ interface AccordionI {
     size: string;
 }
 
-const Accordion = ({
+export const Accordion = ({
     icon,
     heading,
     bodyText,
@@ -52,4 +52,49 @@ const Accordion = ({
     )
 }
 
-export default Accordion
+
+interface AccordionDataI {
+    icon: React.ElementType;
+    heading: string;
+    dataSource: any;
+    size: string;
+}
+
+export const AccordionDataList = ({
+    icon,
+    heading,
+    dataSource,
+    size
+}: AccordionDataI) => {
+
+    const Icon = icon as React.ElementType
+
+    return (
+        <div className="flex w-96 flex-col space-y-2">
+    <Disclosure>
+        {({ open }) => (
+        <>
+            <Disclosure.Button className={cx("relative flex w-full items-center justify-between rounded-lg border border-2 border-coolGray bg-layer-2 px-4 py-2 font-semibold text-heading hover:bg-muted-1 focus:outline-none dark:border-0 dark:bg-layer-3", {
+                ['text-sm']: size === 'sm',
+                ['text-base']: size === 'md',
+                ['text-lg']: size === 'lg'
+            })}>
+            <div className="flex items-center gap-2">
+                <Icon className="h-5 w-5" />
+                { heading }
+            </div>
+            <ChevronUpIcon
+                className={`${
+                open ? "rotate-180 text-heading" : "text-text"
+                } h-5 w-5`}
+            />
+            </Disclosure.Button>
+            <Disclosure.Panel className="px-4 py-2">
+            { dataSource }
+            </Disclosure.Panel>
+        </>
+        )}
+    </Disclosure>
+        </div>
+    )
+}

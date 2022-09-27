@@ -2,7 +2,7 @@ import { useState } from 'react'
 import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
-import Accordion from '../../../components/core/_page_elements/Accordion'
+import { AccordionDataList } from '../../../components/core/_page_elements/Accordion'
 import { UserCircleIcon } from "@heroicons/react/outline";
 
 // todo - setup func for updating power hour - patch to backend
@@ -75,10 +75,10 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     selectedValue={selectedPubStatus}
                     setSelectedValue={handlePowerHourPublishStatus}
                 />
-                <Accordion
+                <AccordionDataList
                     icon={UserCircleIcon}
                     heading="test"
-                    bodyText="Test body text"
+                    dataSource="Test body text"
                     size="md"
                 />
             </section>
