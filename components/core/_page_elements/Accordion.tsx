@@ -81,7 +81,7 @@ export const AccordionDataList = ({
             })}>
             <div className="flex items-center gap-2">
                 <Icon className="h-5 w-5" />
-                <div className="font-normal">{ heading }</div>
+                <div className="font-medium">{ heading }</div>
             </div>
             <ChevronUpIcon
                 strokeWidth="2.5"

@@ -40,6 +40,7 @@ export const TextInput = ({
 }
 
 interface SingleSelectFieldI {
+    icon?: React.ElementType;
     labelText: string;
     dataSource: any;
     property: string;
@@ -49,6 +50,7 @@ interface SingleSelectFieldI {
 }
 
 export const SingleSelectField = ({
+    icon,
     labelText,
     dataSource,
     property,
@@ -56,13 +58,15 @@ export const SingleSelectField = ({
     setSelectedValue
 }: SingleSelectFieldI) => {
 
+    const Icon = icon as React.ElementType
+
     return (
         <div className="w-96">
         <label className="sr-only">{ labelText }</label>
         <Listbox value={selectedValue} onChange={setSelectedValue}>
             <div className="relative mt-1">
             <Listbox.Button className="border border-2 border-coolGray relative w-full cursor-default rounded-lg py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                <span className="block truncate text-base">{selectedValue[property]}</span>
+                <span className="block truncate text-base font-medium">{selectedValue[property]}</span>
                 <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <SelectorIcon
                     className="h-5 w-5 text-coolGray"
