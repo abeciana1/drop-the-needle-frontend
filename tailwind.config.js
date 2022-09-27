@@ -14,9 +14,6 @@ module.exports = {
       "royalBlue": {
         DEFAULT: "#335ade"
       },
-      "coolGray": {
-        DEFAULT: "#080807"
-      },
       "altGreen": {
         DEFAULT: "#558564"
       },
@@ -32,6 +29,9 @@ module.exports = {
       ...colors
     },
     extend: {
+      colors: {
+        "coolGray": "#080807"
+      },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       }
