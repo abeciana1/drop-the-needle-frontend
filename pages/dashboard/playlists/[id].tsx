@@ -5,6 +5,7 @@ import { SingleSelectField } from '../../../components/_forms/inputs'
 import { AccordionDataList } from '../../../components/core/_page_elements/Accordion'
 import { UserCircleIcon, EyeIcon } from "@heroicons/react/outline";
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
+import { ThreeColumnGrid } from '../../../components/core/_layouts'
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -68,8 +69,8 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     <h3 className="leading-relaxed text-3xl">{moment(date_time).format("MMMM Do YYYY")}</h3>
                 </section>
             </section>
-            <section
-                className="py-10"
+            <ThreeColumnGrid
+                addClass="py-10 items-center gap-10"
             >
                 <SingleSelectField
                     icon={selectedPubStatus?.bool ? EyeIcon : EyeSlashIcon}
@@ -86,7 +87,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     size="md"
                     property="name"
                 />
-            </section>
+            </ThreeColumnGrid>
         </>
     )
 }

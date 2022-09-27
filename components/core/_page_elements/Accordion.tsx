@@ -70,10 +70,9 @@ export const AccordionDataList = ({
 }: AccordionDataI) => {
 
     const Icon = icon as React.ElementType
-    console.log('data', dataSource);
 
     return (
-        <div className="flex w-96 flex-col space-y-2">
+        <div className="flex w-96 flex-col space-y-2 mx-auto">
     <Disclosure>
         {({ open }) => (
         <>
