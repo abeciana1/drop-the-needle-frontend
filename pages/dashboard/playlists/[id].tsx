@@ -78,7 +78,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 <AccordionDataList
                     icon={UserCircleIcon}
                     heading="test"
-                    dataSource="Test body text"
+                    dataSource={participants}
                     size="md"
                 />
             </section>

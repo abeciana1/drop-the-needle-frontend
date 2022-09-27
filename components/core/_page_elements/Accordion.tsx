@@ -81,16 +81,19 @@ export const AccordionDataList = ({
             })}>
             <div className="flex items-center gap-2">
                 <Icon className="h-5 w-5" />
-                { heading }
+                <div className="font-normal">{ heading }</div>
             </div>
             <ChevronUpIcon
+                strokeWidth="2.5"
                 className={`${
                 open ? "rotate-180 text-heading" : "text-text"
-                } h-5 w-5`}
+                } h-5 w-5 text-coolGray`}
             />
             </Disclosure.Button>
             <Disclosure.Panel className="px-4 py-2">
-            { dataSource }
+                <ul>
+                    {/* { dataSource.map() } */}
+                </ul>
             </Disclosure.Panel>
         </>
         )}
