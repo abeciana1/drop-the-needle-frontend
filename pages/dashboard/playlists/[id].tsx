@@ -81,7 +81,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 />
                 <AccordionDataList
                     icon={UserCircleIcon}
-                    heading="Participants"
+                    heading="Participant List"
                     dataSource={participants}
                     size="md"
                     property="name"
