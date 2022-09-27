@@ -45,6 +45,7 @@ interface SingleSelectFieldI {
     property: string;
     selectedValue: any;
     setSelectedValue: (value: any) => void;
+    updateFunc?: (value: any) => void;
 }
 
 export const SingleSelectField = ({
@@ -54,6 +55,8 @@ export const SingleSelectField = ({
     selectedValue,
     setSelectedValue
 }: SingleSelectFieldI) => {
+
+    console.log(selectedValue);
 
     return (
         <div className="w-72">

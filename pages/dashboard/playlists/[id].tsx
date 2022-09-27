@@ -3,6 +3,8 @@ import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
 
+// todo - setup func for updating power hour - patch to backend
+
 const powerHourPublishStatuses = [
     {
         status: 'Published',
@@ -22,12 +24,20 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
         date_time,
         description,
         title,
-        song,
+        songs,
         participants,
         hosts
     } = renderedPlaylist
 
-    const [ selectedPubStatus, setSelectedPubStatus ] = useState(powerHourPublishStatuses[0])
+    const [selectedPubStatus, setSelectedPubStatus] = useState(powerHourPublishStatuses[0])
+    
+    const handlePowerHourPublishStatus = () => {
+        if (selectedPubStatus?.status === 'Published') {
+            setSelectedPubStatus(powerHourPublishStatuses[1])
+        } else {
+            setSelectedPubStatus(powerHourPublishStatuses[0])
+        }
+    }
 
     return (
         <>
@@ -36,29 +46,33 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 description={description}
             />
             <section
-                className="flex items-center"
+                className="flex flex-col md:flex-row items-center"
             >
                 <section>
                     <div>
                         <img
                             src={cover_image}
                             alt={title}
-                            className="w-3/4"
+                            className="w-3/4 mx-auto"
                         />
                     </div>
-                    <SingleSelectField
-                        labelText="Power hour publish status"
-                        dataSource={powerHourPublishStatuses}
-                        property="status"
-                        selectedValue={selectedPubStatus}
-                        setSelectedValue={setSelectedPubStatus}
-                    />
                 </section>
                 <section>
                     <h1 className="leading-relaxed text-5xl">{title}</h1>
                     <h2 className="leading-relaxed text-4xl">{description}</h2>
                     <h3 className="leading-relaxed text-3xl">{moment(date_time).format("MMMM Do YYYY")}</h3>
                 </section>
+            </section>
+            <section
+                className="py-10"
+            >
+                <SingleSelectField
+                    labelText="Power hour publish status"
+                    dataSource={powerHourPublishStatuses}
+                    property="status"
+                    selectedValue={selectedPubStatus}
+                    setSelectedValue={handlePowerHourPublishStatus}
+                />
             </section>
         </>
     )
