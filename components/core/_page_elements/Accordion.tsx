@@ -28,7 +28,6 @@ const Accordion = ({
         {({ open }) => (
         <>
             <Disclosure.Button className={cx("relative flex w-full items-center justify-between rounded-lg border border-2 border-coolGray bg-layer-2 px-4 py-2 font-semibold text-heading hover:bg-muted-1 focus:z-10 focus:outline-none focus:ring-2 focus:ring-heading/80 dark:border-0 dark:bg-layer-3", {
-            // <Disclosure.Button className={cx("relative flex w-full items-center justify-between rounded-lg border border-muted-1 bg-layer-2 px-4 py-2 font-semibold text-heading hover:bg-muted-1 focus:z-10 focus:outline-none focus:ring-2 focus:ring-heading/80 dark:border-0 dark:bg-layer-3", {
                 ['text-sm']: size === 'sm',
                 ['text-base']: size === 'md',
                 ['text-lg']: size === 'lg'
