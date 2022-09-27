@@ -4,6 +4,7 @@ import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
 import { AccordionDataList } from '../../../components/core/_page_elements/Accordion'
 import { UserCircleIcon, EyeIcon } from "@heroicons/react/outline";
+import EyeSlashIcon from '../../../public/EyeSlashIcon'
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -28,10 +29,12 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
         title,
         songs,
         participants,
-        hosts
+        hosts,
+        publish_status
     } = renderedPlaylist
 
-    const [selectedPubStatus, setSelectedPubStatus] = useState(powerHourPublishStatuses[0])
+    let currentIdx = publish_status ? 0 : 1
+    const [selectedPubStatus, setSelectedPubStatus] = useState(powerHourPublishStatuses[currentIdx])
     
     const handlePowerHourPublishStatus = () => {
         if (selectedPubStatus?.status === 'Published') {
