@@ -54,6 +54,7 @@ const SongPresent = ({
                 playing={currentSongIdx > 0}
                 onPlay={stateMonitor}
                 controls={true}
+                className="mx-auto"
             />
             <section className="text-center py-5">
                 <h5 className="leading-relaxed">#{ order_number }. {title} - {artist} — {album}</h5>

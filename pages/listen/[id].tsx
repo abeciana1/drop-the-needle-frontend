@@ -51,7 +51,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
             </section>
             {songs &&
             <>
-            <section data-pos="current">
+            <section data-pos="current" className="mx-auto">
                 {songs?.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
                     return (<SongPresent
                         key={selectSong?.id}
