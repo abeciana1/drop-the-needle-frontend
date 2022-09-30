@@ -27,7 +27,6 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
         hosts,
         songs
     } = renderedPlaylist
-    console.log(renderedPlaylist);
     const [currentSongIdx, setCurrentSongIdx] = useState(0)
     const participantNames = songs?.map((song: any) => song.user_name)
     const hostNames = hosts?.map((user: any) => user.name)
