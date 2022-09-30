@@ -61,7 +61,7 @@ export const SingleSelectField = ({
     const Icon = icon as React.ElementType
 
     return (
-        <div className="w-96 mx-auto">
+        <div className="w-64 sm:w-80 lg:w-96 mx-auto">
         <label className="sr-only">{ labelText }</label>
         <Listbox value={selectedValue} onChange={setSelectedValue}>
             <div className="relative">
@@ -130,7 +130,7 @@ export const SongSelectField = ({
 }: SingleSelectFieldI) => {
 
     return (
-        <div className="w-96 mx-auto">
+        <div className="w-64 sm:w-80 lg:w-96 mx-auto">
         <label className="sr-only">{ labelText }</label>
         <Listbox value={selectedValue} onChange={setSelectedValue}>
             <div className="relative">
