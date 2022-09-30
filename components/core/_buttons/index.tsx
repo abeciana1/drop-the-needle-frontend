@@ -120,3 +120,22 @@ export const OutlineHrefButton = ({
         </a>
     )
 }
+
+interface IShareButtonProps {
+    text: string;
+    color: string;
+    disabled?: boolean;
+    // onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+export const ShareBtn = ({
+    text,
+    color,
+    disabled
+}: IShareButtonProps) => {
+    return (
+        <button>
+            
+        </button>
+    )
+}
