@@ -72,7 +72,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
             </section>
             </>
             }
-            {songs &&
+            {songs && songs.length > 0 &&
                 <SongSelectField
                     labelText="Select a song"
                     dataSource={songs}
