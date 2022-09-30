@@ -27,10 +27,10 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
         hosts,
         songs
     } = renderedPlaylist
-
+    console.log(renderedPlaylist);
     const [currentSongIdx, setCurrentSongIdx] = useState(0)
-    const participantNames = songs.map((song: any) => song.user)
-    const hostNames = hosts.map((user: any) => user.name)
+    const participantNames = songs?.map((song: any) => song.user_name)
+    const hostNames = hosts?.map((user: any) => user.name)
     const participantList = peopleOxfordComma(participantNames)
     const hostList = peopleOxfordComma(hostNames)
     const [selectSong, setSelectSong] = useState(songs[currentSongIdx])
@@ -50,10 +50,10 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 <h3 className="leading-relaxed text-3xl">Songs provided by</h3>
                 <h4 className="leading-relaxed text-2xl">{participantList}</h4>
             </section>
-            {songs && (currentSongIdx + 1) === songs?.legnth ?
+            {songs &&
             <>
             <section data-pos="current">
-                {songs.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
+                {songs?.slice(currentSongIdx, (currentSongIdx + 1)).map((selectedSong: any) => {
                     return (<SongPresent
                         key={selectSong?.id}
                         title={selectedSong?.title}
@@ -63,7 +63,7 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                         // link={fakeSongs[currentSongIdx]}
                         start_time={selectedSong?.start_time}
                         end_time={selectedSong?.end_time}
-                        user={selectedSong?.user}
+                        user={selectedSong?.user_name}
                         order_number={selectedSong?.order_number}
                         currentSongIdx={currentSongIdx}
                         handleEnding={handleEnding}
@@ -71,16 +71,16 @@ const PlaylistPresent = ({ renderedPlaylist }: any) => {
                 })}
             </section>
             </>
-                :
-                <h1>The End</h1>
             }
-            <SongSelectField
-                labelText="Select a song"
-                dataSource={songs}
-                property="title"
-                selectedValue={selectSong}
-                setSelectedValue={setSelectSong}
-            />
+            {songs &&
+                <SongSelectField
+                    labelText="Select a song"
+                    dataSource={songs}
+                    property="title"
+                    selectedValue={selectSong}
+                    setSelectedValue={setSelectSong}
+                />
+            }
         </>
     )
 }
