@@ -121,7 +121,8 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
             {songs &&
                 <section
                     className="py-10"
-                >
+            >
+                <div>(Click on the track to expand)</div>
                     <TrackListing>
                         {songs?.map((song: any) => {
                             return (

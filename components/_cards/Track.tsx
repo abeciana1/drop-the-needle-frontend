@@ -37,7 +37,14 @@ const Track = ({
 }: TrackI) => {
 
     return (
-        <li></li>
+        <li
+            className="relative flex w-full border-coolGray px-2 py-4"
+        >
+            <div className="font-medium">#{order_number}</div>
+            <div className="ml-2 font-medium">Title: <span className="font-normal">{title}</span></div>
+            <div className="absolute left-1/3 ml-2 font-medium v">Album: <span className="font-normal">{album}</span></div>
+            <button className="absolute right-10 font-medium">Remove</button>
+        </li>
     )
 }
 
