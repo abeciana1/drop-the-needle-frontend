@@ -127,7 +127,6 @@ interface IShareButtonProps {
     disabled?: boolean;
     subject?: any;
     body?: any;
-    children?: any;
     backgroundColor?: string;
     sms?: boolean;
     icon: React.ElementType;
@@ -139,7 +138,8 @@ export const ShareBtn = ({
     subject,
     body,
     textColor,
-    backgroundColor
+    backgroundColor,
+    sms
 }: IShareButtonProps) => {
 
     const Icon = icon as React.ElementType
@@ -156,7 +156,7 @@ export const ShareBtn = ({
 
     const emailHref = `mailto:?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`
 
-    const smsHref = `sms`
+    const smsHref = `sms=?body=${body}`
 
     return (
         <a

@@ -102,7 +102,6 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                         className="flex gap-2"
                     >
                         <ShareBtn
-                            email=""
                             body=""
                             subject={"Join me at " + title}
                             text="Share via email"
@@ -111,8 +110,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                             icon={AtSymbolIcon}
                         />
                         <ShareBtn
-                            body=""
-                            subject={"Join me at " + title}
+                            body={"Join me at " + title}
                             text="Share via email"
                             textColor="altWhite"
                             backgroundColor="scarlet"
