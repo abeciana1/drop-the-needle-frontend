@@ -166,6 +166,7 @@ export const ShareBtn = ({
                 ['text-royalBlue']: textColor === 'royalBlue',
                 ['bg-royalBlue']: backgroundColor === 'royalBlue',
                 ['bg-scarlet']: backgroundColor === 'scarlet',
+                ['bg-green-400']: backgroundColor === 'bg-green-400',
                 ['rounded-lg']: open
             })}
             onMouseEnter={expandHandler}
@@ -225,6 +226,7 @@ export const ExpandBtn = ({
                 ['text-royalBlue']: textColor === 'royalBlue',
                 ['bg-royalBlue']: backgroundColor === 'royalBlue',
                 ['bg-scarlet']: backgroundColor === 'scarlet',
+                ['bg-green-400']: backgroundColor === 'bg-green-400',
                 ['rounded-lg']: open,
                 [addClass]: addClass
             })}

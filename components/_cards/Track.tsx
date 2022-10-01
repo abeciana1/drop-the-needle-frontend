@@ -54,8 +54,6 @@ const Track = ({
                 backgroundColor="scarlet"
                 textColor="altWhite"
             />
-
-            {/* </ExpandBtn> */}
         </li>
     )
 }

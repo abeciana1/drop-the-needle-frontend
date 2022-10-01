@@ -111,7 +111,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                             body={"Join me at " + title}
                             text="Share via SMS"
                             textColor="altWhite"
-                            backgroundColor="scarlet"
+                            backgroundColor="bg-green-400"
                             icon={ChatIcon}
                             sms={true}
                         />
