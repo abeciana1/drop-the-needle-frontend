@@ -14,9 +14,6 @@ module.exports = {
       "royalBlue": {
         DEFAULT: "#335ade"
       },
-      "coolGray": {
-        DEFAULT: "#080807"
-      },
       "altGreen": {
         DEFAULT: "#558564"
       },
@@ -31,7 +28,24 @@ module.exports = {
       },
       ...colors
     },
+    screens: {
+      'xs': '325px',
+      // => @media (min-width: 325px) { ... }
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
+      colors: {
+        "coolGray": "#080807",
+      },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       }

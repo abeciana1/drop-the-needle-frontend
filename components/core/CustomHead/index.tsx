@@ -13,10 +13,7 @@ const CustomHead = (props?: any) => {
         if (typeof window !== 'undefined') {
             if (localStorage['dtnLogged'] === 'true') {
                 checkUserLogged()
-                if (router.pathname.split('/')[1] === 'dashboard' && user === null) {
-                    router.push('/login')
-                } else if ((router.pathname === '/login' || router.pathname === '/signup') && user) {
-                    console.log('hello')
+                if ((router.pathname === '/login' || router.pathname === '/signup') && user) {
                     router.push('/dashboard')
                 }
             }

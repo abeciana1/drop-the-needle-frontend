@@ -27,7 +27,7 @@ const NavBar = (props: any) => {
             onMouseLeave={() => setActiveIdx(0)}
         >
             <div
-                className="block md:hidden absolute z-50 right-10 md:right-20"
+                className="block md:hidden absolute z-50 right-5 md:right-20"
             >
                 <Hamburger
                     toggled={isOpen}

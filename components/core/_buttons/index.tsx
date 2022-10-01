@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import cx from 'classnames'
 
 interface IButtonProps {
@@ -117,6 +117,71 @@ export const OutlineHrefButton = ({
             >
                 { text }
             </button>
+        </a>
+    )
+}
+
+interface IShareButtonProps {
+    text: string;
+    textColor: string;
+    disabled?: boolean;
+    subject?: any;
+    body?: any;
+    backgroundColor?: string;
+    sms?: boolean;
+    icon: React.ElementType;
+}
+
+export const ShareBtn = ({
+    text,
+    icon,
+    subject,
+    body,
+    textColor,
+    backgroundColor,
+    sms
+}: IShareButtonProps) => {
+
+    const Icon = icon as React.ElementType
+
+    const [open, setClose] = useState(false)
+    
+    const expandHandler = () => {
+        if (open) {
+            setClose(false)
+        } else {
+            setClose(true)
+        }
+    }
+
+    const emailHref = `mailto:?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`
+
+    const smsHref = `sms=?body=${body}`
+
+    return (
+        <a
+            href={sms ? smsHref : emailHref}
+            className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
+                ['text-altWhite']: textColor === 'altWhite',
+                ['text-royalBlue']: textColor === 'royalBlue',
+                ['bg-royalBlue']: backgroundColor === 'royalBlue',
+                ['bg-scarlet']: backgroundColor === 'scarlet',
+                ['rounded-lg']: open
+            })}
+            onMouseEnter={expandHandler}
+            onMouseLeave={expandHandler}
+        >
+            <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
+                ['text-altWhite']: textColor === 'altWhite',
+                ['text-royalBlue']: textColor === 'royalBlue',
+                ['text-coolGray']: textColor === 'coolGray',
+                ['mx-auto']: open === false
+            })} />
+            {open &&
+                <div className="font-medium ml-2 whitespace-nowrap">
+                    {text}
+                </div>
+            }
         </a>
     )
 }

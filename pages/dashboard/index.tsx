@@ -30,7 +30,7 @@ const Dashboard = (props: any) => {
                                 description={playlist['description']}
                                 timestamp={playlist['date_time']}
                                 coverImage={playlist['cover_image']}
-                                path="/dashboard/"
+                                path="/dashboard/playlists/"
                             />
                         )
                     })}

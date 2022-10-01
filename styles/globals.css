@@ -42,3 +42,16 @@ h5 {
 h6 {
   @apply text-2xl
 }
+
+.expand-btn {
+  height: 40px;
+  width: 40px;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+}
+
+.expand-btn:hover {
+  width: 185px;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+}
