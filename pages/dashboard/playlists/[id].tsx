@@ -111,7 +111,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                         />
                         <ShareBtn
                             body={"Join me at " + title}
-                            text="Share via email"
+                            text="Share via SMS"
                             textColor="altWhite"
                             backgroundColor="scarlet"
                             icon={ChatIcon}
