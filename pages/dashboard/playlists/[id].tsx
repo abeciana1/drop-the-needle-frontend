@@ -13,11 +13,9 @@ import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
 import TrackListing from '../../../components/_containers/TrackListing'
+import Track from '../../../components/_cards/Track'
 
 // todo - setup func for updating power hour - patch to backend
-
-import * as icons from "@heroicons/react/outline"
-console.log({icons});
 
 const powerHourPublishStatuses = [
     {
@@ -127,7 +125,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 >
                     <TrackListing>
                         {songs?.map((song: any) => {
-                            console.log(song)
+                            return <Track/>
                         })}
                     </TrackListing>
                 </section>
