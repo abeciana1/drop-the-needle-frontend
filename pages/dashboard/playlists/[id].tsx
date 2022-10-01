@@ -120,6 +120,16 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     </section>
                 </section>
             </ThreeColumnGrid>
+            {songs &&
+                <section
+                    className="py-10"
+                >
+                    <section
+                        className="border-solid border-2 border-coolGray rounded-lg"
+                    >
+                    </section>
+                </section>
+            }
         </>
     )
 }
