@@ -12,6 +12,7 @@ import {
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
+import TrackListing from '../../../components/_containers/TrackListing'
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -124,10 +125,11 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 <section
                     className="py-10"
                 >
-                    <section
-                        className="border-solid border-2 border-coolGray rounded-lg"
-                    >
-                    </section>
+                    <TrackListing>
+                    {songs?.map((song: any) => {
+                            console.log(song)
+                        })}
+                    </TrackListing>
                 </section>
             }
         </>

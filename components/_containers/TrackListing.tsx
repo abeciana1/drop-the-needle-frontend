@@ -1,8 +1,10 @@
 
-const TrackListing = () => {
+const TrackListing = ({children}: any) => {
 
     return (
-        <div></div>
+        <section className="border-solid border-2 border-coolGray rounded-lg">
+            {children}
+        </section>
     )
 }
 
