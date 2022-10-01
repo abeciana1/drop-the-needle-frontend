@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import cx from 'classnames'
 
 interface IButtonProps {
@@ -121,21 +121,62 @@ export const OutlineHrefButton = ({
     )
 }
 
-interface IShareButtonProps {
+interface IEmailShareButtonProps {
     text: string;
-    color: string;
+    textColor: string;
     disabled?: boolean;
-    // onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+    subject?: any;
+    body?: any;
+    email?: string;
+    children?: any;
+    backgroundColor?: string;
+    icon: React.ElementType;
 }
 
-export const ShareBtn = ({
+export const EmailShareBtn = ({
     text,
-    color,
-    disabled
-}: IShareButtonProps) => {
+    email,
+    disabled,
+    icon,
+    subject,
+    body,
+    textColor,
+    backgroundColor
+}: IEmailShareButtonProps) => {
+
+    const Icon = icon as React.ElementType
+
+    const [open, setClose] = useState(false)
+    
+    const expandHandler = () => {
+        if (open) {
+            setClose(false)
+        } else {
+            setClose(true)
+        }
+    }
+
     return (
-        <button>
-            
-        </button>
+        <a
+            href={`mailto:${email}?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`}
+            className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
+                ['text-altWhite']: textColor === 'altWhite',
+                ['text-royalBlue']: textColor === 'royalBlue',
+                ['bg-royalBlue']: backgroundColor === 'royalBlue',
+                ['rounded-lg']: open
+            })}
+            onMouseEnter={expandHandler}
+            onMouseLeave={expandHandler}
+        >
+            <Icon strokeWidth="2.5" className={cx('mx-auto h-5 w-5', {
+                ['text-altWhite']: textColor === 'altWhite',
+                ['text-royalBlue']: textColor === 'royalBlue'
+            })} />
+            {open &&
+                <div className="font-medium pl-7 whitespace-nowrap">
+                    {text}
+                </div>
+            }
+        </a>
     )
 }

@@ -3,9 +3,10 @@ import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
 import { AccordionDataList } from '../../../components/core/_page_elements/Accordion'
-import { UserCircleIcon, EyeIcon } from "@heroicons/react/outline";
+import { UserCircleIcon, EyeIcon, AtSymbolIcon } from "@heroicons/react/outline";
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
+import { EmailShareBtn } from '../../../components/core/_buttons'
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -88,6 +89,15 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     property="name"
                 />
             </ThreeColumnGrid>
+            <EmailShareBtn
+                email=""
+                body=""
+                subject={"Join me at " + title}
+                text="Share via email"
+                textColor="altWhite"
+                backgroundColor="royalBlue"
+                icon={AtSymbolIcon}
+            />
         </>
     )
 }
