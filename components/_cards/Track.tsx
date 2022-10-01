@@ -15,6 +15,8 @@ interface TrackI {
     order_number: number;
     user_name: string;
     embed_link: string;
+    provided: any;
+    index: number;
 }
 
 const Track = ({
@@ -26,7 +28,9 @@ const Track = ({
     end_time,
     order_number,
     user_name,
-    embed_link
+    embed_link,
+    provided,
+    index
 }: TrackI) => {
 
     const [stateOrderNumber, setOrderNumber] = useState(order_number)
