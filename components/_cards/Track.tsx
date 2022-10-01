@@ -1,4 +1,5 @@
-
+import { useState } from 'react'
+import { XMarkIcon } from "@heroicons/react/outline"
 
 interface TrackI {
     title: string;
@@ -24,14 +25,26 @@ const Track = ({
     embed_link
 }: TrackI) => {
 
+    const [stateOrderNumber, setOrderNumber] = useState(order_number)
+    // todo on dragging - logic - change this number to X
+
+    const removeTrackHandler = () => {
+        console.log('remove song')
+    }
+    // todo hook this function up to remove song
+
+
     return (
         <li
             className="relative flex w-full border-coolGray px-2 py-4"
         >
-            <div className="font-medium">#{order_number}</div>
+            <div className="font-medium">#{stateOrderNumber}</div>
             <div className="ml-2 font-medium">Title: <span className="font-normal">{title}</span></div>
             <div className="absolute left-1/3 ml-2 font-medium v">Album: <span className="font-normal">{album}</span></div>
-            <button className="absolute right-10 font-medium">Remove</button>
+            <button
+                className="absolute right-10 font-medium"
+                onClick={removeTrackHandler}
+            >{XMarkIcon}</button>
         </li>
     )
 }
