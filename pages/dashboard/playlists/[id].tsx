@@ -111,13 +111,13 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                             icon={AtSymbolIcon}
                         />
                         <ShareBtn
-                            email=""
                             body=""
                             subject={"Join me at " + title}
                             text="Share via email"
                             textColor="altWhite"
                             backgroundColor="scarlet"
                             icon={ChatIcon}
+                            sms={true}
                         />
                     </section>
                 </section>

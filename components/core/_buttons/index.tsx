@@ -127,7 +127,6 @@ interface IShareButtonProps {
     disabled?: boolean;
     subject?: any;
     body?: any;
-    email?: string;
     children?: any;
     backgroundColor?: string;
     sms?: boolean;
@@ -136,7 +135,6 @@ interface IShareButtonProps {
 
 export const ShareBtn = ({
     text,
-    email,
     icon,
     subject,
     body,
@@ -156,9 +154,13 @@ export const ShareBtn = ({
         }
     }
 
+    const emailHref = `mailto:?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`
+
+    const smsHref = `sms`
+
     return (
         <a
-            href={`mailto:${email}?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`}
+            href={sms ? smsHref : emailHref}
             className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
                 ['text-altWhite']: textColor === 'altWhite',
                 ['text-royalBlue']: textColor === 'royalBlue',
