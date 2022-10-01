@@ -32,8 +32,10 @@ const Track = ({
         console.log('remove song')
     }
     // todo hook this function up to remove song
+    // todo create action to delete song
+    // todo add alert -- are you sure ? -- for double checking on removing song
 
-
+    // todo create expand button for the remove button 
     return (
         <li
             className="relative flex w-full border-coolGray px-2 py-4"
