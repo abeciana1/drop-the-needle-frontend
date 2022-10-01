@@ -30,7 +30,6 @@ const powerHourPublishStatuses = [
 
 const DashboardEditPage = ({ renderedPlaylist }: any) => {
 
-    // console.log(renderedPlaylist)
     const {
         cover_image,
         date_time,
@@ -125,7 +124,19 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 >
                     <TrackListing>
                         {songs?.map((song: any) => {
-                            return <Track/>
+                            return (
+                                <Track
+                                    key={song?.id}
+                                    title={song?.title}
+                                    artist={song?.artist}
+                                    album={song?.album}
+                                    youtube_link={song?.youtube_link}
+                                    start_time={song?.start_time}
+                                    end_time={song?.end_time}
+                                    order_number={song?.order_number}
+                                    user_name={song?.user_name}
+                                    embed_link={song?.embed_link}
+                                />)
                         })}
                     </TrackListing>
                 </section>
@@ -165,6 +176,6 @@ export const getStaticProps = async (context: any) => {
         props: {
             renderedPlaylist
         },
-        revalidate: 10
+        revalidate: 1
     }
 }
