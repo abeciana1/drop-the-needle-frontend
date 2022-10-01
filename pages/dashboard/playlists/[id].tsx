@@ -126,7 +126,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     className="py-10"
                 >
                     <TrackListing>
-                    {songs?.map((song: any) => {
+                        {songs?.map((song: any) => {
                             console.log(song)
                         })}
                     </TrackListing>
