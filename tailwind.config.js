@@ -45,7 +45,6 @@ module.exports = {
     extend: {
       colors: {
         "coolGray": "#080807",
-        // "royalBlue": "#335ade"
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',

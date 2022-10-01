@@ -7,13 +7,16 @@ import {
     UserCircleIcon,
     EyeIcon,
     AtSymbolIcon,
-    EllipsisHorizontalCircleIcon
+    ChatIcon
 } from "@heroicons/react/outline";
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
 
 // todo - setup func for updating power hour - patch to backend
+
+import * as icons from "@heroicons/react/outline"
+console.log({icons});
 
 const powerHourPublishStatuses = [
     {
@@ -96,7 +99,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 <section className="mx-auto">
                     <div className="text-4xl pb-5">Promote the power hour</div>
                     <section
-                        className="flex"
+                        className="flex gap-2"
                     >
                         <ShareBtn
                             email=""
@@ -113,8 +116,8 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                             subject={"Join me at " + title}
                             text="Share via email"
                             textColor="altWhite"
-                            backgroundColor="royalBlue"
-                            icon={EllipsisHorizontalCircleIcon}
+                            backgroundColor="scarlet"
+                            icon={ChatIcon}
                         />
                     </section>
                 </section>

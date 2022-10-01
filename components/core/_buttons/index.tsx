@@ -163,17 +163,20 @@ export const ShareBtn = ({
                 ['text-altWhite']: textColor === 'altWhite',
                 ['text-royalBlue']: textColor === 'royalBlue',
                 ['bg-royalBlue']: backgroundColor === 'royalBlue',
+                ['bg-scarlet']: backgroundColor === 'scarlet',
                 ['rounded-lg']: open
             })}
             onMouseEnter={expandHandler}
             onMouseLeave={expandHandler}
         >
-            <Icon strokeWidth="2.5" className={cx('mx-auto h-5 w-5', {
+            <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
                 ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue'
+                ['text-royalBlue']: textColor === 'royalBlue',
+                ['text-coolGray']: textColor === 'coolGray',
+                ['mx-auto']: open === false
             })} />
             {open &&
-                <div className="font-medium pl-7 whitespace-nowrap">
+                <div className="font-medium ml-2 whitespace-nowrap">
                     {text}
                 </div>
             }
