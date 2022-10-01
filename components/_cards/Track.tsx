@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { XMarkIcon } from "@heroicons/react/outline"
+import { XIcon } from "@heroicons/react/outline"
+import { ExpandBtn } from '../core/_buttons'
+// import * as icons from "@heroicons/react/outline"
+// console.log(icons);
+
 
 interface TrackI {
     title: string;
@@ -43,10 +47,16 @@ const Track = ({
             <div className="font-medium">#{stateOrderNumber}</div>
             <div className="ml-2 font-medium">Title: <span className="font-normal">{title}</span></div>
             <div className="absolute left-1/3 ml-2 font-medium v">Album: <span className="font-normal">{album}</span></div>
-            <button
-                className="absolute right-10 font-medium"
+            <ExpandBtn
+                addClass="absolute right-10 bottom-2 font-medium"
                 onClick={removeTrackHandler}
-            >{XMarkIcon}</button>
+                icon={XIcon}
+                text="Remove"
+                backgroundColor="scarlet"
+                textColor="altWhite"
+            />
+
+            {/* </ExpandBtn> */}
         </li>
     )
 }
