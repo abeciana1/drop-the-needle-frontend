@@ -3,10 +3,15 @@ import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
 import { AccordionDataList } from '../../../components/core/_page_elements/Accordion'
-import { UserCircleIcon, EyeIcon, AtSymbolIcon } from "@heroicons/react/outline";
+import {
+    UserCircleIcon,
+    EyeIcon,
+    AtSymbolIcon,
+    EllipsisHorizontalCircleIcon
+} from "@heroicons/react/outline";
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
-import { EmailShareBtn } from '../../../components/core/_buttons'
+import { ShareBtn } from '../../../components/core/_buttons'
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -71,7 +76,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                 </section>
             </section>
             <ThreeColumnGrid
-                addClass="py-10 items-center gap-10"
+                addClass="py-10 items-start gap-10"
             >
                 <SingleSelectField
                     icon={selectedPubStatus?.bool ? EyeIcon : EyeSlashIcon}
@@ -88,16 +93,32 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     size="md"
                     property="name"
                 />
+                <section className="mx-auto">
+                    <div className="text-4xl pb-5">Promote the power hour</div>
+                    <section
+                        className="flex"
+                    >
+                        <ShareBtn
+                            email=""
+                            body=""
+                            subject={"Join me at " + title}
+                            text="Share via email"
+                            textColor="altWhite"
+                            backgroundColor="royalBlue"
+                            icon={AtSymbolIcon}
+                        />
+                        <ShareBtn
+                            email=""
+                            body=""
+                            subject={"Join me at " + title}
+                            text="Share via email"
+                            textColor="altWhite"
+                            backgroundColor="royalBlue"
+                            icon={EllipsisHorizontalCircleIcon}
+                        />
+                    </section>
+                </section>
             </ThreeColumnGrid>
-            <EmailShareBtn
-                email=""
-                body=""
-                subject={"Join me at " + title}
-                text="Share via email"
-                textColor="altWhite"
-                backgroundColor="royalBlue"
-                icon={AtSymbolIcon}
-            />
         </>
     )
 }

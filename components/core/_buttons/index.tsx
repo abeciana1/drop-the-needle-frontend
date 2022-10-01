@@ -121,7 +121,7 @@ export const OutlineHrefButton = ({
     )
 }
 
-interface IEmailShareButtonProps {
+interface IShareButtonProps {
     text: string;
     textColor: string;
     disabled?: boolean;
@@ -130,19 +130,19 @@ interface IEmailShareButtonProps {
     email?: string;
     children?: any;
     backgroundColor?: string;
+    sms?: boolean;
     icon: React.ElementType;
 }
 
-export const EmailShareBtn = ({
+export const ShareBtn = ({
     text,
     email,
-    disabled,
     icon,
     subject,
     body,
     textColor,
     backgroundColor
-}: IEmailShareButtonProps) => {
+}: IShareButtonProps) => {
 
     const Icon = icon as React.ElementType
 
