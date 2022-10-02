@@ -13,7 +13,6 @@ import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
 import dynamic from 'next/dynamic'
-// import TrackListing from '../../../components/_containers/TrackListing'
 
 // todo - setup func for updating power hour - patch to backend
 

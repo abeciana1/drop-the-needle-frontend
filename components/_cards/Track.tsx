@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import { XIcon } from "@heroicons/react/outline"
 import { ExpandBtn } from '../core/_buttons'
-import { Draggable } from 'react-beautiful-dnd'
-// import * as icons from "@heroicons/react/outline"
-// console.log(icons);
 
 
 interface TrackI {
@@ -48,7 +45,6 @@ const Track = ({
 
         return (
         <li
-            // key={id}
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
