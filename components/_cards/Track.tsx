@@ -48,6 +48,7 @@ const Track = ({
 
         return (
         <li
+            // key={id}
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}

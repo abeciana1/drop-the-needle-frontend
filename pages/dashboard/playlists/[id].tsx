@@ -12,11 +12,14 @@ import {
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
-import TrackListing from '../../../components/_containers/TrackListing'
-// import Track from '../../../components/_cards/Track'
-// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import dynamic from 'next/dynamic'
+// import TrackListing from '../../../components/_containers/TrackListing'
 
 // todo - setup func for updating power hour - patch to backend
+
+const TrackListing = dynamic(() => import('../../../components/_containers/TrackListing'), {
+    ssr: false
+})
 
 const powerHourPublishStatuses = [
     {

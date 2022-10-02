@@ -1,15 +1,16 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Track from '../_cards/Track'
 
-// interface TrackListingI {
-//     songs: any;
-// }
+interface TrackListingI {
+    songs: any;
+}
 
 const TrackListing = ({
     songs
-}) => {
+}: TrackListingI) => {
 
-    const handleOnDragEnd = (result) => {
+    const handleOnDragEnd = (result: any) => {
+        console.log({result})
         if (!result.destination) return;
         let items = songs
         const [reorderedItem] = items.splice(result.source.index, 1);
@@ -30,7 +31,7 @@ const TrackListing = ({
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
-                            {songs?.map((song, index) => {
+                            {songs?.map((song: any, index: number) => {
                                 return (
                                 <Draggable
                                     key={song?.id}
