@@ -13,8 +13,8 @@ import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
 import TrackListing from '../../../components/_containers/TrackListing'
-import Track from '../../../components/_cards/Track'
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+// import Track from '../../../components/_cards/Track'
+// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -133,48 +133,7 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
                     className="py-10"
             >
                 <div>(Click on the track to expand)</div>
-                    <DragDropContext
-                        onDragEnd={(result: any) => handleOnDragEnd(result)}
-                    >
-                    <TrackListing>
-                        <Droppable droppableId="droppable">
-                            {provided => (
-                                <ul
-                                    className="divide-coolGray divide-y-2 divide-solid"
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
-                                >
-                                    {songs?.map((song: any, index:number) => {
-                                        return (
-                                            <Draggable
-                                                key={song?.id}
-                                                draggableId={song?.id.toString()}
-                                                index={index}
-                                            >
-                                                {provided => (
-                                                    <Track
-                                                        key={song?.id}
-                                                        title={song?.title}
-                                                        artist={song?.artist}
-                                                        album={song?.album}
-                                                        youtube_link={song?.youtube_link}
-                                                        start_time={song?.start_time}
-                                                        end_time={song?.end_time}
-                                                        order_number={song?.order_number}
-                                                        user_name={song?.user_name}
-                                                        embed_link={song?.embed_link}
-                                                        provided={provided}
-                                                        index={index}
-                                                    />
-                                                )}
-                                            </Draggable>
-                                        )
-                                    })}
-                                </ul>
-                            )}
-                        </Droppable>
-                        </TrackListing>
-                    </DragDropContext>
+                <TrackListing songs={songs} />
                 </section>
             }
         </>

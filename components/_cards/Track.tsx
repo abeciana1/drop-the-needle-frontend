@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { XIcon } from "@heroicons/react/outline"
 import { ExpandBtn } from '../core/_buttons'
+import { Draggable } from 'react-beautiful-dnd'
 // import * as icons from "@heroicons/react/outline"
 // console.log(icons);
 
 
 interface TrackI {
+    id: number;
     title: string;
     artist: string;
     album: string;
@@ -20,6 +22,7 @@ interface TrackI {
 }
 
 const Track = ({
+    id,
     title,
     artist,
     album,
@@ -43,8 +46,11 @@ const Track = ({
     // todo create action to delete song
     // todo add alert -- are you sure ? -- for double checking on removing song
 
-    return (
+        return (
         <li
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
             className="relative flex flex-col md:flex-row w-full border-coolGray px-2 py-4"
         >
             <div className="font-medium">#{stateOrderNumber}</div>
@@ -58,7 +64,8 @@ const Track = ({
                 backgroundColor="scarlet"
                 textColor="altWhite"
             />
-        </li>
+            </li>
+        
     )
 }
 
