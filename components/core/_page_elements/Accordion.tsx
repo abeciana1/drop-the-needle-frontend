@@ -23,11 +23,11 @@ export const Accordion = ({
     const Icon = icon as React.ElementType
 
     return (
-        <div className="flex w-96 flex-col space-y-2">
+        <div className="flex w-96 flex-col">
     <Disclosure>
         {({ open }) => (
         <>
-            <Disclosure.Button className={cx("relative flex w-full items-center justify-between rounded-lg border border-2 border-coolGray bg-layer-2 px-4 py-2 font-semibold text-heading hover:bg-muted-1 focus:z-10 focus:outline-none focus:ring-2 focus:ring-heading/80 dark:border-0 dark:bg-layer-3", {
+            <Disclosure.Button className={cx("relative space-y-2 flex w-full items-center justify-between rounded-lg border border-2 border-coolGray bg-layer-2 px-4 py-2 font-semibold text-heading hover:bg-muted-1 focus:z-10 focus:outline-none focus:ring-2 focus:ring-heading/80 dark:border-0 dark:bg-layer-3", {
                 ['text-sm']: size === 'sm',
                 ['text-base']: size === 'md',
                 ['text-lg']: size === 'lg'
@@ -72,7 +72,7 @@ export const AccordionDataList = ({
     const Icon = icon as React.ElementType
 
     return (
-        <div className="flex w-64 sm:w-80 lg:w-96 flex-col space-y-2 mx-auto">
+        <div className="flex w-64 sm:w-80 lg:w-96 flex-col mx-auto">
     <Disclosure>
         {({ open }) => (
         <>
@@ -94,7 +94,7 @@ export const AccordionDataList = ({
             </Disclosure.Button>
             <Disclosure.Panel className="relative">
                 <ul
-                    className="px-2 py-2 h-28 overscroll-auto overflow-auto z-50 absolute rounded-md bg-white w-full"
+                    className="px-2 py-2 h-28 top-2 overscroll-auto overflow-auto z-50 absolute rounded-md bg-white w-full"
                 >
                     { dataSource.map((dataEntity: any) => {
                         return <li className="text-lg">{ dataEntity[property] }</li>
