@@ -38,10 +38,12 @@ const Track = ({
 
     const removeTrackHandler = () => {
         console.log('remove song')
+        if (confirm(`Are you sure you want to delete '${title}' from this power hour?`)) {
+            // todo hook this function up to remove song
+            // todo create action to delete song
+            console.log('you deleted it')
+        }
     }
-    // todo hook this function up to remove song
-    // todo create action to delete song
-    // todo add alert -- are you sure ? -- for double checking on removing song
 
         return (
         <li
