@@ -48,7 +48,6 @@ const TrackListing = ({
                                         youtube_link={song?.youtube_link}
                                         start_time={song?.start_time}
                                         end_time={song?.end_time}
-                                        order_number={song?.order_number}
                                         user_name={song?.user_name}
                                         embed_link={song?.embed_link}
                                         provided={provided}
