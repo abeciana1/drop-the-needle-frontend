@@ -1,14 +1,17 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Track from '../_cards/Track'
+import { connect } from 'react-redux'
 
 interface TrackListingI {
     songs: any;
+    state: any
 }
 
 const TrackListing = ({
-    songs
+    songs,
+    state
 }: TrackListingI) => {
-
+    console.log(state);
     const handleOnDragEnd = (result: any) => {
         console.log({result})
         if (!result.destination) return;
@@ -66,4 +69,8 @@ const TrackListing = ({
     )
 }
 
-export default TrackListing
+const mapStateToProps = (state: any) => ({
+    state: state
+})
+
+export default connect(mapStateToProps)(TrackListing)
