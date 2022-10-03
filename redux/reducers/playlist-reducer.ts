@@ -28,6 +28,9 @@ const playlistReducer = (
                 ...state,
                 songs: action.payload
             }
+        default:
+            return state
+            break;
     }
 }
 

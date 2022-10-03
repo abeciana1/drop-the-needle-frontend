@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
@@ -13,6 +13,8 @@ import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
 import dynamic from 'next/dynamic'
+import { connect } from 'react-redux'
+import { setPlaylist } from '../../../redux/actions/playlist-actions'
 
 // todo - setup func for updating power hour - patch to backend
 
@@ -31,7 +33,7 @@ const powerHourPublishStatuses = [
     }
 ]
 
-const DashboardEditPage = ({ renderedPlaylist }: any) => {
+const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
 
     const {
         cover_image,
@@ -142,7 +144,11 @@ const DashboardEditPage = ({ renderedPlaylist }: any) => {
     )
 }
 
-export default DashboardEditPage
+const mapDispatchToProps = {
+    setPlaylist
+}
+
+export default connect(null, mapDispatchToProps)(DashboardEditPage)
 
 
 export const getStaticPaths = async() => {
