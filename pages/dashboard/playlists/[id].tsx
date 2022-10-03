@@ -36,6 +36,7 @@ const powerHourPublishStatuses = [
 const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
 
     const {
+        id,
         cover_image,
         date_time,
         description,
@@ -48,6 +49,10 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
 
     let currentIdx = publish_status ? 0 : 1
     const [selectedPubStatus, setSelectedPubStatus] = useState(powerHourPublishStatuses[currentIdx])
+
+    useEffect(() => {
+        setPlaylist(id)
+    }, [])
     
     const handlePowerHourPublishStatus = () => {
         if (selectedPubStatus?.status === 'Published') {

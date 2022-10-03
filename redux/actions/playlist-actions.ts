@@ -9,7 +9,10 @@ export const setPlaylist = (playlistId: number) => {
         fetch(API_URL + "power_hours/" + playlistId)
             .then(res => res.json())
             .then(data => {
-            console.log(data)
+            dispatch({
+                type: SET_PLAYLIST,
+                payload: data
+            })
         })
     }
 }
