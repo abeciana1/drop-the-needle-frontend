@@ -3,12 +3,17 @@ import Head from 'next/head'
 import { connect } from 'react-redux'
 import { checkUserLogged } from '../../../redux/actions/user-actions'
 import { useRouter } from 'next/router'
+import {
+    revertPlaylist,
+    revertSongs
+} from '../../../redux/actions/playlist-actions'
 
 const CustomHead = (props?: any) => {
 
-    const { title, description, checkUserLogged, user } = props
+    const { title, description, checkUserLogged, user, revertSongs, revertPlaylist } = props
     const router = useRouter()
 
+    // * pushing user back to login
     useEffect(() => {
         if (typeof window !== 'undefined') {
             if (localStorage['dtnLogged'] === 'true') {
@@ -17,10 +22,16 @@ const CustomHead = (props?: any) => {
                     router.push('/dashboard')
                 }
             }
-            // else if (localStorage['dtnLogged'] === undefined) {
-            //     router.push('/login')
-            // }
         } 
+    }, [])
+
+    // * wiping playlist and song state clean if not on a playlist page
+    useEffect(() => {
+        let playlist = router.asPath.split('/')
+        if (playlist[2] !== 'playlist') {
+            revertPlaylist()
+            revertSongs()
+        }
     }, [])
 
     return (
@@ -38,7 +49,9 @@ const mapStateToProps = (state: any) => {
 }
 
 const mapDispatchToProps = {
-    checkUserLogged
+    checkUserLogged,
+    revertPlaylist,
+    revertSongs
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomHead)
