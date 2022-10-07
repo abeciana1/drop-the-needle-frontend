@@ -164,8 +164,10 @@ export const ShareBtn = ({
             className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
                 ['text-altWhite']: textColor === 'altWhite',
                 ['text-royalBlue']: textColor === 'royalBlue',
+                ['text-coolGray']: textColor === 'coolGray',
                 ['bg-royalBlue']: backgroundColor === 'royalBlue',
                 ['bg-scarlet']: backgroundColor === 'scarlet',
+                ['bg-yellow-300']: backgroundColor === 'yellow',
                 ['bg-green-400']: backgroundColor === 'bg-green-400',
                 ['rounded-lg']: open
             })}

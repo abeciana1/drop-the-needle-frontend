@@ -7,7 +7,8 @@ import {
     UserCircleIcon,
     EyeIcon,
     AtSymbolIcon,
-    ChatIcon
+    ChatIcon,
+    DuplicateIcon
 } from "@heroicons/react/outline";
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
 import { ThreeColumnGrid } from '../../../components/core/_layouts'
@@ -132,6 +133,14 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
                             textColor="altWhite"
                             backgroundColor="bg-green-400"
                             icon={ChatIcon}
+                            sms={true}
+                        />
+                        <ShareBtn
+                            body=""
+                            text="Copy present link"
+                            textColor="coolGray"
+                            backgroundColor="yellow"
+                            icon={DuplicateIcon}
                             sms={true}
                         />
                     </section>
