@@ -26,11 +26,19 @@ const CustomHead = (props?: any) => {
     }, [])
 
     // * wiping playlist and song state clean if not on a playlist page
+    let path = router.asPath.split('/')
     useEffect(() => {
-        let playlist = router.asPath.split('/')
-        if (playlist[2] !== 'playlist') {
+        if (path[2] !== 'playlist') {
             revertPlaylist()
             revertSongs()
+        }
+    }, [])
+    console.log(path);
+    useEffect(() => {
+        if (window) {
+            if ((user === undefined || user === null) && path[1] === "dashboard") {
+                router.push("/login")
+            }
         }
     }, [])
 

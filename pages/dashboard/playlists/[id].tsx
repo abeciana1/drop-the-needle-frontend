@@ -10,12 +10,13 @@ import {
     DuplicateIcon
 } from "@heroicons/react/outline";
 import EyeSlashIcon from '../../../public/EyeSlashIcon'
-import { ThreeColumnGrid } from '../../../components/core/_layouts'
+import { TwoColumnGrid } from '../../../components/core/_layouts'
 import { ShareBtn } from '../../../components/core/_buttons'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { setPlaylist } from '../../../redux/actions/playlist-actions'
 import { copyToClipboard, dateFormatter } from '../../../utils/helper-functions'
+import { useRouter } from 'next/router'
 
 // todo - setup func for updating power hour - patch to backend
 // todo - add links to the share button bodies
@@ -35,7 +36,15 @@ const powerHourPublishStatuses = [
     }
 ]
 
-const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
+const DashboardEditPage = ({ renderedPlaylist, setPlaylist, state }: any) => {
+    console.log({state})
+    // const router = useRouter()
+
+    // useEffect(() => {
+    //     if (window) {
+    //         if 
+    //     }
+    // }, [])
 
     const {
         id,
@@ -90,7 +99,7 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
                     <h3 className="leading-relaxed text-3xl">{formattedDate}</h3>
                 </section>
             </section>
-            <ThreeColumnGrid
+            <TwoColumnGrid
                 addClass="py-10 items-start gap-10"
             >
                 <SingleSelectField
@@ -107,6 +116,14 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
                     dataSource={participants}
                     size="md"
                     property="name"
+                />
+                <SingleSelectField
+                    icon={selectedPubStatus?.bool ? EyeIcon : EyeSlashIcon}
+                    labelText="Power hour publish status"
+                    dataSource={powerHourPublishStatuses}
+                    property="status"
+                    selectedValue={selectedPubStatus}
+                    setSelectedValue={handlePowerHourPublishStatus}
                 />
                 <section className="mx-auto">
                     <div className="text-4xl pb-5">Promote the power hour</div>
@@ -139,7 +156,7 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
                         />
                     </section>
                 </section>
-            </ThreeColumnGrid>
+            </TwoColumnGrid>
             {songs &&
                 <section
                     className="py-10"
@@ -152,11 +169,15 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
     )
 }
 
+const mapStateToProps = (state: any) => ({
+    state: state
+})
+
 const mapDispatchToProps = {
     setPlaylist
 }
 
-export default connect(null, mapDispatchToProps)(DashboardEditPage)
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardEditPage)
 
 
 export const getStaticPaths = async() => {
