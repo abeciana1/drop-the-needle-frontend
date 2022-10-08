@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import moment from 'moment'
 import CustomHead from '../../../components/core/CustomHead'
 import { SingleSelectField } from '../../../components/_forms/inputs'
 import { AccordionDataList } from '../../../components/core/_page_elements/Accordion'
