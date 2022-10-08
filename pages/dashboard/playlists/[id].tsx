@@ -63,15 +63,6 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
         }
     }
 
-    const handleOnDragEnd = (result: any) => {
-        if (!result.destination) return;
-        let items = songs
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
-        // setSongs(items);
-        // reorderSongs(playlist.playlist.id, parseInt(result.draggableId), result.destination.index)
-    }
-
     return (
         <>
             <CustomHead
