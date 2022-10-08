@@ -2,7 +2,7 @@ import moment from 'moment'
 
 export const copyToClipboard = (text: string) => {
     if (navigator) {
-        console.log(text)
+        navigator.clipboard.writeText(text)
     }
 }
 
