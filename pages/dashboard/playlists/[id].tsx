@@ -16,8 +16,10 @@ import { ShareBtn } from '../../../components/core/_buttons'
 import dynamic from 'next/dynamic'
 import { connect } from 'react-redux'
 import { setPlaylist } from '../../../redux/actions/playlist-actions'
+import { copyToClipboard, dateFormatter } from '../../../utils/helper-functions'
 
 // todo - setup func for updating power hour - patch to backend
+// todo - add links to the share button bodies
 
 const TrackListing = dynamic(() => import('../../../components/_containers/TrackListing'), {
     ssr: false
@@ -47,6 +49,8 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
         hosts,
         publish_status
     } = renderedPlaylist
+
+    const formattedDate = dateFormatter(date_time)
 
     let currentIdx = publish_status ? 0 : 1
     const [selectedPubStatus, setSelectedPubStatus] = useState(powerHourPublishStatuses[currentIdx])
@@ -84,7 +88,7 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
                 <section>
                     <h1 className="leading-relaxed text-5xl">{title}</h1>
                     <h2 className="leading-relaxed text-4xl">{description}</h2>
-                    <h3 className="leading-relaxed text-3xl">{moment(date_time).format("MMMM Do YYYY")}</h3>
+                    <h3 className="leading-relaxed text-3xl">{formattedDate}</h3>
                 </section>
             </section>
             <ThreeColumnGrid
@@ -132,7 +136,7 @@ const DashboardEditPage = ({ renderedPlaylist, setPlaylist }: any) => {
                             textColor="coolGray"
                             backgroundColor="yellow"
                             icon={DuplicateIcon}
-                            sms={true}
+                            onClick={() => copyToClipboard(`Join me at ${title} on ${formattedDate}!`)}
                         />
                     </section>
                 </section>

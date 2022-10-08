@@ -130,6 +130,7 @@ interface IShareButtonProps {
     backgroundColor?: string;
     sms?: boolean;
     icon: React.ElementType;
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const ShareBtn = ({
@@ -139,7 +140,8 @@ export const ShareBtn = ({
     body,
     textColor,
     backgroundColor,
-    sms
+    sms,
+    onClick
 }: IShareButtonProps) => {
 
     const Icon = icon as React.ElementType
@@ -159,33 +161,65 @@ export const ShareBtn = ({
     const smsHref = `sms=?body=${body}`
 
     return (
-        <a
-            href={sms ? smsHref : emailHref}
-            className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
-                ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue',
-                ['text-coolGray']: textColor === 'coolGray',
-                ['bg-royalBlue']: backgroundColor === 'royalBlue',
-                ['bg-scarlet']: backgroundColor === 'scarlet',
-                ['bg-yellow-300']: backgroundColor === 'yellow',
-                ['bg-green-400']: backgroundColor === 'bg-green-400',
-                ['rounded-lg']: open
-            })}
-            onMouseEnter={expandHandler}
-            onMouseLeave={expandHandler}
-        >
-            <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
-                ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue',
-                ['text-coolGray']: textColor === 'coolGray',
-                ['mx-auto']: open === false
-            })} />
-            {open &&
-                <div className="font-medium ml-2 whitespace-nowrap">
-                    {text}
-                </div>
-            }
-        </a>
+        <>
+        {onClick ?
+            <button
+                onClick={onClick}
+                className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
+                    ['text-altWhite']: textColor === 'altWhite',
+                    ['text-royalBlue']: textColor === 'royalBlue',
+                    ['text-coolGray']: textColor === 'coolGray',
+                    ['bg-royalBlue']: backgroundColor === 'royalBlue',
+                    ['bg-scarlet']: backgroundColor === 'scarlet',
+                    ['bg-yellow-300']: backgroundColor === 'yellow',
+                    ['bg-green-400']: backgroundColor === 'bg-green-400',
+                    ['rounded-lg']: open
+                })}
+                onMouseEnter={expandHandler}
+                onMouseLeave={expandHandler}
+            >
+                <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
+                    ['text-altWhite']: textColor === 'altWhite',
+                    ['text-royalBlue']: textColor === 'royalBlue',
+                    ['text-coolGray']: textColor === 'coolGray',
+                    ['mx-auto']: open === false
+                })} />
+                {open &&
+                    <div className="font-medium ml-2 whitespace-nowrap">
+                        {text}
+                    </div>
+                }
+            </button>
+        :
+            <a
+                href={sms ? smsHref : emailHref}
+                className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
+                    ['text-altWhite']: textColor === 'altWhite',
+                    ['text-royalBlue']: textColor === 'royalBlue',
+                    ['text-coolGray']: textColor === 'coolGray',
+                    ['bg-royalBlue']: backgroundColor === 'royalBlue',
+                    ['bg-scarlet']: backgroundColor === 'scarlet',
+                    ['bg-yellow-300']: backgroundColor === 'yellow',
+                    ['bg-green-400']: backgroundColor === 'bg-green-400',
+                    ['rounded-lg']: open
+                })}
+                onMouseEnter={expandHandler}
+                onMouseLeave={expandHandler}
+            >
+                <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
+                    ['text-altWhite']: textColor === 'altWhite',
+                    ['text-royalBlue']: textColor === 'royalBlue',
+                    ['text-coolGray']: textColor === 'coolGray',
+                    ['mx-auto']: open === false
+                })} />
+                {open &&
+                    <div className="font-medium ml-2 whitespace-nowrap">
+                        {text}
+                    </div>
+                }
+            </a>
+        }
+        </>
     )
 }
 
