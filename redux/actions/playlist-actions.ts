@@ -60,3 +60,21 @@ export const revertSongs = () => {
 //         })
 //     }
 // }
+
+// todo TEST THIS
+// export const deletePowerHour = (powerHourId: number) => {
+//     return (dispatch: any) => {
+//         const const options = {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'application/json',
+//             }
+//         }
+//         fetch(API_URL + "power_hours/" + powerHourId, options)
+//             .then(res => res.json())
+//             .then(data => {
+//             console.log(data)
+//         })
+//     }
+// }
